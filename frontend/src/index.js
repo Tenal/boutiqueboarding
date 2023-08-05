@@ -8,7 +8,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./styling/mui/theme";
 import "./styling/css/App.scss";
 
-import RouteManager from "./RouteManager";
+import Home from "./views/Home/Home";
 
 function App() {
     return (
@@ -16,7 +16,7 @@ function App() {
             <ThemeProvider theme={theme}>
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={<RouteManager />} />
+                        <Route path="/" element={<Home />} />
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider>
