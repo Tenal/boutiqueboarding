@@ -1,6 +1,6 @@
 .topNav {
     .logoImage {
-        max-width: 40px;
+        max-width: 50px;
         margin-right: 10px;
     }
     .logoText {
@@ -17,6 +17,17 @@
         transition: color 0.2s;
         &:hover {
             color: #707070;
+        }
+    }
+    .account {
+        background-color: #c3b7ad;
+        color: #fff;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+        &:hover {
+            background-color: #9e958c;
         }
     }
 }
@@ -55,6 +66,7 @@
     .topNav {
         .logoImage {
             margin-right: 5px;
+            max-width: 40px;
         }
         .logoText {
             font-size: 12px;

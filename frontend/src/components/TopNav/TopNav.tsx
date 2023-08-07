@@ -13,6 +13,7 @@ import {
     MenuItem,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined'
 import { Link } from 'react-router-dom'
 // @ts-ignore
 import logo from '../../resources/logo.png'
@@ -164,18 +165,19 @@ function TopNav() {
 
                     {/* right | all screens: profile pic + options */}
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Feature coming soon!" arrow>
                             <IconButton
                                 onClick={handleOpenUserMenu}
-                                sx={{ p: 0 }}
+                                className="account"
                             >
-                                <Avatar
+                                <PersonOutlineOutlinedIcon />
+                                {/* <Avatar
                                     alt="Remy Sharp"
                                     src="/static/images/avatar/2.jpg"
-                                />
+                                /> -- for when user is logged in*/}
                             </IconButton>
                         </Tooltip>
-                        <Menu
+                        {/* <Menu
                             sx={{ mt: '45px' }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
@@ -201,7 +203,7 @@ function TopNav() {
                                     </Typography>
                                 </MenuItem>
                             ))}
-                        </Menu>
+                        </Menu> */}
                     </Box>
                 </Toolbar>
             </Container>
