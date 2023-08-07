@@ -1,5 +1,8 @@
-// NAV BAR ----------
 .topNav {
+    .logoImage {
+        max-width: 40px;
+        margin-right: 10px;
+    }
     .logoText {
         margin-right: 2;
         letter-spacing: 0.3rem;
@@ -13,7 +16,55 @@
         text-transform: capitalize;
         transition: color 0.2s;
         &:hover {
-            color: black;
+            color: #707070;
         }
+    }
+}
+
+.footer {
+    min-height: 5vh;
+    background-color: #f3e5d8;
+    .footerLinks {
+        color: rgba(0, 0, 0, 0.35);
+        text-decoration: none;
+        transition: color 0.2s;
+        cursor: pointer;
+        &:hover {
+            color: #707070;
+        }
+    }
+    .footerForm {
+        color: rgba(0, 0, 0, 0.35);
+        .footerInput {
+            display: flex;
+            flex-direction: column;
+            max-width: 250px;
+            .MuiInputLabel-outlined {
+                color: rgba(0, 0, 0, 0.35);
+            }
+            margin-top: 4px;
+        }
+    }
+    .copyright {
+        color: rgba(0, 0, 0, 0.2);
+        font-style: italic;
+    }
+}
+
+@media (max-width: 450px) {
+    .topNav {
+        .logoImage {
+            margin-right: 5px;
+        }
+        .logoText {
+            font-size: 12px;
+            letter-spacing: 0.25rem;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .topNav .logoImage {
+        display: none;
     }
 }

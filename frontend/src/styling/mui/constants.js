@@ -28,9 +28,9 @@ export const colours = {
         light: '#EEEEEE',
     },
     secondary: {
-        main: '#f9f9f9',
-        dark: '#d8c5af',
-        light: '#EEEEEE',
+        main: 'rgba(0, 0, 0, 0.35)',
+        dark: 'rgba(0, 0, 0, 0.5)',
+        light: 'rgba(0, 0, 0, 0.2)',
     },
     contrast: {
         white: '#FFFFFF',

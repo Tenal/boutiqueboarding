@@ -5,7 +5,7 @@
     },
     {
         "question": "How much will it cost?",
-        "answer": "Our boarding is done in 24-hour periods. Our current rate is $75 per 24 hours. Our holiday rate is $87 per 24 hours. <p>Drop-offs and pick-ups are between 8:00am ET and 8:00pm ET. Your scheduled drop-off time should be the same as your pick-up time, but there is a 2-hour grace period for pick-ups. Pick-up times past your grace period will incur an additional night's cost.</p>"
+        "answer": "Our boarding is done in 24-hour periods. Our current rate is $75 per 24 hours. Our holiday rate is $87 per 24 hours. <p>Drop-offs and pick-ups are between 8:00am ET and 8:00pm ET. Your scheduled drop-off time should be either earlier than or the same as your pick-up time, but there is a 2-hour grace period for pick-ups. Pick-up times past your grace period will incur an additional night's cost.</p>"
     },
     {
         "question": "What is a Holiday Rate?",

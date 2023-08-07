@@ -11,6 +11,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 import TopNav from '../../components/TopNav/TopNav'
 import Header from '../../components/Header/Header'
+import BottomNav from '../../components/BottomNav/BottomNav'
 import currentFaqs from './currentFaqs.json'
 
 function Faqs() {
@@ -56,9 +57,10 @@ function Faqs() {
         <>
             <TopNav />
             <Header title="FAQs" />
-            <Container>
-                <Box mb={10}>{renderFaqAccordions()}</Box>
+            <Container maxWidth="xl">
+                <Box my={10}>{renderFaqAccordions()}</Box>
             </Container>
+            <BottomNav />
         </>
     )
 }

@@ -13,8 +13,9 @@ import {
     MenuItem,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
-import AdbIcon from '@mui/icons-material/Adb'
 import { Link } from 'react-router-dom'
+// @ts-ignore
+import logo from '../../resources/logo.png'
 
 function TopNav() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
@@ -44,9 +45,13 @@ function TopNav() {
             <Container maxWidth="xl">
                 <Toolbar disableGutters className="topNav">
                     {/* left | med screens: logo pic & text */}
-                    <AdbIcon
-                        sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
-                    />
+                    <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
+                        <img
+                            src={logo}
+                            alt="cartoon dog smiling inside a cozy house"
+                            className="logoImage"
+                        />
+                    </Box>
                     <Link to="/">
                         <Typography
                             variant="h6"
@@ -116,9 +121,13 @@ function TopNav() {
                     </Box>
 
                     {/* center | small screens: logo pic & text */}
-                    <AdbIcon
-                        sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-                    />
+                    <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
+                        <img
+                            src={logo}
+                            alt="cartoon dog smiling inside a cozy house"
+                            className="logoImage"
+                        />
+                    </Box>
                     <Typography
                         variant="h6"
                         noWrap
