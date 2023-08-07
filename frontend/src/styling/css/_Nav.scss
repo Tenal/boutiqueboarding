@@ -1,17 +1,19 @@
+// NAV BAR ----------
 .topNav {
     .logoText {
         margin-right: 2;
-        letter-spacing: .3rem;
+        letter-spacing: 0.3rem;
         text-decoration: none;
         color: white;
     }
-    .links {
+    .navLinks {
         color: white;
-        text-decoration: none; 
+        text-decoration: none;
         text-align: center;
         text-transform: capitalize;
+        transition: color 0.2s;
         &:hover {
-            
+            color: black;
         }
     }
 }

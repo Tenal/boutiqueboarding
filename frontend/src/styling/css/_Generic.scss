@@ -43,9 +43,23 @@ body {
             (
                 (100vw - var(--min-screen-width-pixels)) /
                     (
-                        var(--max-screen-width-size) -
-                            var(--min-screen-width-size)
+                        var(--max-screen-width-size) - var(
+                                --min-screen-width-size
+                            )
                     )
             )
     );
+}
+
+.noMargins {
+    margin: 0 !important;
+}
+
+.links {
+    font-style: italic;
+    font-weight: 500;
+    transition: color 0.15s;
+    &:hover {
+        color: #9f9a37;
+    }
 }
