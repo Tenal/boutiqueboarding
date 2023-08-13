@@ -1,0 +1,32 @@
+.aboutSection {
+    display: flex;
+    align-items: center;
+    background-color: #f3e5d8;
+}
+
+.boardingSection {
+    .tenalImage {
+        width: 75%;
+        height: 500px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .boardingSection .tenalImage {
+        width: 85%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .boardingSection .tenalImage {
+        width: 90%;
+    }
+}
+
+@media (max-width: 900px) {
+    .boardingSection .tenalImage {
+        width: 100%;
+    }
+}
