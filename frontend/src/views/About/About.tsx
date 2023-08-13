@@ -24,7 +24,7 @@ import TopNav from '../../components/TopNav/TopNav'
 import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
 
-function Faqs() {
+function About() {
     const renderParagraphs = () => {
         return (
             <Grid
@@ -245,4 +245,4 @@ function Faqs() {
     )
 }
 
-export default Faqs
+export default About

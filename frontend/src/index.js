@@ -11,6 +11,7 @@ import './styling/css/App.scss'
 import Home from './views/Home/Home'
 import About from './views/About/About'
 import Faqs from './views/Faqs/Faqs'
+import Reviews from './views/Reviews/Reviews'
 
 function App() {
     return (
@@ -21,7 +22,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/about" element={<About />} />
                         <Route path="/faqs" element={<Faqs />} />
-                        <Route path="/reviews" element={<Home />} />
+                        <Route path="/reviews" element={<Reviews />} />
                     </Routes>
                 </BrowserRouter>
             </ThemeProvider>

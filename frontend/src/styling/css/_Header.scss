@@ -16,6 +16,10 @@
     background-image: url('../../resources/about.jpg');
     background-position: 50% 47%;
 }
+.reviewsImage {
+    background-image: url('../../resources/reviews.jpg');
+    background-position: 50% 85%;
+}
 
 .header::before {
     content: '';
