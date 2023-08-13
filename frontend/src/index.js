@@ -9,6 +9,7 @@ import theme from './styling/mui/theme'
 import './styling/css/App.scss'
 
 import Home from './views/Home/Home'
+import About from './views/About/About'
 import Faqs from './views/Faqs/Faqs'
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/about" element={<Home />} />
+                        <Route path="/about" element={<About />} />
                         <Route path="/faqs" element={<Faqs />} />
                         <Route path="/reviews" element={<Home />} />
                     </Routes>

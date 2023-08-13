@@ -1,0 +1,38 @@
+[
+    {
+        "img": "require('../../resources/phoenix1.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/balta2.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/flaca2.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/odie1.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/aurelio2.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/balta1.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/phoenix2.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/odie2.jpg')",
+        "title": ""
+    },
+    {
+        "img": "require('../../resources/aurelio1.jpg')",
+        "title": ""
+    }
+]

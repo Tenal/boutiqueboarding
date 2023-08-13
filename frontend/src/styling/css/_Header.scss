@@ -1,7 +1,6 @@
 .header {
     min-height: 15vh;
     background-size: cover;
-    background-position: 50% 30%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -11,6 +10,11 @@
 
 .faqsImage {
     background-image: url('../../resources/faqs.jpg');
+    background-position: 50% 30%;
+}
+.aboutusImage {
+    background-image: url('../../resources/about.jpg');
+    background-position: 50% 47%;
 }
 
 .header::before {
@@ -20,5 +24,5 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.35);
 }
