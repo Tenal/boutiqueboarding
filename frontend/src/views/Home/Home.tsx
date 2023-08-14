@@ -20,7 +20,7 @@ import tenal from '../../resources/tenal.jpg'
 function Home() {
     const renderAboutSection = () => {
         return (
-            <Box className="aboutSection" py={5}>
+            <Box className="aboutSection" pt={4} pb={5}>
                 <Container maxWidth="xl">
                     <Grid
                         container
@@ -41,7 +41,7 @@ function Home() {
                                 With a passion for rescue and a wealth of animal
                                 care experience, we prioritize individualized
                                 attention, breed-specific fulfillment, and a
-                                secure environment.
+                                safe environment.
                             </Typography>
                             <Link to="/about" className="links">
                                 <Button variant="outlined" color="secondary">
@@ -110,8 +110,8 @@ function Home() {
         ]
 
         return (
-            <Container maxWidth="xl">
-                <Box pt={5} className="boardingSection">
+            <Box py={5} className="boardingSection">
+                <Container maxWidth="xl">
                     <Grid
                         container
                         direction="row"
@@ -144,8 +144,83 @@ function Home() {
                             </Button>
                         </Grid>
                     </Grid>
-                </Box>
-            </Container>
+                </Container>
+            </Box>
+        )
+    }
+
+    const renderCardSection = () => {}
+
+    const renderInstagramSection = () => {
+        const dogs = [
+            'fin1',
+            'archer1',
+            'louis2',
+            'henn1',
+            'rilly1',
+            'koda1',
+            'henny1',
+            'fin2',
+            'koda2',
+            'archer2',
+            'otis2',
+            'louis1',
+        ]
+        const dogsSmall = [
+            'fin1',
+            'archer1',
+            'louis2',
+            'henn1',
+            'rilly1',
+            'koda1',
+            'otis2',
+            'henny1',
+        ]
+
+        return (
+            <Box pt={5} pb={6} className="followSection">
+                <Container maxWidth="xl">
+                    <Typography variant="h1" sx={{ mb: 3 }}>
+                        Follow Us
+                    </Typography>
+                    <Grid container spacing={3}>
+                        {dogs.map((dog) => (
+                            <Grid
+                                item
+                                sx={{ display: { xs: 'none', sm: 'flex' } }}
+                                sm={2}
+                            >
+                                <img
+                                    src={require(`../../resources/boardingIG/${dog}.jpg`)}
+                                    srcSet={require(`../../resources/boardingIG/${dog}.jpg`)}
+                                    alt="dog"
+                                    loading="lazy"
+                                    className="boardingImage"
+                                    onClick={() =>
+                                        (window.location.href =
+                                            'https://www.instagram.com/boutiqueboarding/?igshid=MmIzYWVlNDQ5Yg%3D%3D')
+                                    }
+                                />
+                            </Grid>
+                        ))}
+                        {dogsSmall.map((dog) => (
+                            <Grid
+                                item
+                                sx={{ display: { xs: 'flex', sm: 'none' } }}
+                                xs={3}
+                            >
+                                <img
+                                    src={require(`../../resources/boardingIG/${dog}.jpg`)}
+                                    srcSet={require(`../../resources/boardingIG/${dog}.jpg`)}
+                                    alt="dog"
+                                    loading="lazy"
+                                    className="boardingImage"
+                                />
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </Box>
         )
     }
 
@@ -153,10 +228,9 @@ function Home() {
         <>
             <TopNav />
             <Header title="home" />
-
             {renderAboutSection()}
             {renderBoardingSection()}
-
+            {renderInstagramSection()}
             <BottomNav />
         </>
     )

@@ -1,19 +1,8 @@
 import React from 'react'
-import {
-    Container,
-    Box,
-    Grid,
-    Typography,
-    ImageList,
-    ImageListItem,
-} from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import StarFullIcon from '@mui/icons-material/Star'
 import StarHalfIcon from '@mui/icons-material/StarHalf'
 import StarEmptyIcon from '@mui/icons-material/StarBorder'
-
-import TopNav from '../../components/TopNav/TopNav'
-import Header from '../../components/Header/Header'
-import BottomNav from '../../components/BottomNav/BottomNav'
 
 interface IReviewBoxProps {
     dog: string
