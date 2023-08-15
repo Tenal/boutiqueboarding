@@ -26,6 +26,7 @@
         width: 40px;
         border-radius: 50%;
         transition: background-color 0.2s;
+        cursor: auto;
         &:hover {
             background-color: #9e958c;
         }
@@ -73,10 +74,16 @@
             letter-spacing: 0.25rem;
         }
     }
+    .footer .copyright {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 350px) {
     .topNav .logoImage {
         display: none;
+    }
+    .footer .copyright {
+        font-size: 10px;
     }
 }

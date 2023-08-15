@@ -18,7 +18,7 @@ function BottomNav() {
 
     const renderLinks = () => {
         return (
-            <Box mb={2}>
+            <Box mb={2} mr={4}>
                 <Link to="/">
                     <Typography variant="h5" className="footerLinks">
                         Boutique Boarding
@@ -39,7 +39,7 @@ function BottomNav() {
                         Reviews
                     </Typography>
                 </Link>
-                <Box mt={3}>
+                <Box mt={3} mb={2}>
                     <Link to="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg==">
                         <InstagramIcon className="footerLinks" />
                     </Link>

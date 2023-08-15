@@ -8,8 +8,13 @@ import {
     AccordionSummary,
     AccordionDetails,
     Typography,
+    Paper,
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import InsuredIcon from '@mui/icons-material/GppGoodOutlined'
+import FirstAidIcon from '@mui/icons-material/MedicalServicesOutlined'
+import UpdateIcon from '@mui/icons-material/SecurityUpdateGoodOutlined'
+import PetIcon from '@mui/icons-material/PetsOutlined'
 import { Link } from 'react-router-dom'
 
 import TopNav from '../../components/TopNav/TopNav'
@@ -110,7 +115,7 @@ function Home() {
         ]
 
         return (
-            <Box py={5} className="boardingSection">
+            <Box pt={7} pb={2} className="boardingSection">
                 <Container maxWidth="xl">
                     <Grid
                         container
@@ -149,75 +154,68 @@ function Home() {
         )
     }
 
-    const renderCardSection = () => {}
-
-    const renderInstagramSection = () => {
-        const dogs = [
-            'fin1',
-            'archer1',
-            'louis2',
-            'henn1',
-            'rilly1',
-            'koda1',
-            'henny1',
-            'fin2',
-            'koda2',
-            'archer2',
-            'otis2',
-            'louis1',
-        ]
-        const dogsSmall = [
-            'fin1',
-            'archer1',
-            'louis2',
-            'henn1',
-            'rilly1',
-            'koda1',
-            'otis2',
-            'henny1',
-        ]
-
+    const renderCard = (icon: any, title: string, desc: string) => {
         return (
-            <Box pt={5} pb={6} className="followSection">
-                <Container maxWidth="xl">
-                    <Typography variant="h1" sx={{ mb: 3 }}>
-                        Follow Us
+            <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                container
+                justifyContent="center"
+                alignItems="stretch"
+            >
+                <Paper className="infoCard" sx={{ p: 3 }}>
+                    <div className="iconCircleOutline">{icon}</div>
+                    <Typography
+                        variant="h4"
+                        sx={{ mt: 4 }}
+                        className="titleText"
+                    >
+                        {title}
                     </Typography>
-                    <Grid container spacing={3}>
-                        {dogs.map((dog) => (
-                            <Grid
-                                item
-                                sx={{ display: { xs: 'none', sm: 'flex' } }}
-                                sm={2}
-                            >
-                                <img
-                                    src={require(`../../resources/boardingIG/${dog}.jpg`)}
-                                    srcSet={require(`../../resources/boardingIG/${dog}.jpg`)}
-                                    alt="dog"
-                                    loading="lazy"
-                                    className="boardingImage"
-                                    onClick={() =>
-                                        (window.location.href =
-                                            'https://www.instagram.com/boutiqueboarding/?igshid=MmIzYWVlNDQ5Yg%3D%3D')
-                                    }
-                                />
-                            </Grid>
-                        ))}
-                        {dogsSmall.map((dog) => (
-                            <Grid
-                                item
-                                sx={{ display: { xs: 'flex', sm: 'none' } }}
-                                xs={3}
-                            >
-                                <img
-                                    src={require(`../../resources/boardingIG/${dog}.jpg`)}
-                                    srcSet={require(`../../resources/boardingIG/${dog}.jpg`)}
-                                    alt="dog"
-                                    loading="lazy"
-                                    className="boardingImage"
-                                />
-                            </Grid>
-                        ))}
+                    <Typography variant="body2" className="descText">
+                        {desc}
+                    </Typography>
+                </Paper>
+            </Grid>
+        )
+    }
+
+    const renderCardSection = () => {
+        return (
+            <Box pt={7} className="cardSection">
+                <Container maxWidth="xl">
+                    <Grid
+                        container
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="stretch"
+                        spacing={{ xs: 4, sm: 5, lg: 8 }}
+                    >
+                        {renderCard(
+                            <InsuredIcon className="infoIcon" />,
+                            'Bonded & Insured',
+                            'ProFur coverage ensures protection and peace of mind '
+                        )}
+                        {renderCard(
+                            <FirstAidIcon
+                                className="infoIcon"
+                                sx={{ mb: '5px' }}
+                            />,
+                            'Pet First Aid Certified',
+                            'Our DogSafe certification assures pet first aid knowledge'
+                        )}
+                        {renderCard(
+                            <UpdateIcon className="infoIcon" />,
+                            'Daily PUPdates',
+                            'Stay connected with multiple daily updates posted about your pup'
+                        )}
+                        {renderCard(
+                            <PetIcon className="infoIcon" sx={{ mb: '5px' }} />,
+                            '10+ yrs of Experience',
+                            'We have extensive dog care experience from training to rescue'
+                        )}
                     </Grid>
                 </Container>
             </Box>
@@ -229,8 +227,8 @@ function Home() {
             <TopNav />
             <Header title="home" />
             {renderAboutSection()}
+            {renderCardSection()}
             {renderBoardingSection()}
-            {renderInstagramSection()}
             <BottomNav />
         </>
     )
