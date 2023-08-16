@@ -35,15 +35,15 @@ function About() {
             </Typography>
             <Typography sx={{ mb: 3 }}>
                 We offer boutique, in-home boarding for anyone looking for a
-                "home away from home" alternative to kennels. To ensure each dog
-                receives the attention they deserve, we typically only board one
-                dog at a time, as we often have a foster dog in our home. This
-                allows us to prioritize individualized attention and focus on
-                meeting every dog&apos;s mental and physical needs to ensure a
-                balanced, fulfilled, and enriching environment. With the
-                flexibility of being full-time work-from-home professionals, we
-                can offer your furry family member companionship and structured
-                care all day.
+                &ldquo;home away from home&rdquo; alternative to kennels. To
+                ensure each dog receives the attention they deserve, we
+                typically only board one dog at a time, as we often have a
+                foster dog in our home. This allows us to prioritize
+                individualized attention and focus on meeting every dog&apos;s
+                mental and physical needs to ensure a balanced, fulfilled, and
+                enriching environment. With the flexibility of being full-time
+                work-from-home professionals, we can offer your furry family
+                member companionship and structured care all day.
             </Typography>
         </Grid>
     )
