@@ -31,7 +31,7 @@ function TopNav() {
         setTooltipOpen(true)
         setTimeout(() => {
             setTooltipOpen(false)
-        }, 600)
+        }, 1200)
     }
 
     const handleDocumentClick = (event: MouseEvent) => {
