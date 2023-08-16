@@ -20,7 +20,6 @@ import { Link } from 'react-router-dom'
 import TopNav from '../../components/TopNav/TopNav'
 import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
-import tenal from '../../resources/tenal.jpg'
 
 function Home() {
     const renderAboutSection = () => {
@@ -126,7 +125,7 @@ function Home() {
                     >
                         <Grid item xs={12} md={6}>
                             <img
-                                src={tenal}
+                                src={require('../../resources/tenal.jpg')}
                                 alt="Tenal sitting in a park with a dog"
                                 loading="lazy"
                                 className="tenalImage"

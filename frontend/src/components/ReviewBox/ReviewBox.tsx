@@ -13,7 +13,7 @@ interface IReviewBoxProps {
 
 function ReviewBox({ dog, stars, name, review }: IReviewBoxProps) {
     const getStars = (value: number): React.ReactNode => {
-        const stars = []
+        const stars: React.ReactNode[] = []
         const fullStars = Math.floor(value)
         const halfStar = value - fullStars >= 0.5
 

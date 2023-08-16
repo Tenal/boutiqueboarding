@@ -7,18 +7,7 @@ import {
     ImageList,
     ImageListItem,
 } from '@mui/material'
-import img1 from '../../resources/fosterIG/phoenix1.jpg'
-import img2 from '../../resources/fosterIG/balta2.jpg'
-import img3 from '../../resources/fosterIG/flaca2.jpg'
-import img4 from '../../resources/fosterIG/odie1.jpg'
-import img5 from '../../resources/fosterIG/aurelio2.jpg'
-import img6 from '../../resources/fosterIG/balta1.jpg'
-import img7 from '../../resources/fosterIG/phoenix2.jpg'
-import img8 from '../../resources/fosterIG/odie2.jpg'
-import img9 from '../../resources/fosterIG/flaca1.jpg'
-// import images from './images.json' --- TODO: update image import to use JSON
-import dogsafe from '../../resources/dogsafe.jpg'
-import profur from '../../resources/profur.jpg'
+// TODO import images from './images.json' --- update image import to use JSON
 
 import TopNav from '../../components/TopNav/TopNav'
 import Header from '../../components/Header/Header'
@@ -63,19 +52,25 @@ function About() {
     }
 
     const renderImageList = () => {
-        const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
+        const images = [
+            'phoenix1',
+            'balta2',
+            'flaca2',
+            'odie1',
+            'aurelio2',
+            'balta1',
+            'phoenix2',
+            'odie2',
+            'flaca1',
+        ]
         return (
             <>
-                <ImageList
-                    sx={{ width: 300, height: 300 }}
-                    cols={3}
-                    // rowHeight={60}
-                >
-                    {images.map((item) => (
-                        <ImageListItem key={item}>
+                <ImageList sx={{ width: 300, height: 300 }} cols={3}>
+                    {images.map((img) => (
+                        <ImageListItem key={img}>
                             <img
-                                src={item as any}
-                                srcSet={item as any}
+                                src={require(`../../resources/reviewPhotos/${img}.jpg`)}
+                                srcSet={require(`../../resources/reviewPhotos/${img}.jpg`)}
                                 alt="dog"
                                 loading="lazy"
                             />
@@ -152,13 +147,13 @@ function About() {
                     style={{ maxWidth: '350px' }}
                 >
                     <img
-                        src={profur as any}
+                        src={require('../../resources/profur.jpg')}
                         alt="profur logo"
                         loading="lazy"
                         style={{ maxWidth: '150px', paddingLeft: 40 }}
                     />
                     <img
-                        src={dogsafe as any}
+                        src={require('../../resources/dogsafe.jpg')}
                         alt="dogsafe logo"
                         loading="lazy"
                         style={{ maxWidth: '150px' }}
