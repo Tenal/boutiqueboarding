@@ -8,8 +8,8 @@ import ReviewBox from '../../components/ReviewBox/ReviewBox'
 import currentReviews from './currentReviews.json'
 
 function Reviews() {
-    const getReviews = () => {
-        return currentReviews.map((review) => (
+    const getReviews = () =>
+        currentReviews.map((review) => (
             <ReviewBox
                 key={`${review.name}_${review.dog}`}
                 dog={review.dog}
@@ -18,7 +18,6 @@ function Reviews() {
                 review={review.review}
             />
         ))
-    }
 
     return (
         <>

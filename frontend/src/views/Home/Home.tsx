@@ -22,42 +22,39 @@ import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
 
 function Home() {
-    const renderAboutSection = () => {
-        return (
-            <Box className="aboutSection" pt={4} pb={5}>
-                <Container maxWidth="xl">
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="center"
-                        spacing={3}
-                    >
-                        <Grid item xs={12} md={6}>
-                            <Typography variant="h1">
-                                Welcome to the Boutique Pack
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <Typography sx={{ mb: 3 }}>
-                                We offer boutique dog boarding that understands
-                                the unique needs of your furry family member.
-                                With a passion for rescue and a wealth of animal
-                                care experience, we prioritize individualized
-                                attention, breed-specific fulfillment, and a
-                                safe environment.
-                            </Typography>
-                            <Link to="/about" className="links">
-                                <Button variant="outlined" color="secondary">
-                                    Learn about us
-                                </Button>
-                            </Link>
-                        </Grid>
+    const renderAboutSection = () => (
+        <Box className="aboutSection" pt={4} pb={5}>
+            <Container maxWidth="xl">
+                <Grid
+                    container
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    spacing={3}
+                >
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h1">
+                            Welcome to the Boutique Pack
+                        </Typography>
                     </Grid>
-                </Container>
-            </Box>
-        )
-    }
+                    <Grid item xs={12} md={6}>
+                        <Typography sx={{ mb: 3 }}>
+                            We offer boutique dog boarding that understands the
+                            unique needs of your furry family member. With a
+                            passion for rescue and a wealth of animal care
+                            experience, we prioritize individualized attention,
+                            breed-specific fulfillment, and a safe environment.
+                        </Typography>
+                        <Link to="/about" className="links">
+                            <Button variant="outlined" color="secondary">
+                                Learn about us
+                            </Button>
+                        </Link>
+                    </Grid>
+                </Grid>
+            </Container>
+        </Box>
+    )
 
     // TODO make below reusable function or component (also used in FAQ)
     const addLinksToDescription = (text: string): string => {
@@ -75,23 +72,21 @@ function Home() {
     }
 
     // TODO make below reusable function or component (also used in FAQ)
-    const singleAccordion = (title: string, body: string) => {
-        return (
-            <Accordion key={title}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography variant="h5">{title}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography
-                        className="noMargins"
-                        dangerouslySetInnerHTML={{
-                            __html: addLinksToDescription(body),
-                        }}
-                    ></Typography>
-                </AccordionDetails>
-            </Accordion>
-        )
-    }
+    const singleAccordion = (title: string, body: string) => (
+        <Accordion key={title}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="h5">{title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography
+                    className="noMargins"
+                    dangerouslySetInnerHTML={{
+                        __html: addLinksToDescription(body),
+                    }}
+                ></Typography>
+            </AccordionDetails>
+        </Accordion>
+    )
 
     const renderBoardingSection = () => {
         const info = [
@@ -153,73 +148,65 @@ function Home() {
         )
     }
 
-    const renderCard = (icon: any, title: string, desc: string) => {
-        return (
-            <Grid
-                item
-                xs={12}
-                sm={6}
-                md={3}
-                container
-                justifyContent="center"
-                alignItems="stretch"
-            >
-                <Paper className="infoCard" sx={{ p: 3 }}>
-                    <div className="iconCircleOutline">{icon}</div>
-                    <Typography
-                        variant="h4"
-                        sx={{ mt: 4 }}
-                        className="titleText"
-                    >
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" className="descText">
-                        {desc}
-                    </Typography>
-                </Paper>
-            </Grid>
-        )
-    }
+    const renderCard = (icon: any, title: string, desc: string) => (
+        <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            container
+            justifyContent="center"
+            alignItems="stretch"
+        >
+            <Paper className="infoCard" sx={{ p: 3 }}>
+                <div className="iconCircleOutline">{icon}</div>
+                <Typography variant="h4" sx={{ mt: 4 }} className="titleText">
+                    {title}
+                </Typography>
+                <Typography variant="body2" className="descText">
+                    {desc}
+                </Typography>
+            </Paper>
+        </Grid>
+    )
 
-    const renderCardSection = () => {
-        return (
-            <Box pt={7} className="cardSection">
-                <Container maxWidth="xl">
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        alignItems="stretch"
-                        spacing={{ xs: 4, sm: 5, lg: 8 }}
-                    >
-                        {renderCard(
-                            <InsuredIcon className="infoIcon" />,
-                            'Bonded & Insured',
-                            'ProFur coverage ensures protection and peace of mind '
-                        )}
-                        {renderCard(
-                            <FirstAidIcon
-                                className="infoIcon"
-                                sx={{ mb: '5px' }}
-                            />,
-                            'Pet First Aid Certified',
-                            'Our DogSafe certification assures pet first aid knowledge'
-                        )}
-                        {renderCard(
-                            <UpdateIcon className="infoIcon" />,
-                            'Daily PUPdates',
-                            'Stay connected with multiple daily updates posted about your pup'
-                        )}
-                        {renderCard(
-                            <PetIcon className="infoIcon" sx={{ mb: '5px' }} />,
-                            '10+ yrs of Experience',
-                            'We have extensive dog care experience from training to rescue'
-                        )}
-                    </Grid>
-                </Container>
-            </Box>
-        )
-    }
+    const renderCardSection = () => (
+        <Box pt={7} className="cardSection">
+            <Container maxWidth="xl">
+                <Grid
+                    container
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="stretch"
+                    spacing={{ xs: 4, sm: 5, lg: 8 }}
+                >
+                    {renderCard(
+                        <InsuredIcon className="infoIcon" />,
+                        'Bonded & Insured',
+                        'ProFur coverage ensures protection and peace of mind '
+                    )}
+                    {renderCard(
+                        <FirstAidIcon
+                            className="infoIcon"
+                            sx={{ mb: '5px' }}
+                        />,
+                        'Pet First Aid Certified',
+                        'Our DogSafe certification assures pet first aid knowledge'
+                    )}
+                    {renderCard(
+                        <UpdateIcon className="infoIcon" />,
+                        'Daily PUPdates',
+                        'Stay connected with multiple daily updates posted about your pup'
+                    )}
+                    {renderCard(
+                        <PetIcon className="infoIcon" sx={{ mb: '5px' }} />,
+                        '10+ yrs of Experience',
+                        'We have extensive dog care experience from training to rescue'
+                    )}
+                </Grid>
+            </Container>
+        </Box>
+    )
 
     return (
         <>

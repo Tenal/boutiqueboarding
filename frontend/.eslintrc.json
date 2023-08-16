@@ -92,7 +92,8 @@
         "no-async-promise-executor": [0],
         "no-dupe-keys": [0],
         "import/no-extraneous-dependencies": [0],
-        "no-fallthrough": [0]
+        "no-fallthrough": [0],
+        "import/no-dynamic-require": "off"
     },
     "parserOptions": {
         "parser": "@babel/eslint-parser",

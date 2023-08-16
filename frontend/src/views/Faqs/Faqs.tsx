@@ -29,29 +29,24 @@ function Faqs() {
         return replacedWithEmailLink
     }
 
-    const singleAccordion = (title: string, body: string) => {
-        return (
-            <Accordion key={title}>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography variant="h5">{title}</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <Typography
-                        className="noMargins"
-                        dangerouslySetInnerHTML={{
-                            __html: addLinksToDescription(body),
-                        }}
-                    ></Typography>
-                </AccordionDetails>
-            </Accordion>
-        )
-    }
+    const singleAccordion = (title: string, body: string) => (
+        <Accordion key={title}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="h5">{title}</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+                <Typography
+                    className="noMargins"
+                    dangerouslySetInnerHTML={{
+                        __html: addLinksToDescription(body),
+                    }}
+                ></Typography>
+            </AccordionDetails>
+        </Accordion>
+    )
 
-    const renderFaqAccordions = () => {
-        return currentFaqs.map((faq) =>
-            singleAccordion(faq.question, faq.answer)
-        )
-    }
+    const renderFaqAccordions = () =>
+        currentFaqs.map((faq) => singleAccordion(faq.question, faq.answer))
 
     return (
         <>

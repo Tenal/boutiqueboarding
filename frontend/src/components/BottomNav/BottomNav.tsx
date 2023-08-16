@@ -35,37 +35,35 @@ function BottomNav() {
     //     }
     // }
 
-    const renderLinks = () => {
-        return (
-            <Box mb={2} mr={4}>
-                <Link to="/">
-                    <Typography variant="h5" className="footerLinks">
-                        Boutique Boarding
-                    </Typography>
+    const renderLinks = () => (
+        <Box mb={2} mr={4}>
+            <Link to="/">
+                <Typography variant="h5" className="footerLinks">
+                    Boutique Boarding
+                </Typography>
+            </Link>
+            <Link to="/about">
+                <Typography variant="body1" className="footerLinks">
+                    About
+                </Typography>
+            </Link>
+            <Link to="/faqs">
+                <Typography variant="body1" className="footerLinks">
+                    FAQs
+                </Typography>
+            </Link>
+            <Link to="/reviews">
+                <Typography variant="body1" className="footerLinks">
+                    Reviews
+                </Typography>
+            </Link>
+            <Box mt={3} mb={2}>
+                <Link to="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg==">
+                    <InstagramIcon className="footerLinks" />
                 </Link>
-                <Link to="/about">
-                    <Typography variant="body1" className="footerLinks">
-                        About
-                    </Typography>
-                </Link>
-                <Link to="/faqs">
-                    <Typography variant="body1" className="footerLinks">
-                        FAQs
-                    </Typography>
-                </Link>
-                <Link to="/reviews">
-                    <Typography variant="body1" className="footerLinks">
-                        Reviews
-                    </Typography>
-                </Link>
-                <Box mt={3} mb={2}>
-                    <Link to="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg==">
-                        <InstagramIcon className="footerLinks" />
-                    </Link>
-                </Box>
             </Box>
-        )
-    }
+        </Box>
+    )
 
     const renderForm = () => {
         if (state.succeeded) {
@@ -73,7 +71,7 @@ function BottomNav() {
                 <Box mb={2} className="footerForm">
                     <Typography variant="h5">Contact Us</Typography>
                     <Typography variant="body1">
-                        Email received! We'll respond within 24 hours.
+                        Email received! We will respond within 24 hours.
                     </Typography>
                 </Box>
             )
