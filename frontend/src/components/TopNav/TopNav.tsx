@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
     AppBar,
     Box,
@@ -21,9 +21,25 @@ import logo from '../../resources/logo.png'
 function TopNav() {
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
     const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
+    const [tooltipOpen, setTooltipOpen] = useState(false)
+    const iconButtonRef = useRef<HTMLButtonElement | null>(null)
 
     const pages = ['About', 'FAQs', 'Reviews']
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+
+    const handleToggleTooltip = () => {
+        setTooltipOpen(!tooltipOpen)
+    }
+
+    const handleDocumentClick = (event: MouseEvent) => {
+        if (
+            iconButtonRef.current &&
+            iconButtonRef.current.contains(event.target as Node)
+        ) {
+            return
+        }
+        setTooltipOpen(false)
+    }
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget)
@@ -40,6 +56,14 @@ function TopNav() {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null)
     }
+
+    useEffect(() => {
+        document.addEventListener('click', handleDocumentClick)
+
+        return () => {
+            document.removeEventListener('click', handleDocumentClick)
+        }
+    }, [])
 
     return (
         <AppBar position="static" style={{ position: 'relative', zIndex: 10 }}>
@@ -165,10 +189,16 @@ function TopNav() {
 
                     {/* right | all screens: profile pic + options */}
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Feature coming soon!" arrow>
+                        <Tooltip
+                            title="Feature coming soon!"
+                            arrow
+                            open={tooltipOpen}
+                        >
                             <IconButton
-                                onClick={handleOpenUserMenu}
+                                // onClick={handleOpenUserMenu}
+                                onClick={handleToggleTooltip}
                                 className="account"
+                                ref={iconButtonRef}
                             >
                                 <PersonOutlineOutlinedIcon />
                                 {/* <Avatar

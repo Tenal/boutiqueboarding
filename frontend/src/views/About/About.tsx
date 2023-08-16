@@ -66,8 +66,8 @@ function About() {
                     {images.map((img) => (
                         <ImageListItem key={img}>
                             <img
-                                src={require(`../../resources/reviewPhotos/${img}.jpg`)}
-                                srcSet={require(`../../resources/reviewPhotos/${img}.jpg`)}
+                                src={require(`../../resources/fosterIG/${img}.jpg`)}
+                                srcSet={require(`../../resources/fosterIG/${img}.jpg`)}
                                 alt="dog"
                                 loading="lazy"
                             />
