@@ -28,7 +28,10 @@ function TopNav() {
     const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
 
     const handleToggleTooltip = () => {
-        setTooltipOpen(!tooltipOpen)
+        setTooltipOpen(true)
+        setTimeout(() => {
+            setTooltipOpen(false)
+        }, 600)
     }
 
     const handleDocumentClick = (event: MouseEvent) => {
@@ -193,9 +196,11 @@ function TopNav() {
                             title="Feature coming soon!"
                             arrow
                             open={tooltipOpen}
+                            onClose={() => setTooltipOpen(false)}
                         >
                             <IconButton
                                 // onClick={handleOpenUserMenu}
+                                onMouseEnter={() => setTooltipOpen(true)}
                                 onClick={handleToggleTooltip}
                                 className="account"
                                 ref={iconButtonRef}
