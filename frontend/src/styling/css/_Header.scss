@@ -1,0 +1,58 @@
+.header {
+    min-height: 15vh;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+.headerHome {
+    height: calc(100vh - 64px);
+    box-sizing: border-box;
+    text-align: center;
+    .MuiTypography-root {
+        padding: 0 5%;
+        font-size: 45px;
+        margin: 0 auto;
+        letter-spacing: 0.25rem;
+    }
+}
+
+.faqsImage {
+    background-image: url('../../resources/faqs.jpg');
+    background-position: 50% 38%;
+}
+.aboutusImage {
+    background-image: url('../../resources/about.jpg');
+    background-position: 50% 47%;
+}
+.reviewsImage {
+    background-image: url('../../resources/reviews.jpg');
+    background-position: 50% 85%;
+}
+.homeImage {
+    background-image: url('../../resources/home.jpg');
+    background-position: 50% 25%;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 600px) {
+    .headerHome {
+        height: calc(100vh - 56px);
+    }
+}
+@media (max-width: 550px) {
+    .headerHome .MuiTypography-root {
+        font-size: 35px;
+    }
+}

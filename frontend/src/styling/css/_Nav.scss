@@ -1,0 +1,89 @@
+.topNav {
+    .logoImage {
+        max-width: 50px;
+        margin-right: 10px;
+    }
+    .logoText {
+        margin-right: 2;
+        letter-spacing: 0.3rem;
+        text-decoration: none;
+        color: white;
+    }
+    .navLinks {
+        color: white;
+        text-decoration: none;
+        text-align: center;
+        text-transform: capitalize;
+        transition: color 0.2s;
+        &:hover {
+            color: #707070;
+        }
+    }
+    .account {
+        background-color: #c3b7ad;
+        color: #fff;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        transition: background-color 0.2s;
+        cursor: auto;
+        &:hover {
+            background-color: #9e958c;
+        }
+    }
+}
+
+.footer {
+    min-height: 5vh;
+    background-color: #f3e5d8;
+    .footerLinks {
+        color: rgba(0, 0, 0, 0.35);
+        text-decoration: none;
+        transition: color 0.2s;
+        cursor: pointer;
+        &:hover {
+            color: #707070;
+        }
+    }
+    .footerForm {
+        color: rgba(0, 0, 0, 0.35);
+        .footerInput {
+            display: flex;
+            flex-direction: column;
+            max-width: 250px;
+            .MuiInputLabel-outlined {
+                color: rgba(0, 0, 0, 0.35);
+            }
+            margin-top: 4px;
+        }
+    }
+    .copyright {
+        color: rgba(0, 0, 0, 0.2);
+        font-style: italic;
+    }
+}
+
+@media (max-width: 450px) {
+    .topNav {
+        .logoImage {
+            margin-right: 5px;
+            max-width: 40px;
+        }
+        .logoText {
+            font-size: 12px;
+            letter-spacing: 0.25rem;
+        }
+    }
+    .footer .copyright {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 350px) {
+    .topNav .logoImage {
+        display: none;
+    }
+    .footer .copyright {
+        font-size: 10px;
+    }
+}

@@ -1,0 +1,22 @@
+.review {
+    .reviewImage {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .reviewStars {
+        color: #ffecb5;
+        width: 20px;
+        height: 20px;
+    }
+    .reviewParagraph {
+        text-align: justify;
+    }
+    .reviewName {
+        font-style: italic;
+        width: 100%;
+        text-align: right;
+        margin-top: 5px;
+    }
+}
