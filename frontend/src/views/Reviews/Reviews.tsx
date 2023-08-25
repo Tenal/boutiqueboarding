@@ -17,11 +17,16 @@ import ReviewBox from '../../components/ReviewBox/ReviewBox'
 import currentReviews from './currentReviews.json'
 
 function Reviews() {
+    const [dog, setDog] = useState<string>('')
     const [name, setName] = useState<string>('')
     const [review, setReview] = useState<string>('')
     const [rating, setRating] = useState<number | null>(null)
     const [submitted, setSubmitted] = useState(false)
     const [state, handleSubmit] = useForm('xvojkykg')
+
+    const handleDogChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setDog(event.target.value)
+    }
 
     const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setName(event.target.value)
@@ -65,7 +70,7 @@ function Reviews() {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        maxWidth: '900px',
+                        maxWidth: '525px',
                     }}
                 >
                     <Typography variant="body1">
@@ -77,18 +82,34 @@ function Reviews() {
         }
 
         return (
-            <form onSubmit={handleFormSubmit} style={{ maxWidth: '900px' }}>
+            <form onSubmit={handleFormSubmit} style={{ maxWidth: '525px' }}>
                 <Typography variant="h2" sx={{ mb: 2 }}>
                     Did you board with us? Leave us a Review!
                 </Typography>
 
                 <TextField
-                    label="Your Name & Your Dog's Name"
+                    label="Dog's Name"
+                    variant="outlined"
+                    fullWidth
+                    required
+                    value={dog}
+                    onChange={handleDogChange}
+                    size="small"
+                />
+                <ValidationError
+                    prefix="Dog"
+                    field="dog"
+                    errors={state.errors}
+                />
+
+                <TextField
+                    label="Your Name(s)"
                     variant="outlined"
                     fullWidth
                     required
                     value={name}
                     onChange={handleNameChange}
+                    size="small"
                 />
                 <ValidationError
                     prefix="Name"
@@ -102,9 +123,10 @@ function Reviews() {
                     fullWidth
                     required
                     multiline
-                    rows={4}
+                    rows={5}
                     value={review}
                     onChange={handleReviewChange}
+                    size="small"
                 />
                 <ValidationError
                     prefix="Review"
@@ -121,6 +143,7 @@ function Reviews() {
                             label="Rating out of 5"
                             variant="outlined"
                             required
+                            size="small"
                         />
                     )}
                     value={rating}
@@ -162,6 +185,7 @@ function Reviews() {
         if (state.succeeded) {
             setSubmitted(true)
             setTimeout(() => {
+                setDog('')
                 setName('')
                 setReview('')
                 setRating(null)
