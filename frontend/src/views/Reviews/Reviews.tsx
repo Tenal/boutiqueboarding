@@ -74,8 +74,8 @@ function Reviews() {
                     }}
                 >
                     <Typography variant="body1">
-                        We've received your review! Thank you so much for taking
-                        the time to write one, we're so appreciative!
+                        We received your review! Thank you so much for taking
+                        the time to write one, we are extremely appreciative!
                     </Typography>
                 </Box>
             )
@@ -166,8 +166,8 @@ function Reviews() {
                         color="error"
                         style={{ marginTop: '1rem' }}
                     >
-                        We're sorry, there was an issue submitting your review.
-                        If the problem persists, you're welcome to email your
+                        We are sorry, there was an issue submitting your review.
+                        If the problem persists, you are welcome to email your
                         review to us at{' '}
                         <a
                             href="mailto:boutiqueboardco@gmail.com"

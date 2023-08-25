@@ -53,12 +53,10 @@ export default function BasicTabs({
         setValue(newValue)
     }
 
-    const a11yProps = (index: number) => {
-        return {
-            id: `simple-tab-${index}`,
-            'aria-controls': `simple-tabpanel-${index}`,
-        }
-    }
+    const a11yProps = (index: number) => ({
+        id: `simple-tab-${index}`,
+        'aria-controls': `simple-tabpanel-${index}`,
+    })
 
     return (
         <Box sx={{ width: '100%', mr: { xs: 0, md: 3 } }}>
