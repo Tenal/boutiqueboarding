@@ -1,23 +1,27 @@
 [
     {
         "question": "What will a typical day look like for my dog?",
-        "answer": "This will depend on the needs of your dog, but a typical day with us generally includes the below: <ul><li>◦ Morning walk or run</li><li>◦ Breakfast</li><li>◦ Morning socialization / play /enrichment</li><li>◦ Nap time on their dog bed or crate</li><li>◦ Lunchtime pee break and play /enrichment in the backyard</li><li>◦ Nap time on their dog bed or crate</li><li>◦ Evening walk or run</li><li>◦ Dinner</li><li>◦ Evening socialization / play / enrichment</li><li>◦ Nighttime pee break in the backyard</li><li>◦ Bedtime in their crate</li></ul>"
+        "answer": "This will depend on the needs of your dog, but a typical day with us generally includes the below: <ul><li>◦ Morning walk or run</li><li>◦ Breakfast</li><li>◦ Morning socialization / play / enrichment (mental +/or physical)</li><li>◦ Nap time on their dog bed or crate</li><li>◦ Lunchtime pee break and play / enrichment in the backyard</li><li>◦ Nap time on their dog bed or crate</li><li>◦ Evening walk or run</li><li>◦ Dinner</li><li>◦ Evening socialization / play / enrichment (mental +/or physical)</li><li>◦ Nighttime pee break in the backyard</li><li>◦ Bedtime in their crate</li></ul>"
     },
     {
         "question": "How much will it cost?",
-        "answer": "Our boarding is done in 24-hour periods. Our current rate is $75 per 24 hours. Our holiday rate is $87 per 24 hours. <p>Drop-offs and pick-ups are between 8:00am ET and 8:00pm ET. Your scheduled drop-off time should be either earlier than or the same as your pick-up time, but there is a 2-hour grace period for pick-ups. Pick-up times past your grace period will incur an additional night's cost.</p>"
+        "answer": "Our current rate is <b>$75/night</b>. <p>During peak holiday periods, our \"holiday rate\" is $87/night. Boarding for any of the following dates will be priced at our holiday rate:</p> <ul><li>◦ Mar 29 - 31</li><li>◦ May 17 - 20</li><li>◦ Jun 28 - Jul 2</li><li>◦ Aug 2 - 5</li><li>◦ Aug 30 - Sep 2</li><li>◦ Oct 11 - 14</li><li>◦ Nov 8 - 11</li><li>◦ Dec 22 - Jan 2</li></ul>"
     },
     {
-        "question": "What is a Holiday Rate?",
-        "answer": "Our Holiday Rate ($87 per 24 hours) is the price for boarding during peak holiday periods. Boarding for any of the following dates will be priced at our Holiday Rate: <ul><li>◦ Jun 30 - Jul 2</li><li>◦ Aug 4 - 7</li><li>◦ Sep 1 - 4</li><li>◦ Oct 6 - 9</li><li>◦ Nov 10 - 12</li><li>◦ Dec 22 - Jan 1</li></ul>"
+        "question": "What are your drop-off and pick-up policies?",
+        "answer": "Drop-offs and pick-ups must be between 8:00am ET and 8:00pm ET. Your pick-up time should either be earlier than or equal to your drop-off time, but there is a 2-hour grace period. Pick-up times past your grace period will incur an additional night's cost. <p>We will officially confirm these times with you via email during booking! We kindly ask that you arrive on time or update us asap if you think you may be late. If you miss your scheduled time, you may have to wait until we have another window of availability.</p>"
+    },
+    {
+        "question": "Where are you located?",
+        "answer": "We're located in Vaughan (specifically Maple region), Ontario. We live in a two-story corner lot townhouse with a fully-fenced backyard."
     },
     {
         "question": "What should I bring?",
-        "answer": "We require you to bring: <ul><li>◦ Food</li><li>◦ Treats (if your dog has food sensitivities/allergies)</li><li>◦ A leash & collar</li><li>◦ At least one toy or blanket with your pup’s smell on it</li><li>◦ Any training tools you currently use with your dog (ex: halti, e-collar, etc)</li></ul> Beyond the above, you can bring anything extra that will make you or your dog more comfortable! We have crates, beds, bowls, and toys for your pup while they're here.</p>"
+        "answer": "We require you to bring: <ul><li>◦ Food</li><li>◦ Treats (if your dog has food sensitivities/allergies)</li><li>◦ A leash & collar</li><li>◦ A favourite toy or a blanket with your pup’s smell on it</li><li>◦ Any training tools you currently use with your dog (ex: halti, e-collar, etc)</li></ul> Beyond the above, you can bring anything extra that will make you or your dog more comfortable! We have crates, beds, bowls, toys and single-ingredient treats for your pup while they're with us.</p>"
     },
     {
         "question": "Will I get updates while I'm away?",
-        "answer": "Yes, we love updates! We post updates on our Instagram account, boutiqueboarding, so you can always view daily updates there! While the above account is accessible via most browsers without the need for an Instagram account, we’re also happy to send a daily update via email upon request."
+        "answer": "Yes, we love updates! We post updates on our Instagram account, boutiqueboarding, so you can view your daily updates there (check out the story highlights for some of our previous boarding pups for example updates)! While this account is accessible via most browsers without the need for an Instagram account, we’re also happy to send a daily update via email upon request."
     },
     {
         "question": "Will my dog be crated?",
@@ -26,6 +30,10 @@
     {
         "question": "Will you bring my dog to dog parks?",
         "answer": "No, we do not bring any dogs in our care to dog parks. While dog parks can be fun and social at times, they can also be unpredictable and do not allow us to prioritize the safety and well-being of your dog. We also don’t allow interactions with any dogs not in our care and avoid all on-leash greetings."
+    },
+    {
+        "question": "How many dogs do you have in your care at a time?",
+        "answer": "We have a limit of two dogs in our care. Typically this includes one boarding dog and one foster dog, though we try to keep it to one dog total at least half of the time. We are occasionally able to make exceptions to this limit for multi-dog homes looking for boarding. Please reach out to inquire further!"
     },
     {
         "question": "How do I book?",
