@@ -100,7 +100,7 @@ function Home() {
             },
             {
                 title: 'Capacity',
-                body: 'We have a limit of two dogs in our care at any given time. Typically this includes one boarding dog and one foster dog, though we try to keep it to one dog total at least half of the time.',
+                body: 'We have a limit of two dogs in our care. Typically this includes one boarding dog and one foster dog, though we try to keep it to one dog total at least half of the time.',
             },
             {
                 title: 'Booking',
