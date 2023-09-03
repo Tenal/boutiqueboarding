@@ -92,11 +92,11 @@ function Home() {
         const info = [
             {
                 title: 'Price',
-                body: 'Our boarding is done in 24-hour time periods. Our current rate is $75 per 24 hours.',
+                body: 'Our boarding is $75/night per dog.',
             },
             {
                 title: 'Location',
-                body: "We're located in Vaughan, Ontario. We live in a two-story corner townhouse with a fully-fenced backyard.",
+                body: "We're located in Vaughan, Ontario. We live in a two-story corner lot townhouse with a fully-fenced backyard.",
             },
             {
                 title: 'Capacity',
