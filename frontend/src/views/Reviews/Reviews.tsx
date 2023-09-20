@@ -45,8 +45,8 @@ function Reviews() {
 
     const handleFormSubmit = (event: React.FormEvent) => {
         event.preventDefault()
-        if (name && review && rating !== null) {
-            handleSubmit({ name, review, rating })
+        if (dog && name && review && rating !== null) {
+            handleSubmit({ dog, name, review, rating })
         }
     }
 
@@ -123,7 +123,7 @@ function Reviews() {
                     fullWidth
                     required
                     multiline
-                    rows={5}
+                    rows={7}
                     value={review}
                     onChange={handleReviewChange}
                     size="small"
