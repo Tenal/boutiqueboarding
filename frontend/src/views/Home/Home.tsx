@@ -22,15 +22,15 @@ import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
 
 function Home() {
-    const renderAboutSection = () => (
-        <Box className="aboutSection" pt={4} pb={5}>
+    const renderIntroSection = () => (
+        <Box className="introSection" pt={4} pb={5}>
             <Container maxWidth="xl">
                 <Grid
                     container
                     direction="row"
                     justifyContent="space-between"
                     alignItems="center"
-                    spacing={3}
+                    spacing={6}
                 >
                     <Grid item xs={12} md={6}>
                         <Typography variant="h1">
@@ -72,21 +72,33 @@ function Home() {
     }
 
     // TODO make below reusable function or component (also used in FAQ)
-    const singleAccordion = (title: string, body: string) => (
-        <Accordion key={title}>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="h5">{title}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
+    const singleAccordion = (title: string, body: any) => {
+        const accBody =
+            body !== 'string' ? (
+                <Typography className="noMargins">{body}</Typography>
+            ) : (
                 <Typography
                     className="noMargins"
                     dangerouslySetInnerHTML={{
                         __html: addLinksToDescription(body),
                     }}
                 ></Typography>
-            </AccordionDetails>
-        </Accordion>
-    )
+            )
+        return (
+            <Accordion key={title} sx={{ mb: 1 }}>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography
+                        variant="body1"
+                        sx={{ fontWeight: 500 }}
+                        className="noMargins"
+                    >
+                        {title}
+                    </Typography>
+                </AccordionSummary>
+                <AccordionDetails>{accBody}</AccordionDetails>
+            </Accordion>
+        )
+    }
 
     const renderBoardingSection = () => {
         const info = [
@@ -116,7 +128,7 @@ function Home() {
                         direction="row"
                         justifyContent="space-between"
                         alignItems="center"
-                        spacing={3}
+                        spacing={6}
                     >
                         <Grid item xs={12} md={6}>
                             <img
@@ -158,7 +170,7 @@ function Home() {
             justifyContent="center"
             alignItems="stretch"
         >
-            <Paper className="infoCard" sx={{ p: 3 }}>
+            <Paper className="infoCard" sx={{ p: { xs: 1, md: 3 } }}>
                 <div className="iconCircleOutline">{icon}</div>
                 <Typography variant="h4" sx={{ mt: 4 }} className="titleText">
                     {title}
@@ -171,14 +183,14 @@ function Home() {
     )
 
     const renderCardSection = () => (
-        <Box pt={7} className="cardSection">
-            <Container maxWidth="xl">
+        <Container maxWidth="xl">
+            <Box mt={7} className="cardSection">
                 <Grid
                     container
                     direction="row"
                     justifyContent="space-between"
                     alignItems="stretch"
-                    spacing={{ xs: 4, sm: 5, lg: 8 }}
+                    spacing={6}
                 >
                     {renderCard(
                         <InsuredIcon className="infoIcon" />,
@@ -204,15 +216,15 @@ function Home() {
                         'We have extensive dog care experience from training to rescue'
                     )}
                 </Grid>
-            </Container>
-        </Box>
+            </Box>
+        </Container>
     )
 
     return (
         <>
             <TopNav />
             <Header title="home" />
-            {renderAboutSection()}
+            {renderIntroSection()}
             {renderCardSection()}
             {renderBoardingSection()}
             <BottomNav />

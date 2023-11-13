@@ -1,22 +1,56 @@
 .review {
-    .reviewImage {
+    position: relative;
+    margin-top: 50px !important;
+    .quoteLeft {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: -20px;
+        left: -25px;
+    }
+    .quoteRight {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        bottom: -20px;
+        right: -25px;
+    }
+    .imageContainer {
+        position: absolute;
+        top: 12px;
         width: 110px;
         height: 110px;
+        border: 15px solid #d9d8b2;
         border-radius: 50%;
-        object-fit: cover;
+        .reviewImage {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
     }
-    .reviewStars {
-        color: #ffecb5;
-        width: 20px;
-        height: 20px;
-    }
-    .reviewParagraph {
-        text-align: justify;
-    }
-    .reviewName {
-        font-style: italic;
-        width: 100%;
-        text-align: right;
-        margin-top: 5px;
+    .textContainer {
+        position: relative;
+        z-index: -1;
+        background-color: #d9d8b2;
+        border-radius: 20px;
+        box-shadow:
+            0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+            0px 1px 3px 1px rgba(0, 0, 0, 0.12);
+        .reviewStars {
+            color: #ffecb5;
+            width: 24px;
+            height: 24px;
+        }
+        .reviewParagraph {
+            text-align: justify;
+        }
+        .reviewName {
+            font-style: italic;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
     }
 }

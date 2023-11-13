@@ -1,42 +1,77 @@
 [
     {
+        "section": 1,
         "question": "What will a typical day look like for my dog?",
         "answer": "This will depend on the needs of your dog, but a typical day with us generally includes the below: <ul><li>◦ Morning walk or run</li><li>◦ Breakfast</li><li>◦ Morning socialization / play / enrichment (mental +/or physical)</li><li>◦ Nap time on their dog bed or crate</li><li>◦ Lunchtime pee break and play / enrichment in the backyard</li><li>◦ Nap time on their dog bed or crate</li><li>◦ Evening walk or run</li><li>◦ Dinner</li><li>◦ Evening socialization / play / enrichment (mental +/or physical)</li><li>◦ Nighttime pee break in the backyard</li><li>◦ Bedtime in their crate</li></ul>"
     },
     {
-        "question": "How much will it cost?",
+        "section": 2,
+        "question": "How much does boarding cost?",
         "answer": "Our current rate is <b>$75/night</b>. <p>During peak holiday periods, our \"holiday rate\" is $87/night. Boarding for any of the following dates will be priced at our holiday rate:</p> <ul><li>◦ Mar 29 - 31</li><li>◦ May 17 - 20</li><li>◦ Jun 28 - Jul 2</li><li>◦ Aug 2 - 5</li><li>◦ Sep 2 - 4</li><li>◦ Oct 7 - 9</li><li>◦ Nov 11 - 13</li><li>◦ Dec 22 - Jan 2</li></ul>"
     },
     {
+        "section": 3,
         "question": "What are your drop-off and pick-up policies?",
         "answer": "Drop-offs and pick-ups must be between 8:00am ET and 8:00pm ET. Your pick-up time should either be earlier than or equal to your drop-off time, but there is a 2-hour grace period. Pick-up times past your grace period will incur an additional night's cost. <p>We will officially confirm these times with you via email during booking! We kindly ask that you arrive on time or update us asap if you think you may be late. If you miss your scheduled time, you may have to wait until we have another window of availability.</p>"
     },
     {
+        "section": 2,
         "question": "Where are you located?",
         "answer": "We're located in Vaughan (specifically Maple region), Ontario. We live in a two-story corner lot townhouse with a fully-fenced backyard."
     },
     {
+        "section": 3,
         "question": "What should I bring?",
         "answer": "We require you to bring: <ul><li>◦ Food</li><li>◦ Treats (if your dog has food sensitivities/allergies)</li><li>◦ A leash & collar</li><li>◦ A favourite toy or a blanket with your pup’s smell on it</li><li>◦ Any training tools you currently use with your dog (ex: halti, e-collar, etc)</li></ul> Beyond the above, you can bring anything extra that will make you or your dog more comfortable! We have crates, beds, bowls, toys and single-ingredient treats for your pup while they're with us.</p>"
     },
     {
+        "section": 4,
         "question": "Will I get updates while I'm away?",
-        "answer": "Yes, we love updates! We post updates on our Instagram account, boutiqueboarding, so you can view your daily updates there (check out the story highlights for some of our previous boarding pups for example updates)! While this account is accessible via most browsers without the need for an Instagram account, we’re also happy to send a daily update via email upon request."
+        "answer": "Yes, we love updates! We post updates on our Instagram account, boutiqueboarding, so you can view your daily updates there (check out the story highlights for some of our previous boarding pups for example updates)! We post an average of 4 updates a day; updates consist of a combination of photos and videos. <p>While this account is accessible via most browsers without the need for an Instagram account, we’re also happy to send a daily update via email upon request.</p>"
     },
     {
+        "section": 1,
         "question": "Will my dog be crated?",
         "answer": "Yes! While we work from home and are committed to the care and attention required of all dogs in our care, it is not possible for us to be attentive to them at all times. While boarding dogs are unsupervised, they will be crated. This includes crating overnight and occasional crating during the day if we are both out of the house. <p>Subject to any dietary restrictions, stuffed frozen Kong's or other durable toys are given regularly to help encourage a more positive and relaxed crating experience.</p>"
     },
     {
+        "section": 1,
         "question": "Will you bring my dog to dog parks?",
         "answer": "No, we do not bring any dogs in our care to dog parks. While dog parks can be fun and social at times, they can also be unpredictable and do not allow us to prioritize the safety and well-being of your dog. We also don’t allow interactions with any dogs not in our care and avoid all on-leash greetings."
     },
     {
+        "section": 1,
         "question": "How many dogs do you have in your care at a time?",
         "answer": "We have a limit of two dogs in our care. Typically this includes one boarding dog and one foster dog, though we try to keep it to one dog total at least half of the time. We are occasionally able to make exceptions to this limit for multi-dog homes looking for boarding. Please reach out to inquire further!"
     },
     {
+        "section": 3,
+        "question": "Will I need to provide any medical documents to board?",
+        "answer": "Yes, to ensure the health and safety of all dogs in our care, we require the following  prior to boarding: <ol><li>Proof of vaccination /or/ titer test results</li><li>Confirmation of monthly prevention /or/ negative 4DX completed within the last 3 months</li><li>A negative fecal result /or/ confirmation of deworming within the last 3 months</li></ol>    "
+    },
+    {
+        "section": 3,
+        "question": "My dog exhibits resource guarding / leash reactivity / separation anxiety, can they still board with you?",
+        "answer": "We have ample experience with resource guarding, leash reactivity, separation anxiety, and a range of other behaviours. <p>While we are absolutely comfortable with all of these behaviours, we will assess this on a case-by-case basis depending on other factors (ex: requested dates, the needs of other dog(s) in our care, etc). This is something we would discuss in further detail via a call or M&G!</p>"
+    },
+    {
+        "section": 3,
+        "question": "My dog has medical special needs, can they still board with you?",
+        "answer": "We have experience with a range of medical needs (including various medication administration). <p>While we are absolutely comfortable with them, we will assess this on a case-by-case basis depending on other factors (ex: requested dates, the needs of other dog(s) in our care, etc). This is something we would discuss in further detail via a call or M&G!</p>"
+    },
+    {
+        "section": 3,
+        "question": "Do you have any breed or size restrictions?",
+        "answer": "No, at this time we do not have any breed or size restrictions!"
+    },
+    {
+        "section": 2,
         "question": "How do I book?",
         "answer": "Yay!! Our current booking process is: <ol><li>Send us your desired boarding dates by emailing us at boutiqueboardingco@gmail.com. We will confirm availability within 24 hours.</li><li>Fill out our formal boarding form, which we'll send to you after confirming availability. This form allows us to gather essential information about your dog's needs and request required documents (such as vaccination records) to ensure the safety and well-being of all dogs in our care. We’ll review your form within 24 hours.</li><li>We’ll schedule a call or meet & greet (depending on your preferences) to discuss any specific requirements or address any questions you may have.</li><li>We’ll officially book your dog's stay with us!</li></ol> Please note that we only book a maximum of two months in advance. If your desired dates fall beyond this timeframe, we are unable to accommodate your booking at this time."
+    },
+    {
+        "section": 4,
+        "question": "Can I contact you to check on my dog during their stay?",
+        "answer": "Absolutely, you're welcome to email us or message us on Instagram at any time! While we prefer to keep communication via email or Instagram, in the case of an emergency (on either end) phone calls will be used to ensure contact is made as quickly as possible."
     }
 ]
