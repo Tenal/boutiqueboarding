@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import { Grid, Typography, Box } from '@mui/material'
 import StarFullIcon from '@mui/icons-material/Star'
 import StarHalfIcon from '@mui/icons-material/StarHalf'
 import StarEmptyIcon from '@mui/icons-material/StarBorder'
@@ -41,7 +41,7 @@ function ReviewBox({ dog, stars, name, review }: IReviewBoxProps) {
                 container
                 direction="row"
                 justifyContent="center"
-                sx={{ mt: 2, mb: 0.5 }}
+                sx={{ mt: 1, mb: 0.5 }}
             >
                 {stars}
             </Grid>
@@ -58,21 +58,38 @@ function ReviewBox({ dog, stars, name, review }: IReviewBoxProps) {
             alignItems="center"
             className="review"
         >
-            <img
-                src={require(`../../resources/reviewPhotos/${dog}.jpg`)}
-                alt="dog headshot on plain background"
-                className="reviewImage"
-            />
-            {getStars(stars)}
-            <Typography
-                className="reviewParagraph"
-                dangerouslySetInnerHTML={{
-                    __html: review,
-                }}
-            ></Typography>
-            <Typography variant="body2" className="reviewName">
-                - {name}
-            </Typography>
+            <Box className="imageContainer">
+                <img
+                    src={require(`../../resources/reviewPhotos/${dog}.jpg`)}
+                    alt="dog headshot on plain background"
+                    className="reviewImage"
+                />
+            </Box>
+            <Box className="textContainer" py={2} px={3}>
+                <img
+                    src={require('../../resources/quoteLeft.png')}
+                    alt="left quotation mark"
+                    loading="lazy"
+                    className="quoteLeft"
+                />
+                <Typography
+                    className="reviewParagraph"
+                    dangerouslySetInnerHTML={{
+                        __html: review,
+                    }}
+                    sx={{ mt: 7 }}
+                ></Typography>
+                <Typography variant="body2" className="reviewName">
+                    {name}
+                </Typography>
+                {getStars(stars)}
+                <img
+                    src={require('../../resources/quoteRight.png')}
+                    alt="right quotation mark"
+                    loading="lazy"
+                    className="quoteRight"
+                />
+            </Box>
         </Grid>
     )
 }

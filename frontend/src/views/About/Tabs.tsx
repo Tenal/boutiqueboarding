@@ -31,7 +31,7 @@ function CustomTabPanel(props: ITabPanelProps) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 2, minHeight: '160px !important' }}>
+                <Box sx={{ p: 2 }}>
                     <Typography>{children}</Typography>
                 </Box>
             )}
