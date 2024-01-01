@@ -104,7 +104,7 @@ function Home() {
         const info = [
             {
                 title: 'Price',
-                body: 'Our boarding rate is $75/night per dog.',
+                body: 'Our boarding rate is $85/night per dog.',
             },
             {
                 title: 'Location',
