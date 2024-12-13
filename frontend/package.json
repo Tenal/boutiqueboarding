@@ -24,6 +24,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
+        "test:watch": "react-scripts test --watchAll",
         "eject": "react-scripts eject",
         "tsc": "tsc"
     },
@@ -62,6 +63,7 @@
         "eslint-plugin-jsx-a11y": "^6.7.1",
         "eslint-plugin-prettier": "^5.0.0",
         "eslint-plugin-react": "^7.33.1",
+        "jest-fetch-mock": "^3.0.3",
         "node-sass": "^7.0.3",
         "typescript": "^5.1.6"
     },

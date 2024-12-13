@@ -6,9 +6,12 @@
     align-items: center;
     position: relative;
     color: white;
+    .MuiTypography-root {
+        margin-top: 64px;
+    }
 }
 .headerHome {
-    height: calc(100vh - 64px);
+    height: 100vh;
     box-sizing: border-box;
     text-align: center;
     .MuiTypography-root {
@@ -16,24 +19,44 @@
         font-size: 45px;
         margin: 0 auto;
         letter-spacing: 0.25rem;
+        margin-top: 64px;
     }
 }
 
-.faqsImage {
-    background-image: url('../../resources/faqs.jpg');
+/* Small versions (initial load) */
+.homeImage.smallLoaded {
+    background-image: url('/resources/home-small.webp');
+    background-position: 50% 25%;
+}
+.aboutusImage.smallLoaded {
+    background-image: url('/resources/aboutus-small.webp');
+    background-position: 50% 40%;
+}
+.faqsImage.smallLoaded {
+    background-image: url('/resources/faqs-small.webp');
     background-position: 50% 38%;
 }
-.aboutusImage {
-    background-image: url('../../resources/about.jpg');
-    background-position: 50% 47%;
+.reviewsImage.smallLoaded {
+    background-image: url('/resources/reviews-small.webp');
+    background-position: 50% 80%;
 }
-.reviewsImage {
-    background-image: url('../../resources/reviews.jpg');
-    background-position: 50% 85%;
-}
-.homeImage {
-    background-image: url('../../resources/home.jpg');
+
+/* Large version (once fully loaded) */
+.homeImage.largeLoaded {
+    background-image: url('../../resources/home.webp');
     background-position: 50% 25%;
+}
+.aboutusImage.largeLoaded {
+    background-image: url('../../resources/aboutus.webp');
+    background-position: 50% 40%;
+}
+.faqsImage.largeLoaded {
+    background-image: url('../../resources/faqs.webp');
+    background-position: 50% 38%;
+}
+.reviewsImage.largeLoaded {
+    background-image: url('../../resources/reviews.webp');
+    background-position: 50% 80%;
 }
 
 .header::before {
@@ -46,13 +69,8 @@
     background-color: rgba(255, 255, 255, 0.35);
 }
 
-@media (max-width: 600px) {
-    .headerHome {
-        height: calc(100vh - 56px);
-    }
-}
 @media (max-width: 550px) {
     .headerHome .MuiTypography-root {
-        font-size: 35px;
+        font-size: 25px;
     }
 }

@@ -1,248 +1,131 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React from 'react'
 import {
     AppBar,
     Box,
     Toolbar,
-    IconButton,
+    Grid,
     Typography,
-    Menu,
-    Container,
-    Avatar,
-    Button,
     Tooltip,
-    MenuItem,
+    Slide,
+    Backdrop,
+    IconButton,
 } from '@mui/material'
-import MenuIcon from '@mui/icons-material/Menu'
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined'
 import { Link } from 'react-router-dom'
-// @ts-ignore
 import logo from '../../resources/logo.png'
+import hook from './useTopNav'
 
 function TopNav() {
-    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null)
-    const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null)
-    const [tooltipOpen, setTooltipOpen] = useState(false)
-    const iconButtonRef = useRef<HTMLButtonElement | null>(null)
+    const {
+        menuOpen,
+        isSmallScreen,
+        pages,
+        theme,
+        handleMenuToggle,
+        handleCloseMenu,
+        handleMenuKeyDown,
+    } = hook.useTopNav()
 
-    const pages = ['About', 'FAQs', 'Reviews']
-    const settings = ['Profile', 'Account', 'Dashboard', 'Logout']
+    const accountIcon = (
+        <Tooltip title="Feature coming soon!" arrow>
+            <IconButton color="inherit" className="accountIcon">
+                <PersonOutlineOutlinedIcon />
+            </IconButton>
+        </Tooltip>
+    )
 
-    const handleToggleTooltip = () => {
-        setTooltipOpen(true)
-        setTimeout(() => {
-            setTooltipOpen(false)
-        }, 1200)
-    }
-
-    const handleDocumentClick = (event: MouseEvent) => {
-        if (
-            iconButtonRef.current &&
-            iconButtonRef.current.contains(event.target as Node)
-        ) {
-            return
-        }
-        setTooltipOpen(false)
-    }
-
-    const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget)
-    }
-
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget)
-    }
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null)
-    }
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null)
-    }
-
-    useEffect(() => {
-        document.addEventListener('click', handleDocumentClick)
-
-        return () => {
-            document.removeEventListener('click', handleDocumentClick)
-        }
-    }, [])
+    const smallScreenToggle = (
+        <div
+            className="menuToggle"
+            onClick={handleMenuToggle}
+            role="button"
+            aria-label="menu"
+            tabIndex={0}
+            onKeyDown={handleMenuKeyDown}
+        >
+            <span className={`bar ${menuOpen ? 'x' : ''}`} />
+            <span className={`bar ${menuOpen ? 'x' : ''}`} />
+            <span className={`bar ${menuOpen ? 'x' : ''}`} />
+        </div>
+    )
 
     return (
-        <AppBar position="static" style={{ position: 'relative', zIndex: 10 }}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters className="topNav">
-                    {/* left | med screens: logo pic & text */}
-                    <Box sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}>
-                        <img
-                            src={logo}
-                            alt="cartoon dog smiling inside a cozy house"
-                            className="logoImage"
-                        />
-                    </Box>
+        <>
+            <AppBar position="fixed" sx={{ zIndex: theme.zIndex.drawer + 1 }}>
+                <Toolbar className="topNav">
                     <Link to="/">
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            sx={{ display: { xs: 'none', md: 'flex' } }}
-                            className="logoText"
+                        <Grid
+                            container
+                            direction="row"
+                            alignItems="center"
+                            wrap="nowrap"
                         >
-                            Boutique Boarding
-                        </Typography>
+                            <Box className="logoBox">
+                                <img
+                                    src={logo}
+                                    alt="cartoon dog smiling inside a cozy house"
+                                    className="logoImage"
+                                />
+                            </Box>
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                className="logoText"
+                            >
+                                Boutique Boarding
+                            </Typography>
+                        </Grid>
                     </Link>
+                    <Box sx={{ flexGrow: 1 }} />
 
-                    {/* left | small screens: ham menu + menu items */}
-                    <Box
-                        sx={{
-                            flexGrow: 1,
-                            display: { xs: 'flex', md: 'none' },
-                        }}
-                    >
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                        >
+                    {!isSmallScreen && (
+                        <Box className="navLinks">
                             {pages.map((page) => (
-                                <MenuItem
-                                    key={page}
-                                    onClick={handleCloseNavMenu}
-                                >
-                                    <Link
-                                        key={page}
-                                        to={`/${page.toLowerCase()}`}
-                                        onClick={handleCloseNavMenu}
-                                        style={{
-                                            display: 'block',
-                                            textDecoration: 'none',
-                                            textAlign: 'center',
-                                        }}
-                                    >
-                                        <Typography>{page}</Typography>
-                                    </Link>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-
-                    {/* center | small screens: logo pic & text */}
-                    <Box sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
-                        <img
-                            src={logo}
-                            alt="cartoon dog smiling inside a cozy house"
-                            className="logoImage"
-                        />
-                    </Box>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        sx={{
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                        }}
-                        className="logoText"
-                    >
-                        <Link to="/"> Boutique Boarding </Link>
-                    </Typography>
-
-                    {/* right | med screens: menu items */}
-                    <Box
-                        mr={2}
-                        sx={{
-                            flexGrow: 1,
-                            justifyContent: 'flex-end',
-                            display: { xs: 'none', md: 'flex' },
-                        }}
-                    >
-                        {pages.map((page) => (
-                            <Button key={page}>
                                 <Link
+                                    key={page}
                                     to={`/${page.toLowerCase()}`}
-                                    onClick={handleCloseNavMenu}
-                                    className="navLinks"
+                                    className="navLink"
                                 >
                                     <Typography>{page}</Typography>
                                 </Link>
-                            </Button>
-                        ))}
-                    </Box>
-
-                    {/* right | all screens: profile pic + options */}
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip
-                            title="Feature coming soon!"
-                            arrow
-                            open={tooltipOpen}
-                            onClose={() => setTooltipOpen(false)}
-                        >
-                            <IconButton
-                                // onClick={handleOpenUserMenu}
-                                onMouseEnter={() => setTooltipOpen(true)}
-                                onClick={handleToggleTooltip}
-                                className="account"
-                                ref={iconButtonRef}
-                            >
-                                <PersonOutlineOutlinedIcon />
-                                {/* <Avatar
-                                    alt="Remy Sharp"
-                                    src="/static/images/avatar/2.jpg"
-                                /> -- for when user is logged in*/}
-                            </IconButton>
-                        </Tooltip>
-                        {/* <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem
-                                    key={setting}
-                                    onClick={handleCloseUserMenu}
-                                >
-                                    <Typography textAlign="center">
-                                        {setting}
-                                    </Typography>
-                                </MenuItem>
                             ))}
-                        </Menu> */}
-                    </Box>
+                            {accountIcon}
+                        </Box>
+                    )}
+
+                    {isSmallScreen && smallScreenToggle}
                 </Toolbar>
-            </Container>
-        </AppBar>
+            </AppBar>
+
+            {/* Menu for small screens */}
+            <Slide direction="down" in={menuOpen} mountOnEnter unmountOnExit>
+                <Box
+                    sx={{
+                        top: theme.mixins.toolbar.minHeight,
+                        height: { xs: '50vh', sm: '45vh' },
+                        opacity: menuOpen ? 1 : 0,
+                    }}
+                    className="navMenu"
+                >
+                    {pages.map((page) => (
+                        <Link key={page} to={`/${page.toLowerCase()}`}>
+                            <Typography className="menuLinks">
+                                {page}
+                            </Typography>
+                        </Link>
+                    ))}
+                    {accountIcon}
+                </Box>
+            </Slide>
+            {menuOpen && (
+                <Backdrop
+                    open={menuOpen}
+                    onClick={handleCloseMenu}
+                    sx={{ zIndex: theme.zIndex.drawer - 1 }}
+                    data-testid="menu-backdrop"
+                />
+            )}
+        </>
     )
 }
 

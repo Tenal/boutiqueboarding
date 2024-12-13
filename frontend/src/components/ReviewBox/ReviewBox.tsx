@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Grid, Typography, Box } from '@mui/material'
 import StarFullIcon from '@mui/icons-material/Star'
 import StarHalfIcon from '@mui/icons-material/StarHalf'
 import StarEmptyIcon from '@mui/icons-material/StarBorder'
+import { ReactComponent as DogProfileSvg } from '../../resources/dog-profile.svg'
+import hook from './useReviewBox'
 
 interface IReviewBoxProps {
     dog: string
@@ -11,42 +13,64 @@ interface IReviewBoxProps {
     review: string
 }
 
-function ReviewBox({ dog, stars, name, review }: IReviewBoxProps) {
-    const getStars = (value: number): React.ReactNode => {
-        const stars: React.ReactNode[] = []
-        const fullStars = Math.floor(value)
-        const halfStar = value - fullStars >= 0.5
+const createStarIcons = (
+    fullStarsCount: number,
+    hasHalfStar: boolean,
+    emptyStarsCount: number
+): React.ReactNode[] => {
+    const starElements: React.ReactNode[] = []
 
-        for (let i = 0; i < fullStars; i++) {
-            stars.push(
-                <StarFullIcon key={`full-${i}`} className="reviewStars" />
-            )
-        }
-
-        if (halfStar) {
-            stars.push(<StarHalfIcon key="half" className="reviewStars" />)
-        }
-
-        const emptyStars = 5 - stars.length
-
-        for (let i = 0; i < emptyStars; i++) {
-            stars.push(
-                <StarEmptyIcon key={`empty-${i}`} className="reviewStars" />
-            )
-        }
-
-        return (
-            <Grid
-                item
-                container
-                direction="row"
-                justifyContent="center"
-                sx={{ mt: 1, mb: 0.5 }}
-            >
-                {stars}
-            </Grid>
+    for (let i = 0; i < fullStarsCount; i++) {
+        starElements.push(
+            <StarFullIcon
+                key={`full-${i}`}
+                className="reviewStars"
+                data-testid="full-star-icon"
+            />
         )
     }
+
+    if (hasHalfStar) {
+        starElements.push(
+            <StarHalfIcon
+                key="half"
+                className="reviewStars"
+                data-testid="half-star-icon"
+            />
+        )
+    }
+
+    for (let i = 0; i < emptyStarsCount; i++) {
+        starElements.push(
+            <StarEmptyIcon
+                key={`empty-${i}`}
+                className="reviewStars"
+                data-testid="empty-star-icon"
+            />
+        )
+    }
+
+    return starElements
+}
+
+export default function ReviewBox({
+    dog,
+    stars,
+    name,
+    review,
+}: IReviewBoxProps) {
+    const {
+        isLoading,
+        handleImageLoad,
+        fullStarsCount,
+        hasHalfStar,
+        emptyStarsCount,
+    } = hook.useReviewBox(stars, dog)
+
+    const starIcons = useMemo(
+        () => createStarIcons(fullStarsCount, hasHalfStar, emptyStarsCount),
+        [fullStarsCount, hasHalfStar, emptyStarsCount]
+    )
 
     return (
         <Grid
@@ -59,32 +83,46 @@ function ReviewBox({ dog, stars, name, review }: IReviewBoxProps) {
             className="review"
         >
             <Box className="imageContainer">
-                <img
-                    src={require(`../../resources/reviewPhotos/${dog}.jpg`)}
-                    alt="dog headshot on plain background"
-                    className="reviewImage"
-                />
+                <Box className={`svgContainer ${isLoading ? 'show' : 'hide'}`}>
+                    <DogProfileSvg className="dogSvg" />
+                </Box>
+                <Box className={`imgContainer ${isLoading ? 'hide' : 'show'}`}>
+                    <img
+                        src={`/resources/reviewPhotos/${dog}.jpg`}
+                        alt={`${dog} headshot on a plain background`}
+                        className="reviewImage"
+                        loading="lazy"
+                        onLoad={handleImageLoad}
+                    />
+                </Box>
             </Box>
             <Box className="textContainer" py={2} px={3}>
                 <img
-                    src={require('../../resources/quoteLeft.png')}
+                    src="/resources/reviewPhotos/quoteLeft.png"
                     alt="left quotation mark"
                     loading="lazy"
                     className="quoteLeft"
                 />
                 <Typography
                     className="reviewParagraph"
-                    dangerouslySetInnerHTML={{
-                        __html: review,
-                    }}
+                    dangerouslySetInnerHTML={{ __html: review }}
                     sx={{ mt: 7 }}
-                ></Typography>
+                />
                 <Typography variant="body2" className="reviewName">
                     {name}
                 </Typography>
-                {getStars(stars)}
+                <Grid
+                    item
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    className="starGrid"
+                    sx={{ mt: 1, mb: 0.5 }}
+                >
+                    {starIcons}
+                </Grid>
                 <img
-                    src={require('../../resources/quoteRight.png')}
+                    src="/resources/reviewPhotos/quoteRight.png"
                     alt="right quotation mark"
                     loading="lazy"
                     className="quoteRight"
@@ -93,5 +131,3 @@ function ReviewBox({ dog, stars, name, review }: IReviewBoxProps) {
         </Grid>
     )
 }
-
-export default ReviewBox
