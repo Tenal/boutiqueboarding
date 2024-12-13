@@ -7,7 +7,7 @@
     {
         "section": 2,
         "question": "How much does boarding cost?",
-        "answer": "Our current rate is <b>$85/night</b>. <p>During peak holiday periods, our \"holiday rate\" is $97/night. Boarding for any of the following dates will be priced at our holiday rate:</p> <ul><li>◦ Feb 17 - 19</li><li>◦ Mar 29 - Apr 2</li><li>◦ May 20 - 22</li><li>◦ Jun 30 - Jul 2</li><li>◦ Aug 5 - 7</li><li>◦ Aug 31 - Sep 2</li><li>◦ Oct 12 - 14</li><li>◦ Nov 9 - 11</li><li>◦ Dec 22 - Jan 2</li></ul>"
+        "answer": "Our current rate is <b>$90/night</b>. <p>During peak holiday periods, our \"holiday rate\" is $102/night. Boarding for any of the following dates will be priced at our holiday rate:</p> <ul><li>◦ Family day weekend</li><li>◦ Easter weekend</li><li>◦ Victoria day weekend</li><li>◦ Canada day weekend</li><li>◦ Civic holiday weekend</li><li>◦ Labour day weekend</li><li>◦ Thanksgiving weekend</li><li>◦ Remembrance day weekend</li><li>◦ Christmas/New Years (Dec 20 - Jan 2)</li></ul>"
     },
     {
         "section": 3,
@@ -17,7 +17,7 @@
     {
         "section": 2,
         "question": "Where are you located?",
-        "answer": "We're located in Vaughan (specifically Maple region), Ontario. We live in a two-story corner lot townhouse with a fully-fenced backyard."
+        "answer": "We're located in Vaughan (specifically Maple region), Ontario. We live in a semi-detached home with a fully-fenced backyard."
     },
     {
         "section": 3,
@@ -42,7 +42,7 @@
     {
         "section": 1,
         "question": "How many dogs do you have in your care at a time?",
-        "answer": "We have a limit of two dogs in our care. Typically this includes one boarding dog and one foster dog, though we try to keep it to one dog total at least half of the time. We are occasionally able to make exceptions to this limit for multi-dog homes looking for boarding. Please reach out to inquire further!"
+        "answer": "We generally have a limit of two dogs in our care. Typically this includes one boarding dog and one foster dog, though we try to keep it to one dog total at least half of the time. We occasionally able to make exceptions to this limit, such as for multi-dog homes looking for boarding. Please reach out to inquire further!"
     },
     {
         "section": 3,

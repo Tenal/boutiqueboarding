@@ -11,7 +11,6 @@ export interface IHeaderProps {
 // TODO - refactor following image optimization integration
 // TODO - ensure pres functions & tests all match
 // TODO - variables for scss
-// TODO - scroll to on FAQs impacted by nav update
 // TODO - possibly change hook format to just export/import useX instead of hook object
 
 const useHeader = ({ title }: IHeaderProps) => {

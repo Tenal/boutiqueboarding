@@ -1,75 +1,94 @@
-.faqCardSection {
-    .faqInfoCard {
-        cursor: pointer;
-        max-width: 300px;
-        min-height: 150px;
-        position: relative;
+.infoCard {
+    max-width: 300px;
+    min-height: 150px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 4rem 1rem 1rem 1rem;
+    box-sizing: border-box;
+    .infoIcon {
+        width: 40px;
+        height: 40px;
+    }
+    .iconCircleOutline {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid #000;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        text-align: center;
-        flex-grow: 1;
+        z-index: 2;
+        background-color: #f3e5d8;
+    }
+    .titleText {
+        margin-top: 3.5rem;
+        color: inherit;
+        font-size: 18px;
+    }
+    .descText {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 65px;
+        background-color: #c1be7f;
+        border-radius: 5px 5px 0 0;
+        z-index: 1;
+    }
+    &.clickable {
+        cursor: pointer;
         &:hover {
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .infoIcon {
-            width: 40px;
-            height: 40px;
-        }
-        .iconCircleOutline {
-            position: relative;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            border: 3px solid #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
-            background-color: #f3e5d8;
-        }
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 65px;
-            background-color: #c1be7f; // TODO use variables for colours
-            border-radius: 5px 5px 0 0;
-            z-index: 0;
-        }
-        .titleText {
-            color: inherit;
+    }
+    &.nonClickable {
+        cursor: default;
+        &:hover {
+            box-shadow: none;
         }
     }
 }
 
 @media (max-width: 1390px) {
-    .faqCardSection .faqInfoCard .titleText {
+    .faqCardSection .infoCard .titleText {
         max-width: 150px;
     }
 }
 @media (max-width: 1000px) {
-    .faqCardSection .faqInfoCard .titleText {
+    .faqCardSection .infoCard .titleText {
         max-width: 200px;
         font-size: 15px;
     }
 }
 @media (max-width: 899px) {
-    .faqCardSection .faqInfoCard {
+    .faqCardSection .infoCard {
         min-height: 100px;
         .titleText {
             max-width: 130px;
             font-size: 15px;
-            margin: 5px 0 3px 0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.25rem;
         }
         .infoIcon {
             width: 25px;
             height: 25px;
         }
         .iconCircleOutline {
+            top: 10px;
             margin-top: 20px;
             width: 40px;
             height: 40px;
@@ -81,7 +100,7 @@
     }
 }
 @media (max-width: 750px) {
-    .faqCardSection .faqInfoCard {
+    .faqCardSection .infoCard {
         .titleText {
             font-size: 12px;
         }
