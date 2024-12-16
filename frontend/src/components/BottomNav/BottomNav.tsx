@@ -50,7 +50,7 @@ function BottomNav() {
             <InternalLink to="/about">About</InternalLink>
             <InternalLink to="/faqs">FAQs</InternalLink>
             <InternalLink to="/reviews">Reviews</InternalLink>
-            <Box mt={3} mb={2}>
+            <Box mt={1} mb={2}>
                 <a
                     href="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg=="
                     target="_blank"
@@ -117,9 +117,11 @@ function BottomNav() {
                         errors={errors}
                     />
                     <Button
+                        variant="contained"
                         color="secondary"
                         type="submit"
                         disabled={submitting}
+                        sx={{ mt: 1 }}
                     >
                         Submit
                     </Button>

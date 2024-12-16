@@ -8,7 +8,7 @@ export interface IHeaderProps {
     title: string
 }
 
-// TODO - refactor following image optimization integration
+// TODO - refactor following image optimization integration (possible move back to src)
 // TODO - ensure pres functions & tests all match
 // TODO - variables for scss
 // TODO - possibly change hook format to just export/import useX instead of hook object

@@ -4,7 +4,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
     flex-grow: 1;
@@ -36,7 +36,7 @@
     }
     .descText {
         margin-top: 0.5rem;
-        font-size: 1rem;
+        font-size: 14px;
     }
     &::before {
         content: '';
@@ -55,30 +55,27 @@
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         }
     }
-    &.nonClickable {
-        cursor: default;
-        &:hover {
-            box-shadow: none;
-        }
-    }
 }
 
 @media (max-width: 1390px) {
-    .faqCardSection .infoCard .titleText {
-        max-width: 150px;
+    .infoCard .titleText {
+        max-width: 200px;
     }
 }
 @media (max-width: 1000px) {
-    .faqCardSection .infoCard .titleText {
-        max-width: 200px;
+    .infoCard .titleText {
         font-size: 15px;
+        max-width: auto;
+    }
+    .infoCard .descText {
+        font-size: 12px;
     }
 }
+
 @media (max-width: 899px) {
-    .faqCardSection .infoCard {
+    .infoCard {
         min-height: 100px;
         .titleText {
-            max-width: 130px;
             font-size: 15px;
             margin-top: 1.5rem;
             margin-bottom: 0.25rem;
@@ -100,9 +97,16 @@
     }
 }
 @media (max-width: 750px) {
-    .faqCardSection .infoCard {
+    .infoCard {
         .titleText {
             font-size: 12px;
+        }
+    }
+}
+@media (max-width: 400px) {
+    .infoCard {
+        .titleText {
+            min-width: 95px;
         }
     }
 }

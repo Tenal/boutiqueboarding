@@ -2,13 +2,13 @@ import { useState, useEffect, useCallback } from 'react'
 import { useForm } from '@formspree/react'
 
 const useBottomNav = () => {
+    const formKey = process.env.REACT_APP_FORMSPREE_KEY as string
+    const currentYear = new Date().getFullYear()
     const [email, setEmail] = useState<string | null>(null)
     const [message, setMessage] = useState<string | null>(null)
     const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false)
-    const formKey = process.env.REACT_APP_FORMSPREE_KEY as string
     const [state, handleSubmit] = useForm(formKey)
     const { succeeded, errors, submitting } = state
-    const currentYear = new Date().getFullYear()
 
     const resetForm = useCallback(() => {
         setEmail(null)

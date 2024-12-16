@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
 import BottomNav from './BottomNav'
 import hook from './useBottomNav'
@@ -14,8 +14,11 @@ const defaultMockHook = {
     message: '',
     setMessage: jest.fn(),
     showSuccessMessage: false,
-    errors: null,
-    submitting: false,
+    state: {
+        succeeded: false,
+        errors: [] as { field: string; message: string }[],
+    },
+    onFormSubmit: jest.fn(),
     handleSubmit: jest.fn(),
     currentYear: 2023,
 }

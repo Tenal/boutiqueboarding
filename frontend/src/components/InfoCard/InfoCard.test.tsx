@@ -48,7 +48,7 @@ describe('InfoCard Component', () => {
             />
         )
 
-        const paperElement = screen.getByTestId('InfoCardPaper')
+        const paperElement = screen.getByTestId('info-card')
         fireEvent.click(paperElement)
         expect(mockHook.handleClick).toHaveBeenCalledTimes(1)
     })
@@ -62,15 +62,15 @@ describe('InfoCard Component', () => {
             />
         )
 
-        const paperElement = screen.getByTestId('InfoCardPaper')
+        const paperElement = screen.getByTestId('info-card')
         expect(paperElement).toHaveClass('infoCard clickable')
     })
 
-    it('should apply nonClickable class when onClick is not provided', () => {
+    it('should not apply clickable class when onClick is not provided', () => {
         mockHook.clickable = false
         render(<InfoCard icon={<span>Icon</span>} title="Non-Clickable Card" />)
 
-        const paperElement = screen.getByTestId('InfoCardPaper')
-        expect(paperElement).toHaveClass('infoCard nonClickable')
+        const paperElement = screen.getByTestId('info-card')
+        expect(paperElement).not.toHaveClass('clickable')
     })
 })

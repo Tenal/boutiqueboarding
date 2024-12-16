@@ -5,7 +5,7 @@
     },
     {
         "title": "How we operate",
-        "body": "We offer boutique, in-home boarding for anyone looking for a \"home away from home\" alternative to kennels. To ensure each dog receives the attention they deserve, we typically only board one dog at a time, as we often have a foster dog in our home. This allows us to prioritize individualized attention and focus on meeting every dog's mental and physical needs to ensure a balanced, fulfilled, and enriching environment. With the flexibility of being full-time work-from-home professionals, we can offer your furry family member companionship and structured care all day."
+        "body": "We offer boutique, in-home boarding for anyone looking for a \"home away from home\" alternative to kennels. To ensure each dog receives the attention they deserve, we typically only board one dog at a time, as we often have a foster dog in our home. This allows us to prioritize individualized attention and focus on meeting every dog's mental and physical needs to ensure a balanced, fulfilled, and enriching environment. With the flexibility of being full-time work-from-home professionals, we can offer your furry family member structured care all day."
     },
     {
         "title": "What we have",
@@ -18,5 +18,9 @@
             "Special Needs Dog Experience",
             "Behavioural Dog Experience"
         ]
+    },
+    {
+        "title": "Where we're located",
+        "body": "We are located in a quiet neighbourhood in Vaughan, Ontario, with an abundance of parks nearby that we often frequent with the dogs. We live in a semi-detached home with a fully-fenced backyard. Each of our home offices contains a crate to ensure every dog has a quiet place to decompress and sleep at night."
     }
 ]
