@@ -6,7 +6,7 @@ import {
     Typography,
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import { addHyperlinks } from 'utils/generalHelper'
+import { addHyperlinks } from '../../utils/generalHelper'
 
 interface ISingleAccordionProps {
     title: string

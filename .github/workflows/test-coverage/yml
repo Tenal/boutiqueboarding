@@ -1,0 +1,27 @@
+name: Test and Report Coverage
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the latest code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Install Dependencies
+      - name: Install Dependencies
+        run: cd frontend && npm ci
+
+      # Step 3: Run Tests with Coverage
+      - name: Run Tests and Generate Coverage
+        run: cd frontend && npm run test:coverage
+
+      # Step 4: Upload Coverage Report
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage-report
+          path: frontend/coverage/lcov-report

@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import SingleAccordion from './SingleAccordion'
 
-jest.mock('utils/generalHelper', () => ({
+jest.mock('../../utils/generalHelper', () => ({
     addHyperlinks: jest.fn((text) => text),
 }))
 

@@ -15,7 +15,6 @@ import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
 import ReviewBox from '../../components/ReviewBox/ReviewBox'
 import currentReviews from './currentReviews.json'
-
 import hook from './useReviews'
 
 function Reviews() {

@@ -4,36 +4,40 @@ import { MemoryRouter } from 'react-router-dom'
 import Reviews from './Reviews'
 import hook from './useReviews'
 
-jest.mock('./useReviews')
-jest.mock('../../components/ReviewBox/ReviewBox', () => () => (
-    <div data-testid="review-box" />
+// Mock components
+jest.mock('../../components/TopNav/TopNav', () => () => <div>TopNav</div>)
+jest.mock('../../components/Header/Header', () => () => <div>Header</div>)
+jest.mock('../../components/BottomNav/BottomNav', () => () => (
+    <div>BottomNav</div>
 ))
+jest.mock('../../components/ReviewBox/ReviewBox', () => () => (
+    <div data-testid="review-box">ReviewBox</div>
+))
+jest.mock('./useReviews')
 jest.mock('./currentReviews.json', () => [
     {
-        dog: 'bob',
+        dog: 'Test Dog',
         stars: 5,
-        name: 'Jane & John',
-        review: 'Our dog loved it',
+        name: 'Test Name',
+        review: 'Test Review',
     },
 ])
 
+// Mock hook return values
 const defaultMockHook = {
     dog: '',
     name: '',
     review: '',
     rating: null,
     showSuccessMessage: false,
-    state: {
-        succeeded: false,
-        errors: null,
-    },
+    state: { errors: null, submitting: false },
     onFormSubmit: jest.fn(),
     handleDogChange: jest.fn(),
     handleNameChange: jest.fn(),
     handleReviewChange: jest.fn(),
     handleRatingChange: jest.fn(),
 }
-let mockHook = defaultMockHook
+let mockHook = { ...defaultMockHook }
 
 describe('Reviews', () => {
     let hookSpy: jest.SpyInstance<any, any>
@@ -41,6 +45,7 @@ describe('Reviews', () => {
     beforeEach(() => {
         jest.clearAllMocks()
         jest.useFakeTimers()
+        mockHook = { ...defaultMockHook }
         hookSpy = jest.spyOn(hook, 'useReviews')
         hookSpy.mockImplementation(() => mockHook)
     })
@@ -51,8 +56,6 @@ describe('Reviews', () => {
     })
 
     it('should render ReviewBoxes and form', () => {
-        mockHook = { ...defaultMockHook }
-
         render(
             <MemoryRouter>
                 <Reviews />
@@ -112,8 +115,6 @@ describe('Reviews', () => {
     })
 
     it('should call onFormSubmit on form submission', () => {
-        mockHook = { ...defaultMockHook }
-
         render(
             <MemoryRouter>
                 <Reviews />

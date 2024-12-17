@@ -1,16 +1,31 @@
-declare module '*.webp'
-declare module '*.png'
-declare module '*.jpeg'
-declare module '*.gif'
+declare module '*.webp' {
+    const src: string
+    export default src
+}
+
+declare module '*.png' {
+    const src: string
+    export default src
+}
+
+declare module '*.jpeg' {
+    const src: string
+    export default src
+}
+
+declare module '*.gif' {
+    const src: string
+    export default src
+}
 
 declare module '*.jpg' {
-    const value: any
-    export default value
+    const src: string
+    export default src
 }
 
 declare module '*.svg' {
     import React from 'react'
     export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>
-    const src: any
-    export default any
+    const src: string
+    export default src
 }

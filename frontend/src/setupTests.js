@@ -1,6 +1,5 @@
-import React from 'react'
-import '@testing-library/jest-dom/extend-expect'
-
+const React = require('react')
+require('@testing-library/jest-dom/extend-expect')
 require('jest-fetch-mock').enableMocks()
 
 React.useLayoutEffect = React.useEffect

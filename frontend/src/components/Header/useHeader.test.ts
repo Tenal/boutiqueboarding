@@ -58,4 +58,49 @@ describe('useHeader', () => {
         expect(result.current.currentImageClass).toBe('reviewsImage')
         expect(result.current.isLargeImageLoaded).toBe(false)
     })
+
+    it('should normalize title for class mapping', () => {
+        const { result } = renderHook(() =>
+            hook.useHeader({ title: 'About Us' })
+        )
+        expect(result.current.currentImageClass).toBe('aboutusImage')
+    })
+
+    it('should handle uppercase titles correctly', () => {
+        const { result } = renderHook(() => hook.useHeader({ title: 'FAQS' }))
+        expect(result.current.currentImageClass).toBe('faqsImage')
+    })
+
+    it('should handle titles with spaces correctly', () => {
+        const { result } = renderHook(() =>
+            hook.useHeader({ title: 'about us' })
+        )
+        expect(result.current.currentImageClass).toBe('aboutusImage')
+    })
+
+    it('should handle unknown titles gracefully', () => {
+        const { result } = renderHook(() =>
+            hook.useHeader({ title: 'nonexistent' })
+        )
+        expect(result.current.isHome).toBe(false)
+        expect(result.current.currentImageClass).toBe('homeImage')
+    })
+
+    it('should handle empty title', () => {
+        const { result } = renderHook(() => hook.useHeader({ title: '' }))
+        expect(result.current.isHome).toBe(false)
+        expect(result.current.currentImageClass).toBe('homeImage')
+    })
+
+    it('should cleanup image load listener on unmount', () => {
+        const { unmount } = renderHook(() => hook.useHeader({ title: 'home' }))
+        unmount()
+
+        act((): void => {
+            const img = new Image()
+            const loadEvent = new Event('load')
+            img.dispatchEvent(loadEvent)
+            return undefined
+        })
+    })
 })

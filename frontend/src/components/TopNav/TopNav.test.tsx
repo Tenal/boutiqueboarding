@@ -6,6 +6,7 @@ import hook from './useTopNav'
 
 // Mock components
 jest.mock('./useTopNav')
+jest.mock('../../resources/logo.png', () => 'mock-image-path')
 
 // Mock hook return values
 const defaultMockHook = {
