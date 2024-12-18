@@ -2,8 +2,6 @@
 
 A full-stack web application for dog boarding services using React and TypeScript.
 
----
-
 ## Table of Contents
 - [Overview](#overview)
 - [Project Structure](#project-structure)
@@ -21,12 +19,8 @@ A full-stack web application for dog boarding services using React and TypeScrip
 - [Testing & Coverage](#testing-and-coverage)
 - [License](#license)
 
----
-
 ## Overview
 Boutique Boarding is a full-stack web application for dog boarding services. Parts of the application are still under development, but once the backend is complete it will offer features like booking management, customer reviews, and automated email notifications using React and TypeScript.
-
----
 
 ## Project Structure
 ```
@@ -44,11 +38,9 @@ Boutique Boarding is a full-stack web application for dog boarding services. Par
   └── backend/            # API service application (in development)
 ```
 
----
-
 ## Architecture
 
-### Application Structure
+#### Application Structure
 - **Monorepo**: Managed using npm workspaces.
 - **Frontend**: React with TypeScript and Material UI.
 - **State Management**: Recoil for global state and React hooks for local state.
@@ -56,7 +48,7 @@ Boutique Boarding is a full-stack web application for dog boarding services. Par
 - **Styling**: SCSS modules and Material UI customization.
 - **Testing**: Unit tests using Jest and React Testing Library.
 
-### Component Design
+#### Component Design
 - **Custom Hooks Pattern**: Components focus on rendering while business logic is delegated to custom hooks.
 - **Component Organization**: Each feature is a self-contained module:
 
@@ -68,30 +60,28 @@ ComponentName/
 └── useComponentName.test.ts   # Hook tests (if needed)
 ```
 
-### State Management
+#### State Management
 - **Local State**: Managed using `useState` and `useReducer`.
 - **Global State**: Managed using Recoil atoms and selectors.
 - **Form State**: Managed with Formspree hooks for server-side submissions.
 
-### Data Flow
+#### Data Flow
 - **Props-Driven**: Components receive data via props.
 - **Custom Hooks**: Encapsulate business logic, data fetching, and transformations.
 - **Event Handlers**: Handle user interactions at the component level.
 - **Async Operations**: Managed within custom hooks using `useEffect` and async functions.
 
-### Styling Strategy
+#### Styling Strategy
 - **Theming**: Custom Material UI theme overrides.
 - **SCSS Modules**: For granular styles beyond MUI's capabilities.
 - **Global Variables**: Shared styles using SCSS variables and mixins.
 - **Responsive Design**: Managed using Material UI breakpoints.
 
-### Testing Strategy
+#### Testing Strategy
 - **Tools**: Jest and React Testing Library.
 - **Scope**: Focused on unit testing (E2E testing in development).
 - **Location**: Tests colocated with components for better context.
 - **Organization**: Follows the same feature-based structure as components.
-
----
 
 ## URLs and Ports
 
@@ -107,12 +97,10 @@ ComponentName/
   - Frontend: https://www.boutiqueboarding.com
   - API: TBD
 
----
-
 ## Installation & Setup
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-repo/boutiqueboarding.git
+   git clone https://github.com/Tenal/boutiqueboarding.git
    cd boutiqueboarding
    ```
 2. **Install dependencies:**
@@ -124,8 +112,6 @@ ComponentName/
    npm run start:frontend
    ```
 
----
-
 ## Scripts
 - **Start Both:** `npm start`
 - **Start Frontend:** `npm run start:frontend`
@@ -133,8 +119,6 @@ ComponentName/
 - **Run Tests:** `npm test`
 - **Build Project:** `npm run build`
 - **Test Coverage:** `npm run test:coverage`
-
----
 
 ## Dependencies
 - **Root Dependencies:** `concurrently`
@@ -146,8 +130,6 @@ ComponentName/
   - Testing: `jest`, `@testing-library/*`, `jest-fetch-mock`, `jest-environment-jsdom`
   - TypeScript: `typescript`, `ts-jest`
   - Linting: `eslint`, `eslint-config-airbnb`, `eslint-config-prettier`
-
----
 
 ## Testing & Coverage
 Run the following commands to test the application:
@@ -166,11 +148,7 @@ cd frontend && npm run test:watch
 - **Coverage Report:** Test coverage is generated in `coverage/coverage-summary.json`.
 - **Coverage Threshold:** Set to 80% for statements, branches, functions, and lines. Current coverage averages over 95%.
 
----
-
 ## License
 This project is **private** and not intended for public use or distribution.
-
----
 
 
