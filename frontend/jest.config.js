@@ -11,7 +11,8 @@ module.exports = {
     },
     setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
     collectCoverage: true,
-    coverageReporters: ['text', 'json-summary'],
+    coverageDirectory: '<rootDir>/coverage',
+    coverageReporters: ['text', 'json-summary', 'lcov'],
     collectCoverageFrom: [
         'src/**/*.{ts,tsx}',
         '!src/**/*.d.ts',
