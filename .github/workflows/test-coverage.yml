@@ -27,7 +27,7 @@ jobs:
 
       # Step 4: Upload Coverage Report
       - name: Upload Coverage Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: coverage-report
           path: frontend/coverage/lcov-report
