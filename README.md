@@ -110,6 +110,8 @@ ComponentName/
 3. **Start the development server:**
    ```bash
    npm run start:frontend
+   /or/
+   npm run start
    ```
 
 ## Scripts
