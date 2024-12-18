@@ -5,13 +5,13 @@ export interface IUseInfoCardProps {
 }
 
 const useInfoCard = ({ onClick }: IUseInfoCardProps) => {
+    const clickable = !!onClick
+
     const handleClick = useCallback(() => {
         if (onClick) {
             onClick()
         }
     }, [onClick])
-
-    const clickable = !!onClick
 
     return {
         handleClick,

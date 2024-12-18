@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Typography, Container } from '@mui/material'
-import hook, { IHeaderProps } from './useHeader'
+import hook, { IUseHeaderProps } from './useHeader'
 
-function Header({ title }: IHeaderProps) {
+function Header({ title }: IUseHeaderProps) {
     const { isHome, homeTitle, currentImageClass, isLargeImageLoaded } =
         hook.useHeader({ title })
 

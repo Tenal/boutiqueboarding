@@ -5,7 +5,6 @@ const useTopNav = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     const theme = useTheme()
     const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
-
     const pages = ['About', 'FAQs', 'Reviews']
 
     const handleMenuToggle = useCallback(() => {

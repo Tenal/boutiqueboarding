@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 
-export const useReviewBox = (stars: number, dog: string) => {
+const useReviewBox = (stars: number, dog: string) => {
     const [isLoading, setIsLoading] = useState<boolean>(true)
     const fullStarsCount = Math.floor(stars)
     const hasHalfStar = stars - fullStarsCount >= 0.5

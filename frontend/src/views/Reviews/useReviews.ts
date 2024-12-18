@@ -47,12 +47,15 @@ const useReviews = () => {
         }
     }, [state.succeeded, resetForm])
 
-    const onFormSubmit = (event: React.FormEvent) => {
-        event.preventDefault()
-        if (dog && name && review && rating !== null) {
-            handleSubmit({ dog, name, review, rating })
-        }
-    }
+    const onFormSubmit = useCallback(
+        (event: React.FormEvent): void => {
+            event.preventDefault()
+            if (dog && name && review && rating !== null) {
+                handleSubmit({ dog, name, review, rating })
+            }
+        },
+        [dog, name, review, rating, handleSubmit]
+    )
 
     useEffect(() => {
         handleSuccess()

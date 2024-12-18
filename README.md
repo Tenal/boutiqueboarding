@@ -1,6 +1,6 @@
 # Boutique Boarding
 
-A full-stack web application for dog boarding services using React and TypeScript.
+A web application for dog boarding services built with React, TypeScript, Material UI, and SCSS modules. State management uses Recoil and React Hooks, with Formspree for form submissions. Jest and React Testing Library handle unit testing, integrated with GitHub Actions for CI/CD.
 
 ## Table of Contents
 - [Overview](#overview)
