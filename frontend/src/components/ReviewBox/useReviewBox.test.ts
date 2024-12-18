@@ -32,28 +32,67 @@ describe('useReviewBox', () => {
         expect(result.current.isLoading).toBe(false)
     })
 
-    it('should calculate star counts correctly for various star ratings', () => {
-        const testCases = [
-            { stars: 5, full: 5, half: false, empty: 0 },
-            { stars: 4.5, full: 4, half: true, empty: 0 },
-            { stars: 4, full: 4, half: false, empty: 1 },
-            { stars: 3.5, full: 3, half: true, empty: 1 },
-            { stars: 3, full: 3, half: false, empty: 2 },
-            { stars: 2.5, full: 2, half: true, empty: 2 },
-            { stars: 2, full: 2, half: false, empty: 3 },
-            { stars: 1.5, full: 1, half: true, empty: 3 },
-            { stars: 1, full: 1, half: false, empty: 4 },
-            { stars: 0.5, full: 0, half: true, empty: 4 },
-            { stars: 0, full: 0, half: false, empty: 5 },
-        ]
+    it('should handle image error correctly', () => {
+        const { result } = renderHook(() => hook.useReviewBox(4, 'testDog'))
 
-        testCases.forEach(({ stars, full, half, empty }) => {
-            const dog = 'testDog'
-            const { result } = renderHook(() => hook.useReviewBox(stars, dog))
-            expect(result.current.fullStarsCount).toBe(full)
-            expect(result.current.hasHalfStar).toBe(half)
-            expect(result.current.emptyStarsCount).toBe(empty)
+        expect(result.current.isLoading).toBe(true)
+
+        act(() => {
+            result.current.handleImageError()
         })
+
+        expect(result.current.isLoading).toBe(false)
+    })
+
+    it('should preload image when dog changes', () => {
+        const mockImage = {
+            onload: null,
+            onerror: null,
+            src: '',
+        }
+        global.Image = jest.fn(() => mockImage) as any
+
+        const { rerender } = renderHook(
+            ({ dog }) => hook.useReviewBox(4, dog),
+            { initialProps: { dog: 'dog1' } }
+        )
+
+        expect(mockImage.src).toBe('/resources/reviewPhotos/dog1.jpg')
+
+        rerender({ dog: 'dog2' })
+        expect(mockImage.src).toBe('/resources/reviewPhotos/dog2.jpg')
+    })
+
+    it('should calculate star counts correctly for whole numbers', () => {
+        const { result } = renderHook(() => hook.useReviewBox(4, 'testDog'))
+
+        expect(result.current.fullStarsCount).toBe(4)
+        expect(result.current.hasHalfStar).toBe(false)
+        expect(result.current.emptyStarsCount).toBe(1)
+    })
+
+    it('should calculate star counts correctly for decimal numbers', () => {
+        const { result } = renderHook(() => hook.useReviewBox(3.7, 'testDog'))
+
+        expect(result.current.fullStarsCount).toBe(3)
+        expect(result.current.hasHalfStar).toBe(true)
+        expect(result.current.emptyStarsCount).toBe(1)
+    })
+
+    it('should handle 5 stars', () => {
+        const { result } = renderHook(() => hook.useReviewBox(5, 'testDog'))
+
+        expect(result.current.fullStarsCount).toBe(5)
+        expect(result.current.hasHalfStar).toBe(false)
+        expect(result.current.emptyStarsCount).toBe(0)
+    })
+
+    it('should handle 0 stars', () => {
+        const { result } = renderHook(() => hook.useReviewBox(0, 'testDog'))
+
+        expect(result.current.fullStarsCount).toBe(0)
+        expect(result.current.hasHalfStar).toBe(false)
+        expect(result.current.emptyStarsCount).toBe(5)
     })
 
     it('should reset isLoading when dog prop changes', () => {

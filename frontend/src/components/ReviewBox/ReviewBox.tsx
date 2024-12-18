@@ -62,6 +62,7 @@ export default function ReviewBox({
     const {
         isLoading,
         handleImageLoad,
+        handleImageError,
         fullStarsCount,
         hasHalfStar,
         emptyStarsCount,
@@ -93,6 +94,7 @@ export default function ReviewBox({
                         className="reviewImage"
                         loading="lazy"
                         onLoad={handleImageLoad}
+                        onError={handleImageError}
                     />
                 </Box>
             </Box>
