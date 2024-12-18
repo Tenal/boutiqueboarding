@@ -149,6 +149,6 @@ cd frontend && npm run test:watch
 - **Coverage Threshold:** Set to 80% for statements, branches, functions, and lines. Current coverage averages over 95%.
 
 ## License
-This project is **private** and not intended for public use or distribution.
+This project is private and not intended for public use or distribution.
 
 
