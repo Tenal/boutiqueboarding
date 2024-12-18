@@ -12,19 +12,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the latest code
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      # Step 2: Install Dependencies
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
       - name: Install Dependencies
-        run: npm ci --workspaces
+        run: npm ci
 
-      # Step 3: Run Tests with Coverage
       - name: Run Tests and Generate Coverage
         run: cd frontend && npm run test:coverage
 
-      # Step 4: Upload Coverage Report
       - name: Upload Coverage Report
         uses: actions/upload-artifact@v3
         with:
