@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [main, dev]
   workflow_dispatch:
-    branches: [main, dev]
 
 jobs:
   test:
@@ -19,7 +18,7 @@ jobs:
 
       # Step 2: Install Dependencies
       - name: Install Dependencies
-        run: cd frontend && npm ci
+        run: npm ci --workspaces
 
       # Step 3: Run Tests with Coverage
       - name: Run Tests and Generate Coverage
