@@ -10,7 +10,8 @@
     "start:frontend": "npm start --workspace=frontend",
     "start:backend": "npm start --workspace=backend",
     "test": "npm test --workspaces",
-    "build": "npm run build --workspaces"
+    "build": "npm run build --workspaces",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --config ./frontend/.eslintrc.json \"./frontend/src/**/*.{ts,tsx}\""
   },
   "devDependencies": {
     "concurrently": "^8.0.0"

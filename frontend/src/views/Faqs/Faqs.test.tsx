@@ -25,12 +25,10 @@ jest.mock(
         ({
             icon,
             title,
-            clickable,
             onClick,
         }: {
             icon: JSX.Element
             title: string
-            clickable: boolean
             onClick: () => void
         }) => (
             <div data-testid="InfoCard" onClick={onClick}>
@@ -51,7 +49,7 @@ jest.mock(
 )
 
 // Mock hook return values
-const defaultMockHook = {
+const mockHook = {
     handleScrollToFaqSection: jest.fn(),
     faqsGroupedBySection: {
         '1': [
@@ -91,7 +89,6 @@ const defaultMockHook = {
         },
     ],
 }
-let mockHook = defaultMockHook
 
 describe('Faqs Component', () => {
     let hookSpy: jest.SpyInstance<any, any>

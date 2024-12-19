@@ -2,7 +2,7 @@ name: Run ESLint
 
 on:
   pull_request:
-    branches: [main, dev]
+    branches: [main]
   workflow_dispatch:
 
 jobs:

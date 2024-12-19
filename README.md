@@ -115,12 +115,13 @@ ComponentName/
    ```
 
 ## Scripts
-- **Start Both:** `npm start`
 - **Start Frontend:** `npm run start:frontend`
 - **Start Backend:** `npm run start:backend`
+- **Start Both:** `npm start`
 - **Run Tests:** `npm test`
 - **Build Project:** `npm run build`
-- **Test Coverage:** `npm run test:coverage`
+- **Calculate Test Coverage:** `npm run test:coverage`
+- **Run linting:** `npm run lint`
 
 ## Dependencies
 - **Root Dependencies:** `concurrently`

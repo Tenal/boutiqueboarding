@@ -20,7 +20,7 @@ const createStarIcons = (
 ): React.ReactNode[] => {
     const starElements: React.ReactNode[] = []
 
-    for (let i = 0; i < fullStarsCount; i++) {
+    for (let i = 0; i < fullStarsCount; i += 1) {
         starElements.push(
             <StarFullIcon
                 key={`full-${i}`}
@@ -40,7 +40,7 @@ const createStarIcons = (
         )
     }
 
-    for (let i = 0; i < emptyStarsCount; i++) {
+    for (let i = 0; i < emptyStarsCount; i += 1) {
         starElements.push(
             <StarEmptyIcon
                 key={`empty-${i}`}

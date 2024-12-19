@@ -6,11 +6,10 @@ import hook from './useInfoCard'
 jest.mock('./useInfoCard')
 
 // Mock hook return values
-const defaultMockHook = {
+const mockHook = {
     handleClick: jest.fn(),
     clickable: true,
 }
-let mockHook = defaultMockHook
 
 describe('InfoCard Component', () => {
     let hookSpy: jest.SpyInstance<any, any>
