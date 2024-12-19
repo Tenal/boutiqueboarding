@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {
     Container,
     Box,
@@ -8,81 +8,84 @@ import {
     Typography,
     Autocomplete,
 } from '@mui/material'
-import { useForm, ValidationError } from '@formspree/react'
+import { ValidationError } from '@formspree/react'
 
 import TopNav from '../../components/TopNav/TopNav'
 import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
 import ReviewBox from '../../components/ReviewBox/ReviewBox'
 import currentReviews from './currentReviews.json'
+import hook from './useReviews'
 
 function Reviews() {
-    const [dog, setDog] = useState<string>('')
-    const [name, setName] = useState<string>('')
-    const [review, setReview] = useState<string>('')
-    const [rating, setRating] = useState<number | null>(null)
-    const [submitted, setSubmitted] = useState(false)
-    const [state, handleSubmit] = useForm('xvojkykg')
-
-    const handleDogChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDog(event.target.value)
-    }
-
-    const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setName(event.target.value)
-    }
-
-    const handleReviewChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setReview(event.target.value)
-    }
-
-    const handleRatingChange = (
-        _event: React.SyntheticEvent<Element, Event>,
-        newValue: number | null
-    ) => {
-        setRating(newValue)
-    }
-
-    const handleFormSubmit = (event: React.FormEvent) => {
-        event.preventDefault()
-        if (dog && name && review && rating !== null) {
-            handleSubmit({ dog, name, review, rating })
-        }
-    }
+    const {
+        dog,
+        name,
+        review,
+        rating,
+        showSuccessMessage,
+        state,
+        onFormSubmit,
+        handleDogChange,
+        handleNameChange,
+        handleReviewChange,
+        handleRatingChange,
+    } = hook.useReviews()
 
     const getReviews = () =>
-        currentReviews.map((review) => (
+        currentReviews.map((rev) => (
             <ReviewBox
-                key={`${review.name}_${review.dog}`}
-                dog={review.dog}
-                stars={review.stars}
-                name={review.name}
-                review={review.review}
+                key={`${rev.name}_${rev.dog}`}
+                dog={rev.dog}
+                stars={rev.stars}
+                name={rev.name}
+                review={rev.review}
             />
         ))
 
+    const renderSuccessMessage = () => (
+        <Box className="reviewFormMessage">
+            <Typography variant="body1" className="semiBold">
+                We received your review!
+            </Typography>
+            <Typography variant="body1" sx={{ mt: 2 }}>
+                Thank you so much for taking the time to write one, we are
+                extremely appreciative!
+            </Typography>
+        </Box>
+    )
+
+    const renderErrorMessage = () => (
+        <Box className="reviewFormMessage">
+            <Typography
+                variant="body2"
+                color="error"
+                style={{ marginTop: '1rem' }}
+            >
+                We are sorry, there was an issue submitting your review. If the
+                problem persists, you are welcome to email your review to us at{' '}
+                <a href="mailto:boutiqueboardco@gmail.com" className="links">
+                    boutiqueboardco@gmail.com
+                </a>
+            </Typography>
+        </Box>
+    )
+
     const reviewForm = () => {
-        if (submitted) {
-            return (
-                <Box
-                    sx={{
-                        minHeight: '360px',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        maxWidth: '525px',
-                    }}
-                >
-                    <Typography variant="body1">
-                        We received your review! Thank you so much for taking
-                        the time to write one, we are extremely appreciative!
-                    </Typography>
-                </Box>
-            )
+        if (showSuccessMessage) {
+            return renderSuccessMessage()
+        }
+
+        if (state.errors) {
+            return renderErrorMessage()
         }
 
         return (
-            <form onSubmit={handleFormSubmit} style={{ maxWidth: '525px' }}>
+            <form
+                onSubmit={onFormSubmit}
+                style={{ maxWidth: '525px' }}
+                data-testid="review-form"
+            >
                 <Typography variant="h2" sx={{ mb: 2 }}>
                     Did you board with us? Leave us a Review!
                 </Typography>
@@ -159,40 +162,9 @@ function Reviews() {
                 >
                     Submit
                 </Button>
-
-                {state.errors && (
-                    <Typography
-                        variant="body2"
-                        color="error"
-                        style={{ marginTop: '1rem' }}
-                    >
-                        We are sorry, there was an issue submitting your review.
-                        If the problem persists, you are welcome to email your
-                        review to us at{' '}
-                        <a
-                            href="mailto:boutiqueboardco@gmail.com"
-                            className="links"
-                        >
-                            boutiqueboardco@gmail.com
-                        </a>
-                    </Typography>
-                )}
             </form>
         )
     }
-
-    useEffect(() => {
-        if (state.succeeded) {
-            setSubmitted(true)
-            setTimeout(() => {
-                setDog('')
-                setName('')
-                setReview('')
-                setRating(null)
-                setSubmitted(false)
-            }, 5000)
-        }
-    }, [state.succeeded])
 
     return (
         <>

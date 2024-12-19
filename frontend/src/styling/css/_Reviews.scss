@@ -20,13 +20,36 @@
         top: 12px;
         width: 110px;
         height: 110px;
+        background-color: #9f958d;
         border: 15px solid #d9d8b2;
         border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .svgContainer,
+        .imgContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+            &.show {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
         .reviewImage {
             width: 110px;
             height: 110px;
             border-radius: 50%;
             object-fit: cover;
+        }
+        .dogSvg {
+            width: 75%;
+            height: 75%;
+            fill: #ffffff;
         }
     }
     .textContainer {
@@ -53,4 +76,12 @@
             margin-top: 30px;
         }
     }
+}
+
+.reviewFormMessage {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 525px;
 }

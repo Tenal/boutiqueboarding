@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
     Box,
     Typography,
@@ -10,68 +10,66 @@ import {
 } from '@mui/material'
 import InstagramIcon from '@mui/icons-material/Instagram'
 import { Link } from 'react-router-dom'
-import { useForm, ValidationError } from '@formspree/react'
+import { ValidationError } from '@formspree/react'
+import hook from './useBottomNav'
+
+interface InternalLinkProps {
+    to: string
+    variant?: 'h5' | 'body1'
+    children: React.ReactNode
+}
+
+function InternalLink({ to, variant = 'body1', children }: InternalLinkProps) {
+    return (
+        <Link to={to}>
+            <Typography variant={variant} className="footerLinks">
+                {children}
+            </Typography>
+        </Link>
+    )
+}
 
 function BottomNav() {
-    const [email, setEmail] = useState<string | null>(null)
-    const [message, setMessage] = useState<string | null>(null)
-    const [state, handleSubmit] = useForm('xvojkykg')
-    const currentYear = new Date().getFullYear()
-
-    // TODO update form emailing mechanism, replace formspree
-    // const handleSubmit = async (
-    //     e: React.FormEvent<HTMLFormElement>
-    // ): Promise<void> => {
-    //     e.preventDefault()
-    //     const formData = {
-    //         email,
-    //         message,
-    //     }
-    //     try {
-    //         await axios.post('/send-email', formData)
-    //         alert('Email sent successfully!')
-    //     } catch (error) {
-    //         console.error('Error sending email:', error)
-    //     }
-    // }
+    const {
+        email,
+        setEmail,
+        message,
+        setMessage,
+        showSuccessMessage,
+        errors,
+        submitting,
+        handleSubmit,
+        currentYear,
+    } = hook.useBottomNav()
 
     const renderLinks = () => (
         <Box mb={2} mr={4}>
-            <Link to="/">
-                <Typography variant="h5" className="footerLinks">
-                    Boutique Boarding
-                </Typography>
-            </Link>
-            <Link to="/about">
-                <Typography variant="body1" className="footerLinks">
-                    About
-                </Typography>
-            </Link>
-            <Link to="/faqs">
-                <Typography variant="body1" className="footerLinks">
-                    FAQs
-                </Typography>
-            </Link>
-            <Link to="/reviews">
-                <Typography variant="body1" className="footerLinks">
-                    Reviews
-                </Typography>
-            </Link>
-            <Box mt={3} mb={2}>
-                <Link to="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg==">
+            <InternalLink to="/" variant="h5">
+                Boutique Boarding
+            </InternalLink>
+            <InternalLink to="/about">About</InternalLink>
+            <InternalLink to="/faqs">FAQs</InternalLink>
+            <InternalLink to="/reviews">Reviews</InternalLink>
+            <Box mt={1} mb={2}>
+                <a
+                    href="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <InstagramIcon className="footerLinks" />
-                </Link>
+                </a>
             </Box>
         </Box>
     )
 
     const renderForm = () => {
-        if (state.succeeded) {
+        if (showSuccessMessage) {
             return (
                 <Box mb={2} className="footerForm">
                     <Typography variant="h5">Contact Us</Typography>
+                    <Typography variant="body1">Email received!</Typography>
                     <Typography variant="body1">
-                        Email received! We will respond within 24 hours.
+                        We will respond within 24 hours.
                     </Typography>
                 </Box>
             )
@@ -80,14 +78,12 @@ function BottomNav() {
         return (
             <Box mb={2} className="footerForm">
                 <Typography variant="h5">Contact Us</Typography>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} data-testid="contact-form">
                     <TextField
                         label="Email"
                         value={email ?? ''}
-                        onChange={(e) => {
-                            setEmail(e.target.value)
-                        }}
-                        type="text"
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
                         variant="outlined"
                         color="primary"
                         className="footerInput"
@@ -99,14 +95,12 @@ function BottomNav() {
                     <ValidationError
                         prefix="Email"
                         field="email"
-                        errors={state.errors}
+                        errors={errors}
                     />
                     <TextField
                         label="Message"
                         value={message ?? ''}
-                        onChange={(e) => {
-                            setMessage(e.target.value)
-                        }}
+                        onChange={(e) => setMessage(e.target.value)}
                         type="text"
                         variant="outlined"
                         color="primary"
@@ -120,12 +114,14 @@ function BottomNav() {
                     <ValidationError
                         prefix="Message"
                         field="message"
-                        errors={state.errors}
+                        errors={errors}
                     />
                     <Button
+                        variant="contained"
                         color="secondary"
                         type="submit"
-                        disabled={state.submitting}
+                        disabled={submitting}
+                        sx={{ mt: 1 }}
                     >
                         Submit
                     </Button>

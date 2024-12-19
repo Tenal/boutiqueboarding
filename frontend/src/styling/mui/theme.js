@@ -150,7 +150,6 @@ const theme = createTheme({
                 fontSize: typ.size.REG,
             },
             input: {
-                // padding: '4px',
                 '&:hover': {
                     borderColor: `${colours.contrast.offWhiteDark} !important`,
                 },

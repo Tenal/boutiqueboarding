@@ -1,102 +1,71 @@
 import React from 'react'
-import {
-    Container,
-    Box,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Typography,
-} from '@mui/material'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import { Container, Box, Typography, Grid } from '@mui/material'
+import PetsIcon from '@mui/icons-material/Pets'
+import LocationIcon from '@mui/icons-material/FmdGoodOutlined'
+import PolicyIcon from '@mui/icons-material/PolicyOutlined'
+import ChatIcon from '@mui/icons-material/ChatOutlined'
 
 import TopNav from '../../components/TopNav/TopNav'
 import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
-import currentFaqs from './currentFaqs.json'
-import SectionHeaders from './SectionHeaders'
-
-interface IFaq {
-    section: number
-    question: string
-    answer: string
-}
-
-interface IGroupedFaqs {
-    [key: number]: IFaq[]
-}
+import InfoCard from '../../components/InfoCard/InfoCard'
+import SingleAccordion from '../../components/SingleAccordion/SingleAccordion'
+import hook, { IFaq } from './useFaqs'
 
 function Faqs() {
-    const addLinksToDescription = (text: string): string => {
-        const replacedWithIgLink = text.replace(
-            /boutiqueboarding(?![a-zA-Z0-9])/g,
-            '<a href="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg==" class="links">boutiqueboarding</a>'
-        )
+    const {
+        handleScrollToFaqSection,
+        faqsGroupedBySection,
+        sectionHeadings,
+        sections,
+    } = hook.useFaqs()
 
-        const replacedWithEmailLink = replacedWithIgLink.replace(
-            /boutiqueboardingco@gmail\.com/g,
-            '<a href="mailto:boutiqueboardingco@gmail.com" class="links">boutiqueboardingco@gmail.com</a>'
-        )
-
-        return replacedWithEmailLink
+    const iconMap: Record<string, JSX.Element> = {
+        PetsIcon: <PetsIcon className="infoIcon" />,
+        LocationIcon: <LocationIcon className="infoIcon" />,
+        PolicyIcon: <PolicyIcon className="infoIcon" />,
+        ChatIcon: <ChatIcon className="infoIcon" />,
     }
 
-    const singleAccordion = (title: string, body: string) => (
-        <Accordion key={title} sx={{ mb: 1 }}>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography
-                    variant="body1"
-                    sx={{ fontWeight: 500 }}
-                    className="noMargins"
-                >
-                    {title}
-                </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-                <Typography
-                    className="noMargins"
-                    dangerouslySetInnerHTML={{
-                        __html: addLinksToDescription(body),
-                    }}
-                ></Typography>
-            </AccordionDetails>
-        </Accordion>
+    const renderInfoCards = (): JSX.Element => (
+        <Box pb={3} mt={2} className="faqCardSection">
+            <Grid
+                container
+                direction="row"
+                justifyContent="space-between"
+                alignItems="stretch"
+                spacing={{ xs: 2, sm: 4, md: 6, lg: 8 }}
+            >
+                {sections.map((section) => (
+                    <InfoCard
+                        key={section.id}
+                        icon={iconMap[section.iconName]}
+                        title={section.title}
+                        onClick={() => handleScrollToFaqSection(section.id)}
+                    />
+                ))}
+            </Grid>
+        </Box>
     )
 
-    const groupFaqsBySection = (faqs: IFaq[]): IGroupedFaqs =>
-        faqs.reduce((groupedFaqs: IGroupedFaqs, faq: IFaq) => {
-            const { section } = faq
-            if (!groupedFaqs[section]) {
-                groupedFaqs[section] = []
-            }
-            groupedFaqs[section].push(faq)
-            return groupedFaqs
-        }, {})
-
-    const sectionHeadings: { [key: number]: string } = {
-        1: 'Care & Daily Activities',
-        2: 'Booking Details & Location',
-        3: 'Policies & Preparation',
-        4: 'Communication & Updates',
-    }
-
-    const renderFaqAccordions = (): JSX.Element => {
-        const faqsGroupedBySection: IGroupedFaqs =
-            groupFaqsBySection(currentFaqs)
-        return (
-            <>
-                {Object.entries(faqsGroupedBySection).map(([section, faqs]) => (
-                    <Box key={section} mt={6} mb={9} id={`section-${section}`}>
-                        <Typography variant="h3" sx={{ mt: 2, mb: 1 }}>
-                            {sectionHeadings[parseInt(section)]}
-                        </Typography>
-                        {faqs.map((faq: IFaq) =>
-                            singleAccordion(faq.question, faq.answer)
-                        )}
-                    </Box>
-                ))}
-            </>
-        )
-    }
+    const renderFaqAccordions = (): JSX.Element => (
+        <>
+            {Object.entries(faqsGroupedBySection).map(([section, faqs]) => (
+                <Box key={section} mt={6} mb={9} id={`section-${section}`}>
+                    <Typography variant="h3" sx={{ mb: '7px' }}>
+                        {sectionHeadings[parseInt(section, 10)]}
+                    </Typography>
+                    {faqs.map((faq: IFaq) => (
+                        <SingleAccordion
+                            key={faq.question}
+                            title={faq.question}
+                            body={faq.answer}
+                        />
+                    ))}
+                </Box>
+            ))}
+        </>
+    )
 
     return (
         <>
@@ -104,7 +73,7 @@ function Faqs() {
             <Header title="FAQs" />
             <Container maxWidth="xl">
                 <Box my={10}>
-                    <SectionHeaders />
+                    {renderInfoCards()}
                     {renderFaqAccordions()}
                 </Box>
             </Container>

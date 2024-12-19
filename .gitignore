@@ -6,6 +6,7 @@ frontend/.pnp
 frontend/.pnp.js
 
 # testing
+fronted/coverage
 
 # production
 /build
@@ -14,10 +15,7 @@ frontend/builds
 
 # misc
 .DS_Store
-.env.local
-.env.dev
-.env.test
-.env.prod
+.env
 
 npm-debug.log*
 yarn-debug.log*
