@@ -98,6 +98,8 @@ ComponentName/
   - API: TBD
 
 ## Installation & Setup
+_Please note that Formspree is currently used for form submissions. As such, you will need a **Formspree Key** to run this app.
+_
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Tenal/boutiqueboarding.git
@@ -107,7 +109,11 @@ ComponentName/
    ```bash
    npm install
    ```
-3. **Start the development server:**
+3. **Configure environmental variables (your env file should be in the /frontend directory):**
+```
+REACT_APP_FORMSPREE_KEY=xxxxx
+```
+4. **Start the development server:**
    ```bash
    npm run start:frontend
    /or/
