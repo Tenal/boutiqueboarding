@@ -98,7 +98,7 @@ ComponentName/
   - API: TBD
 
 ## Installation & Setup
-_Please note that Formspree is currently used for form submissions. As such, you will need a **Formspree Key** to run this app.
+_Please note that Formspree is currently used for form submissions. As such, you will need a Formspree Key to run this app.
 _
 1. **Clone the repository:**
    ```bash
@@ -110,9 +110,9 @@ _
    npm install
    ```
 3. **Configure environmental variables (your env file should be in the /frontend directory):**
-```
-REACT_APP_FORMSPREE_KEY=xxxxx
-```
+   ```
+   REACT_APP_FORMSPREE_KEY=xxxxx
+   ```
 4. **Start the development server:**
    ```bash
    npm run start:frontend
