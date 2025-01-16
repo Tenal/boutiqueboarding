@@ -98,8 +98,8 @@ ComponentName/
   - API: TBD
 
 ## Installation & Setup
-_Please note that Formspree is currently used for form submissions. As such, you will need a Formspree Key to run this app.
-_
+_Please note that Formspree is currently used for form submissions. As such, you will need a Formspree Key to run this app._
+
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/Tenal/boutiqueboarding.git
