@@ -14,6 +14,7 @@
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint --config ./frontend/.eslintrc.json \"./frontend/src/**/*.{ts,tsx}\""
   },
   "devDependencies": {
-    "concurrently": "^8.0.0"
+    "concurrently": "^8.0.0",
+    "typescript": "^5.1.6"
   }
 }
