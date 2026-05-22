@@ -192,6 +192,7 @@ function BoardingDetails() {
                                         duration: 0.45,
                                         delay: index * 0.08,
                                     }}
+                                    style={{ height: '100%' }}
                                 >
                                     <BoardingDetailCard {...detail} />
                                 </motion.div>
@@ -268,6 +269,7 @@ function FeaturedReviews() {
                                         duration: 0.45,
                                         delay: index * 0.1,
                                     }}
+                                    style={{ height: '100%' }}
                                 >
                                     <CompactReview
                                         review={review.review}
