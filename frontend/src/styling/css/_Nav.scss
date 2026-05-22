@@ -4,38 +4,39 @@
         margin-right: 10px;
     }
     .logoText {
-        margin-right: 2;
-        letter-spacing: 0.3rem;
+        letter-spacing: 0.15rem;
         text-decoration: none;
         color: white;
+        font-weight: 600;
     }
     .navLinks {
         display: flex;
-        gap: 10px;
+        gap: 4px;
         align-items: center;
         .navLink {
-            color: white;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             text-align: center;
-            margin-right: 15px;
-            text-transform: capitalize;
+            padding: 6px 12px;
+            border-radius: 4px;
             transition: color 0.2s;
             &:hover {
-                color: #707070;
+                color: var(--color-primary);
             }
         }
-    }
-    .accountIcon {
-        background-color: #9f958d;
-        color: #fff;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        transition: background-color 0.2s;
-        cursor: auto;
-        padding: 8px;
-        &:hover {
-            background-color: #707070;
+        .navLinkActive {
+            color: var(--color-primary) !important;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 12px;
+                right: 12px;
+                height: 2px;
+                background-color: var(--color-primary);
+                border-radius: 1px;
+            }
         }
     }
     .menuToggle {
@@ -55,7 +56,7 @@
                 transform 100ms ease-in-out;
         }
         &:hover .bar {
-            background-color: grey;
+            background-color: var(--color-primary);
         }
         .x:nth-of-type(1) {
             transform: rotate(45deg);
@@ -78,65 +79,125 @@
     position: fixed;
     left: 0;
     width: 100%;
-    background-color: white;
+    height: calc(100vh - 56px);
+    background-color: var(--color-ink);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4vh;
+    gap: 6vh;
     z-index: 1200;
-    transition: opacity 0.3s ease-in-out;
+    .menuNavLink {
+        text-decoration: none;
+    }
+    .menuNavLinkActive .menuLinks {
+        color: var(--color-primary) !important;
+    }
     .menuLinks {
         text-decoration: none;
-        color: black;
-        font-size: calc(0.5vh + 1rem);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: clamp(1.25rem, 4vw, 1.75rem);
+        font-weight: 600;
+        letter-spacing: 0.05rem;
         text-align: center;
         transition: color 0.2s ease-in-out;
         &:hover {
-            color: #c1be7f;
-        }
-    }
-    .accountIcon {
-        background-color: #9f958d;
-        color: #fff;
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        transition: background-color 0.2s;
-        cursor: auto;
-        padding: 8px;
-        &:hover {
-            background-color: #c1be7f;
+            color: var(--color-primary) !important;
         }
     }
 }
 
+.navBackdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1199;
+}
+
 .footer {
-    min-height: 5vh;
-    background-color: #f3e5d8;
+    background-color: var(--color-ink);
+    color: rgba(255, 255, 255, 0.85);
+
+    .footerBrand {
+        color: white;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.08rem;
+        display: block;
+        margin-bottom: 12px;
+        transition: color 0.2s;
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
     .footerLinks {
-        color: rgba(0, 0, 0, 0.35);
+        color: rgba(255, 255, 255, 0.6);
         text-decoration: none;
         transition: color 0.2s;
         cursor: pointer;
+        display: block;
+        margin-bottom: 10px;
         &:hover {
-            color: #707070;
+            color: var(--color-primary);
+        }
+    }
+    .footerInstagram {
+        color: rgba(255, 255, 255, 0.6);
+        transition: color 0.2s;
+        &:hover {
+            color: var(--color-primary);
+        }
+    }
+    .footerContactItem {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        display: block;
+        transition: color 0.2s;
+        &:hover {
+            color: var(--color-primary);
         }
     }
     .footerForm {
-        color: rgba(0, 0, 0, 0.35);
         .footerInput {
             display: flex;
             flex-direction: column;
-            max-width: 250px;
-            .MuiInputLabel-outlined {
-                color: rgba(0, 0, 0, 0.35);
+            width: 100%;
+            margin-top: 8px;
+            .MuiOutlinedInput-root {
+                background-color: rgba(255, 255, 255, 0.07);
+                border-radius: 6px;
+                fieldset {
+                    border-color: rgba(255, 255, 255, 0.2);
+                }
+                &:hover fieldset {
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
+                &.Mui-focused fieldset {
+                    border-color: var(--color-primary);
+                }
             }
-            margin-top: 4px;
+            .MuiInputLabel-root {
+                color: rgba(255, 255, 255, 0.5);
+                &.Mui-focused {
+                    color: var(--color-primary);
+                }
+            }
+            .MuiInputBase-input {
+                color: rgba(255, 255, 255, 0.9);
+            }
+        }
+    }
+    .footerDivider {
+        border-color: rgba(255, 255, 255, 0.1);
+        &::before,
+        &::after {
+            border-color: rgba(255, 255, 255, 0.1);
         }
     }
     .copyright {
-        color: rgba(0, 0, 0, 0.2);
+        color: rgba(255, 255, 255, 0.35);
         font-style: italic;
     }
 }

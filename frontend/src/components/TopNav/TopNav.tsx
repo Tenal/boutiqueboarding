@@ -1,17 +1,7 @@
 import React from 'react'
-import {
-    AppBar,
-    Box,
-    Toolbar,
-    Grid,
-    Typography,
-    Tooltip,
-    Slide,
-    Backdrop,
-    IconButton,
-} from '@mui/material'
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined'
-import { Link } from 'react-router-dom'
+import { AppBar, Box, Toolbar, Grid, Typography, Button } from '@mui/material'
+import { NavLink, Link } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import logo from '../../resources/logo.png'
 import hook from './useTopNav'
 
@@ -26,12 +16,17 @@ function TopNav() {
         handleMenuKeyDown,
     } = hook.useTopNav()
 
-    const accountIcon = (
-        <Tooltip title="Feature coming soon!" arrow>
-            <IconButton color="inherit" className="accountIcon">
-                <PersonOutlineOutlinedIcon />
-            </IconButton>
-        </Tooltip>
+    const bookNowButton = (
+        <Button
+            component="a"
+            href="mailto:boutiqueboardingco@gmail.com"
+            variant="contained"
+            color="secondary"
+            size="small"
+            sx={{ ml: 2, px: 2, fontWeight: 700 }}
+        >
+            Book Now
+        </Button>
     )
 
     const smallScreenToggle = (
@@ -51,7 +46,14 @@ function TopNav() {
 
     return (
         <>
-            <AppBar position="fixed" sx={{ zIndex: theme.zIndex.drawer + 1 }}>
+            <AppBar
+                position="fixed"
+                sx={{
+                    zIndex: theme.zIndex.drawer + 1,
+                    backgroundColor: '#2c2a24',
+                    boxShadow: '0 1px 12px rgba(0,0,0,0.25)',
+                }}
+            >
                 <Toolbar className="topNav">
                     <Link to="/">
                         <Grid
@@ -81,15 +83,17 @@ function TopNav() {
                     {!isSmallScreen && (
                         <Box className="navLinks">
                             {pages.map((page) => (
-                                <Link
+                                <NavLink
                                     key={page}
                                     to={`/${page.toLowerCase()}`}
-                                    className="navLink"
+                                    className={({ isActive }) =>
+                                        `navLink${isActive ? ' navLinkActive' : ''}`
+                                    }
                                 >
                                     <Typography>{page}</Typography>
-                                </Link>
+                                </NavLink>
                             ))}
-                            {accountIcon}
+                            {bookNowButton}
                         </Box>
                     )}
 
@@ -97,34 +101,57 @@ function TopNav() {
                 </Toolbar>
             </AppBar>
 
-            {/* Menu for small screens */}
-            <Slide direction="down" in={menuOpen} mountOnEnter unmountOnExit>
-                <Box
-                    sx={{
-                        top: theme.mixins.toolbar.minHeight,
-                        height: { xs: '50vh', sm: '45vh' },
-                        opacity: menuOpen ? 1 : 0,
-                    }}
-                    className="navMenu"
-                >
-                    {pages.map((page) => (
-                        <Link key={page} to={`/${page.toLowerCase()}`}>
-                            <Typography className="menuLinks">
-                                {page}
-                            </Typography>
-                        </Link>
-                    ))}
-                    {accountIcon}
-                </Box>
-            </Slide>
-            {menuOpen && (
-                <Backdrop
-                    open={menuOpen}
-                    onClick={handleCloseMenu}
-                    sx={{ zIndex: theme.zIndex.drawer - 1 }}
-                    data-testid="menu-backdrop"
-                />
-            )}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        className="navMenu"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                        style={{ top: theme.mixins.toolbar.minHeight }}
+                    >
+                        {pages.map((page) => (
+                            <NavLink
+                                key={page}
+                                to={`/${page.toLowerCase()}`}
+                                onClick={handleCloseMenu}
+                                className={({ isActive }) =>
+                                    `menuNavLink${isActive ? ' menuNavLinkActive' : ''}`
+                                }
+                            >
+                                <Typography className="menuLinks">
+                                    {page}
+                                </Typography>
+                            </NavLink>
+                        ))}
+                        <Button
+                            component="a"
+                            href="mailto:boutiqueboardingco@gmail.com"
+                            variant="contained"
+                            color="secondary"
+                            onClick={handleCloseMenu}
+                            sx={{ mt: 1, px: 4 }}
+                        >
+                            Book Now
+                        </Button>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        className="navBackdrop"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        onClick={handleCloseMenu}
+                        data-testid="menu-backdrop"
+                    />
+                )}
+            </AnimatePresence>
         </>
     )
 }
