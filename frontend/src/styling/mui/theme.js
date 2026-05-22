@@ -84,12 +84,12 @@ const theme = createTheme({
             light: colours.primary.light,
             main: colours.primary.main,
             dark: colours.primary.dark,
-            contrastText: colours.contrast.white,
+            contrastText: colours.neutral.ink,
         },
         secondary: {
             light: colours.secondary.light,
             main: colours.secondary.main,
-            dark: colours.primary.dark,
+            dark: colours.secondary.dark,
             contrastText: colours.contrast.white,
         },
         action: {
@@ -169,25 +169,26 @@ const theme = createTheme({
         },
         MuiChip: {
             root: {
-                borderRadius: '8px',
+                borderRadius: '20px',
                 fontFamily: typ.family.body,
                 fontWeight: typ.weight.medium,
-                fontSize: typ.size.XS,
-                backgroundColor: '#f4f4f4',
-                height: '24px',
+                fontSize: typ.size.S,
+                backgroundColor: colours.neutral.parchment,
+                height: '32px',
                 '&:hover': {
-                    backgroundColor: 'rgba(32, 59, 91, 0.12) !important',
+                    backgroundColor: `${colours.primary.light} !important`,
                 },
             },
             colorPrimary: {
-                backgroundColor: 'rgba(32, 59, 91, 0.3)',
-                color: 'black',
+                backgroundColor: colours.primary.light,
+                color: colours.neutral.ink,
             },
             filledPrimary: {
-                backgroundColor: '#f4f4f4',
+                backgroundColor: colours.neutral.parchment,
             },
             outlinedPrimary: {
-                borderRadius: '8px !important',
+                borderRadius: '20px !important',
+                borderColor: colours.primary.main,
             },
         },
         MuiTableBody: {
@@ -233,27 +234,43 @@ const theme = createTheme({
                 fontFamily: `${typ.family.body} !important`,
                 letterSpacing: '0.6px',
                 textTransform: 'capitalize',
+                borderRadius: '6px',
             },
             textPrimary: {
                 color: `${colours.primary.main}`,
             },
             textSecondary: {
-                color: `${colours.contrast.grey}`,
+                color: `${colours.neutral.slate}`,
             },
-            outlinedSecondary: {
-                background: colours.primary.main,
-                borderRadius: '4px',
-                border: `1px solid ${colours.primary.light}`,
-                colorInherit: colours.contrast.white,
+            containedSecondary: {
+                background: colours.secondary.main,
                 color: `${colours.contrast.white} !important`,
                 boxShadow:
-                    '0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12)',
+                    '0px 3px 1px -2px rgba(0, 0, 0, 0.15), 0px 2px 2px rgba(0, 0, 0, 0.1), 0px 1px 5px rgba(0, 0, 0, 0.08)',
                 '&:hover': {
-                    textDecoration: 'none',
-                    backgroundColor: '#B56516',
+                    backgroundColor: `${colours.secondary.dark} !important`,
                     boxShadow:
                         '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12)',
-                    border: `1px solid #B56516`,
+                },
+                '&.Mui-disabled': {
+                    color: '#a6a6a6 !important',
+                    background: '#e0e0e0 !important',
+                    boxShadow: 'none',
+                },
+            },
+            outlinedSecondary: {
+                background: colours.secondary.main,
+                borderRadius: '6px',
+                border: `1px solid ${colours.secondary.main}`,
+                color: `${colours.contrast.white} !important`,
+                boxShadow:
+                    '0px 3px 1px -2px rgba(0, 0, 0, 0.15), 0px 2px 2px rgba(0, 0, 0, 0.1), 0px 1px 5px rgba(0, 0, 0, 0.08)',
+                '&:hover': {
+                    textDecoration: 'none',
+                    backgroundColor: `${colours.secondary.dark} !important`,
+                    boxShadow:
+                        '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12)',
+                    border: `1px solid ${colours.secondary.dark}`,
                 },
                 '&.Mui-disabled': {
                     color: '#a6a6a6 !important',
@@ -263,20 +280,20 @@ const theme = createTheme({
                 },
             },
             outlinedPrimary: {
-                background: colours.contrast.white,
-                borderRadius: '4px',
-                border: `1px solid ${colours.primary.main}`,
-                colorInherit: colours.contrast.white,
-                color: `${colours.primary.main} !important`,
+                background: 'transparent',
+                borderRadius: '6px',
+                border: `2px solid ${colours.primary.dark}`,
+                color: `${colours.primary.dark} !important`,
                 boxShadow: 'none',
                 '&:hover': {
                     textDecoration: 'none',
-                    backgroundColor: 'rgba(227, 127, 28, 0.04)',
-                    border: `1px solid #B56516`,
+                    backgroundColor: colours.primary.light,
+                    border: `2px solid ${colours.primary.dark}`,
+                    color: `${colours.neutral.ink} !important`,
                 },
                 '&.Mui-disabled': {
                     color: `#bdbdbd !important`,
-                    background: `${colours.contrast.white} !important`,
+                    background: `transparent !important`,
                     borderColor: '#bdbdbd !important',
                 },
             },

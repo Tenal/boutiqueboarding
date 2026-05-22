@@ -24,13 +24,23 @@ export const typography = {
 export const colours = {
     primary: {
         main: '#c1be7f',
-        dark: '#9F9A37',
-        light: '#EEEEEE',
+        dark: '#9a976a',
+        light: '#e8e7cc',
     },
     secondary: {
-        main: 'rgba(0, 0, 0, 0.35)',
-        dark: 'rgba(0, 0, 0, 0.5)',
-        light: 'rgba(0, 0, 0, 0.2)',
+        main: '#dba891',
+        dark: '#c4714a',
+        light: '#f0d4c4',
+    },
+    neutral: {
+        ink: '#2c2a24',
+        slate: '#5c574f',
+        warmStone: '#9e9589',
+        parchment: '#f7f0e8',
+        cream: '#f2ebe1',
+        sand: '#e6ddd0',
+        warmWhite: '#fdfaf6',
+        sageParchment: '#e2e0c8',
     },
     contrast: {
         white: '#FFFFFF',
@@ -39,6 +49,9 @@ export const colours = {
         disabled: 'rgba(0,0,0,.26)',
         grey: '#707070',
         black: '#000000',
+    },
+    accent: {
+        honeyGold: '#d4a843',
     },
     error: {
         main: '#D74F39',
