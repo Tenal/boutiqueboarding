@@ -78,9 +78,9 @@ const boardingDetails = [
 ]
 
 const featuredDogs = ['loki', 'dakota', 'louis']
-const featuredReviews = featuredDogs.map(
-    (dog) => currentReviews.find((r) => r.dog === dog)!
-)
+const featuredReviews = featuredDogs
+    .map((dog) => currentReviews.find((r) => r.dog === dog))
+    .filter((r): r is (typeof currentReviews)[number] => r !== undefined)
 
 function AboutPreview() {
     return (
