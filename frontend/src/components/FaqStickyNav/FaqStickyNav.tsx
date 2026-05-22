@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button, useMediaQuery } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import { motion } from 'framer-motion'
 import useFaqStickyNav from './useFaqStickyNav'
 
@@ -9,8 +9,7 @@ interface IFaqStickyNavProps {
 }
 
 function FaqStickyNav({ sections, onNavigate }: IFaqStickyNavProps) {
-    const { activeSection } = useFaqStickyNav(sections)
-    const isMobile = useMediaQuery('(max-width:850px)')
+    const { activeSection, isMobile } = useFaqStickyNav(sections)
 
     return (
         <motion.div

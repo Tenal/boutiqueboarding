@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useMediaQuery } from '@mui/material'
 
 interface ISection {
     id: number
@@ -6,6 +7,7 @@ interface ISection {
 
 const useFaqStickyNav = (sections: ISection[]) => {
     const [activeSection, setActiveSection] = useState<number | null>(null)
+    const isMobile = useMediaQuery('(max-width:850px)')
 
     useEffect(() => {
         const observers: IntersectionObserver[] = []
@@ -29,7 +31,7 @@ const useFaqStickyNav = (sections: ISection[]) => {
         return () => observers.forEach((o) => o.disconnect())
     }, [sections])
 
-    return { activeSection }
+    return { activeSection, isMobile }
 }
 
 export default useFaqStickyNav

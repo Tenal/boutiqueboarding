@@ -6,7 +6,7 @@ const CACHE_KEY = 'bb_instagram_feed'
 
 describe('useInstagramFeed', () => {
     beforeEach(() => {
-        jest.clearAllMocks()
+        fetchMock.resetMocks()
         localStorage.clear()
         delete process.env.REACT_APP_INSTAGRAM_TOKEN
     })

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Box, Typography } from '@mui/material'
 import StarIcon from '@mui/icons-material/Star'
 import StarBorderIcon from '@mui/icons-material/StarBorder'
+import useStarRatingInput from './useStarRatingInput'
 
 interface IStarRatingInputProps {
     value: number | null
@@ -9,7 +10,7 @@ interface IStarRatingInputProps {
 }
 
 function StarRatingInput({ value, onChange }: IStarRatingInputProps) {
-    const [hovered, setHovered] = useState<number | null>(null)
+    const { hovered, setHovered } = useStarRatingInput()
 
     const active = hovered ?? value
 

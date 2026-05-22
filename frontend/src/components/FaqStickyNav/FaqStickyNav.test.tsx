@@ -1,14 +1,9 @@
 import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { useMediaQuery } from '@mui/material'
 import FaqStickyNav from './FaqStickyNav'
 import useFaqStickyNav from './useFaqStickyNav'
 
 jest.mock('./useFaqStickyNav')
-jest.mock('@mui/material', () => ({
-    ...jest.requireActual('@mui/material'),
-    useMediaQuery: jest.fn(),
-}))
 
 const mockUseFaqStickyNav = useFaqStickyNav as jest.MockedFunction<
     typeof useFaqStickyNav
@@ -22,8 +17,7 @@ const sections = [
 describe('FaqStickyNav', () => {
     beforeEach(() => {
         jest.clearAllMocks()
-        mockUseFaqStickyNav.mockReturnValue({ activeSection: null })
-        ;(useMediaQuery as jest.Mock).mockReturnValue(false)
+        mockUseFaqStickyNav.mockReturnValue({ activeSection: null, isMobile: false })
     })
 
     it('should render a button for each section', () => {
@@ -40,7 +34,7 @@ describe('FaqStickyNav', () => {
     })
 
     it('should display short navLabels on mobile', () => {
-        ;(useMediaQuery as jest.Mock).mockReturnValue(true)
+        mockUseFaqStickyNav.mockReturnValue({ activeSection: null, isMobile: true })
 
         render(<FaqStickyNav sections={sections} onNavigate={jest.fn()} />)
 
@@ -49,7 +43,7 @@ describe('FaqStickyNav', () => {
     })
 
     it('should apply active class to the active section button', () => {
-        mockUseFaqStickyNav.mockReturnValue({ activeSection: 1 })
+        mockUseFaqStickyNav.mockReturnValue({ activeSection: 1, isMobile: false })
 
         render(<FaqStickyNav sections={sections} onNavigate={jest.fn()} />)
 

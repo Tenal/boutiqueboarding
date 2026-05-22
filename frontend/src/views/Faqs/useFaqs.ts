@@ -1,4 +1,5 @@
-import { useMemo, useCallback } from 'react'
+import { useMemo, useCallback, useRef, useState, useEffect } from 'react'
+import { useMediaQuery } from '@mui/material'
 import currentFaqs from './currentFaqs.json'
 import { scrollToSection } from '../../utils/generalHelper'
 
@@ -21,6 +22,20 @@ interface ISection {
 }
 
 const useFaqs = () => {
+    const isNarrow = useMediaQuery('(max-width:750px)')
+    const cardSectionRef = useRef<HTMLDivElement>(null)
+    const [showStickyNav, setShowStickyNav] = useState(false)
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!cardSectionRef.current) return
+            setShowStickyNav(cardSectionRef.current.getBoundingClientRect().bottom < 56)
+        }
+        handleScroll()
+        window.addEventListener('scroll', handleScroll, { passive: true })
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
+
     const handleScrollToFaqSection = useCallback((sectionId: number) => {
         scrollToSection(sectionId)
     }, [])
@@ -89,6 +104,9 @@ const useFaqs = () => {
         faqsGroupedBySection,
         sectionHeadings,
         sections,
+        isNarrow,
+        cardSectionRef,
+        showStickyNav,
     }
 }
 

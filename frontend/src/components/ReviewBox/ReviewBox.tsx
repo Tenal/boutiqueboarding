@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { Typography, Box } from '@mui/material'
 import StarFullIcon from '@mui/icons-material/Star'
 import StarHalfIcon from '@mui/icons-material/StarHalf'
@@ -65,10 +65,7 @@ export default function ReviewBox({ dog, stars, name, review }: IReviewBoxProps)
         emptyStarsCount,
     } = hook.useReviewBox(stars, dog)
 
-    const starIcons = useMemo(
-        () => createStarIcons(fullStarsCount, hasHalfStar, emptyStarsCount),
-        [fullStarsCount, hasHalfStar, emptyStarsCount]
-    )
+    const starIcons = createStarIcons(fullStarsCount, hasHalfStar, emptyStarsCount)
 
     const { ref, isInView } = useScrollReveal({ threshold: 0.1 })
 

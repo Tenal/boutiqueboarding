@@ -10,6 +10,7 @@ jest.mock('@mui/material', () => ({
 describe('useTopNav', () => {
     beforeEach(() => {
         jest.clearAllMocks()
+        ;(useMediaQuery as jest.Mock).mockReturnValue(false)
     })
 
     it('should initialize with default values', () => {
@@ -52,6 +53,7 @@ describe('useTopNav', () => {
     })
 
     it('should handle Enter key press', () => {
+        ;(useMediaQuery as jest.Mock).mockReturnValue(true)
         const { result } = renderHook(() => hook.useTopNav())
         const mockEvent = {
             key: 'Enter',
@@ -64,6 +66,7 @@ describe('useTopNav', () => {
     })
 
     it('should handle Space key press', () => {
+        ;(useMediaQuery as jest.Mock).mockReturnValue(true)
         const { result } = renderHook(() => hook.useTopNav())
         const mockEvent = {
             key: ' ',

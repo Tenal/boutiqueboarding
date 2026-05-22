@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { Container, Box, Typography, Grid, useMediaQuery } from '@mui/material'
+import React from 'react'
+import { Container, Box, Typography, Grid } from '@mui/material'
 import PetsIcon from '@mui/icons-material/Pets'
 import LocationIcon from '@mui/icons-material/FmdGoodOutlined'
 import PolicyIcon from '@mui/icons-material/PolicyOutlined'
@@ -58,21 +58,10 @@ function Faqs() {
         faqsGroupedBySection,
         sectionHeadings,
         sections,
+        isNarrow,
+        cardSectionRef,
+        showStickyNav,
     } = hook.useFaqs()
-
-    const isNarrow = useMediaQuery('(max-width:750px)')
-    const cardSectionRef = useRef<HTMLDivElement>(null)
-    const [showStickyNav, setShowStickyNav] = useState(false)
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (!cardSectionRef.current) return
-            setShowStickyNav(cardSectionRef.current.getBoundingClientRect().bottom < 56)
-        }
-        handleScroll()
-        window.addEventListener('scroll', handleScroll, { passive: true })
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
 
     const iconMap: Record<string, JSX.Element> = {
         PetsIcon: <PetsIcon className="infoIcon" />,

@@ -1,5 +1,11 @@
 import { renderHook, act } from '@testing-library/react'
+import { useMediaQuery } from '@mui/material'
 import useFaqStickyNav from './useFaqStickyNav'
+
+jest.mock('@mui/material', () => ({
+    ...jest.requireActual('@mui/material'),
+    useMediaQuery: jest.fn(),
+}))
 
 describe('useFaqStickyNav', () => {
     const observeMock = jest.fn()
@@ -8,6 +14,7 @@ describe('useFaqStickyNav', () => {
 
     beforeEach(() => {
         jest.clearAllMocks()
+        ;(useMediaQuery as jest.Mock).mockReturnValue(false)
         ;(global as any).IntersectionObserver = jest
             .fn()
             .mockImplementation((callback) => {
@@ -20,6 +27,14 @@ describe('useFaqStickyNav', () => {
         const { result } = renderHook(() => useFaqStickyNav([]))
 
         expect(result.current.activeSection).toBeNull()
+    })
+
+    it('should return isMobile from useMediaQuery', () => {
+        ;(useMediaQuery as jest.Mock).mockReturnValue(true)
+
+        const { result } = renderHook(() => useFaqStickyNav([]))
+
+        expect(result.current.isMobile).toBe(true)
     })
 
     it('should observe each section element that exists in the DOM', () => {
