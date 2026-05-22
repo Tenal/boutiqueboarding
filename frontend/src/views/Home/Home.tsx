@@ -19,7 +19,6 @@ import BottomNav from '../../components/BottomNav/BottomNav'
 import StatStrip from '../../components/StatStrip/StatStrip'
 import BoardingDetailCard from '../../components/BoardingDetailCard/BoardingDetailCard'
 import CompactReview from '../../components/CompactReview/CompactReview'
-import InstagramFeed from '../../components/InstagramFeed/InstagramFeed'
 import PageTransition from '../../components/PageTransition/PageTransition'
 import {
     useScrollReveal,
@@ -268,7 +267,6 @@ function Home() {
             <AboutPreview />
             <BoardingDetails />
             <FeaturedReviews />
-            <InstagramFeed />
             <BottomNav />
         </PageTransition>
     )
