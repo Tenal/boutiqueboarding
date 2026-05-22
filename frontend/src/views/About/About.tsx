@@ -43,11 +43,8 @@ function WhoWeAre() {
                         </Typography>
                         <Typography
                             variant="body1"
-                            sx={{
-                                color: 'var(--color-slate)',
-                                lineHeight: 1.85,
-                                mb: 2,
-                            }}
+                            className="aboutBodyText"
+                            sx={{ mb: 2 }}
                         >
                             Hi, I&apos;m Tenal! With extensive animal care
                             experience, including working as a dog trainer
@@ -59,10 +56,7 @@ function WhoWeAre() {
                         </Typography>
                         <Typography
                             variant="body1"
-                            sx={{
-                                color: 'var(--color-slate)',
-                                lineHeight: 1.85,
-                            }}
+                            className="aboutBodyText"
                         >
                             Rescue work has also been a consistent driving
                             force in my life; I have spent over a decade
@@ -116,11 +110,8 @@ function OperationsAndQualifications() {
                             <Box className="howWeOperateCard">
                                 <Typography
                                     variant="body1"
-                                    sx={{
-                                        color: 'var(--color-slate)',
-                                        lineHeight: 1.85,
-                                        mb: 2,
-                                    }}
+                                    className="aboutBodyText"
+                                    sx={{ mb: 2 }}
                                 >
                                     We offer boutique, in-home boarding for
                                     anyone looking for a &ldquo;home away from
@@ -132,10 +123,7 @@ function OperationsAndQualifications() {
                                 </Typography>
                                 <Typography
                                     variant="body1"
-                                    sx={{
-                                        color: 'var(--color-slate)',
-                                        lineHeight: 1.85,
-                                    }}
+                                    className="aboutBodyText"
                                 >
                                     This allows us to prioritize individualized
                                     attention and focus on meeting every
@@ -185,23 +173,14 @@ function OperationsAndQualifications() {
                                         <Chip
                                             icon={
                                                 <CheckCircleOutlineIcon
-                                                    sx={{
-                                                        color: 'var(--color-primary) !important',
-                                                        fontSize: 18,
-                                                    }}
+                                                    className="credentialChipIcon"
                                                 />
                                             }
                                             label={cred}
                                             variant="outlined"
                                             color="primary"
-                                            sx={{
-                                                fontSize: '14px',
-                                                height: '38px',
-                                                px: 0.5,
-                                                color: 'var(--color-ink)',
-                                                borderColor:
-                                                    'var(--color-primary)',
-                                            }}
+                                            className="credentialChip"
+                                            sx={{ px: 0.5 }}
                                         />
                                     </motion.div>
                                 ))}
@@ -209,12 +188,8 @@ function OperationsAndQualifications() {
                             <Box mt={4}>
                                 <Typography
                                     variant="overline"
-                                    sx={{
-                                        color: 'var(--color-warm-stone)',
-                                        display: 'block',
-                                        mb: 2,
-                                        letterSpacing: '0.12rem',
-                                    }}
+                                    className="certifiedByLabel"
+                                    sx={{ mb: 2 }}
                                 >
                                     Certified by
                                 </Typography>

@@ -83,7 +83,7 @@ function Faqs() {
 
     return (
         <PageTransition>
-            <Box sx={{ backgroundColor: 'var(--color-warm-white)', minHeight: '100vh' }}>
+            <Box className="faqsPage">
             <TopNav />
             <Header title="FAQs" />
             <AnimatePresence>

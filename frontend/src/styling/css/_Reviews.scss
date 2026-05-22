@@ -1,3 +1,60 @@
+/* ── Review grid ── */
+.reviewGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+
+    @media (max-width: 899px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Review form text ── */
+.reviewFormSubtext {
+    color: var(--color-slate);
+}
+
+.reviewFormSuccessTitle {
+    color: var(--color-ink);
+}
+
+.reviewFormSuccessText {
+    color: var(--color-slate);
+}
+
+.reviewFormErrorLink {
+    color: var(--color-secondary-dark);
+}
+
+/* ── Featured review sidebar column ── */
+.featuredReviewCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ── Stars ── */
+.socialProofStars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .socialProofStar {
+        font-size: 22px !important;
+        color: var(--color-honey-gold);
+    }
+}
+
+.featuredReviewStarRow {
+    display: flex;
+    gap: 4px;
+
+    .featuredReviewStar {
+        font-size: 20px !important;
+        color: var(--color-honey-gold);
+    }
+}
+
 /* ── Social Proof Bar ── */
 .socialProofBar {
     background-color: var(--color-parchment);

@@ -23,7 +23,7 @@ function TopNav() {
             variant="contained"
             color="secondary"
             size="small"
-            sx={{ ml: 2, px: 2, fontWeight: 700 }}
+            className="bookNowBtn"
         >
             Book Now
         </Button>
@@ -48,11 +48,8 @@ function TopNav() {
         <>
             <AppBar
                 position="fixed"
-                sx={{
-                    zIndex: theme.zIndex.drawer + 1,
-                    backgroundColor: '#2c2a24',
-                    boxShadow: '0 1px 12px rgba(0,0,0,0.25)',
-                }}
+                className="appBar"
+                sx={{ zIndex: theme.zIndex.drawer + 1 }}
             >
                 <Toolbar className="topNav">
                     <Link to="/">
@@ -131,7 +128,7 @@ function TopNav() {
                             variant="contained"
                             color="secondary"
                             onClick={handleCloseMenu}
-                            sx={{ mt: 1, px: 4 }}
+                            className="bookNowBtnMobile"
                         >
                             Book Now
                         </Button>

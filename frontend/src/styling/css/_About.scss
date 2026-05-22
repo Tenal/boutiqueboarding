@@ -12,6 +12,32 @@
     font-weight: 700 !important;
 }
 
+/* Body text used across both sections */
+.aboutBodyText {
+    color: var(--color-slate);
+    line-height: 1.85;
+}
+
+/* Credential chips */
+.credentialChip {
+    font-size: 14px !important;
+    height: 38px !important;
+    color: var(--color-ink) !important;
+    border-color: var(--color-primary) !important;
+
+    .credentialChipIcon {
+        color: var(--color-primary) !important;
+        font-size: 18px !important;
+    }
+}
+
+/* "Certified by" overline */
+.certifiedByLabel {
+    color: var(--color-warm-stone);
+    display: block;
+    letter-spacing: 0.12rem;
+}
+
 /* Who We Are */
 .aboutSection {
     background-color: var(--color-warm-white);

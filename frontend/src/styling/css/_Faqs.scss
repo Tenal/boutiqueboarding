@@ -1,3 +1,46 @@
+/* ── Page wrapper ── */
+.faqsPage {
+    background-color: var(--color-warm-white);
+    min-height: 100vh;
+}
+
+/* ── Single Accordion ── */
+.singleAccordion {
+    border: 1px solid var(--color-sand) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    transition:
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+
+    &::before {
+        display: none !important;
+    }
+
+    &.Mui-expanded:last-of-type {
+        margin-bottom: 12px;
+    }
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
+        border-color: var(--color-primary) !important;
+    }
+
+    .MuiAccordionSummary-root {
+        border-radius: 8px;
+        color: var(--color-ink);
+    }
+
+    .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root {
+        color: var(--color-primary);
+    }
+
+    .MuiAccordionDetails-root {
+        border-radius: 0 0 8px 8px;
+        padding-top: 14px;
+    }
+}
+
 /* ── Info Cards ── */
 .infoCard {
     display: flex;

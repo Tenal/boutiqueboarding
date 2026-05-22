@@ -46,7 +46,7 @@ function BottomNav() {
 
     const renderLinks = () => (
         <Box mb={2}>
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link to="/" className="footerBrandLink">
                 <Typography variant="h5" className="footerBrand">
                     Boutique Boarding
                 </Typography>
@@ -59,48 +59,34 @@ function BottomNav() {
 
     const renderContactInfo = () => (
         <Box mb={2}>
-            <Typography
-                variant="h5"
-                sx={{ color: 'white', fontWeight: 600, mb: 1.5 }}
-            >
+            <Typography variant="h5" className="footerSectionHeading" sx={{ mb: 1.5 }}>
                 Get in Touch
             </Typography>
             <Box display="flex" alignItems="center" gap={0.75} mb={1}>
-                <EmailOutlinedIcon
-                    sx={{ fontSize: 16, color: 'rgba(255,255,255,0.5)' }}
-                />
+                <EmailOutlinedIcon className="footerContactIcon" />
                 <Typography
                     component="a"
                     href="mailto:boutiqueboardingco@gmail.com"
                     className="footerContactItem"
-                    sx={{ textDecoration: 'none' }}
                 >
                     boutiqueboardingco@gmail.com
                 </Typography>
             </Box>
             <Box display="flex" alignItems="center" gap={0.75} mb={1}>
-                <InstagramIcon
-                    sx={{ fontSize: 16, color: 'rgba(255,255,255,0.5)' }}
-                />
+                <InstagramIcon className="footerContactIcon" />
                 <Typography
                     component="a"
                     href="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="footerContactItem"
-                    sx={{ textDecoration: 'none' }}
                 >
                     @boutiqueboarding
                 </Typography>
             </Box>
             <Box display="flex" alignItems="center" gap={0.75}>
-                <LocationOnOutlinedIcon
-                    sx={{ fontSize: 16, color: 'rgba(255,255,255,0.5)' }}
-                />
-                <Typography
-                    variant="body2"
-                    sx={{ color: 'rgba(255,255,255,0.6)', fontSize: '14px' }}
-                >
+                <LocationOnOutlinedIcon className="footerContactIcon" />
+                <Typography variant="body2" className="footerLocation">
                     Vaughan, Ontario
                 </Typography>
             </Box>
@@ -110,23 +96,14 @@ function BottomNav() {
     const renderForm = () => {
         if (showSuccessMessage) {
             return (
-                <Box mb={2} className="footerForm" sx={{ width: '100%' }}>
-                    <Typography
-                        variant="h5"
-                        sx={{ color: 'white', fontWeight: 600, mb: 1.5 }}
-                    >
+                <Box mb={2} className="footerForm">
+                    <Typography variant="h5" className="footerSectionHeading" sx={{ mb: 1.5 }}>
                         Contact Us
                     </Typography>
-                    <Typography
-                        variant="body1"
-                        sx={{ color: 'rgba(255,255,255,0.7)' }}
-                    >
+                    <Typography variant="body1" className="footerSuccessText">
                         Email received!
                     </Typography>
-                    <Typography
-                        variant="body1"
-                        sx={{ color: 'rgba(255,255,255,0.7)' }}
-                    >
+                    <Typography variant="body1" className="footerSuccessText">
                         We will respond within 24 hours.
                     </Typography>
                 </Box>
@@ -134,11 +111,8 @@ function BottomNav() {
         }
 
         return (
-            <Box mb={2} className="footerForm" sx={{ width: '100%' }}>
-                <Typography
-                    variant="h5"
-                    sx={{ color: 'white', fontWeight: 600, mb: 1 }}
-                >
+            <Box mb={2} className="footerForm">
+                <Typography variant="h5" className="footerSectionHeading" sx={{ mb: 1 }}>
                     Contact Us
                 </Typography>
                 <form onSubmit={handleSubmit} data-testid="contact-form">

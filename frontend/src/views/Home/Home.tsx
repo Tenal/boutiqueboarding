@@ -29,30 +29,22 @@ const tenalImg = '/resources/tenal.jpg'
 
 const statItems = [
     {
-        icon: (
-            <InsuredIcon sx={{ fontSize: 28, color: 'var(--color-primary)' }} />
-        ),
+        icon: <InsuredIcon />,
         label: 'Bonded & Insured',
         sublabel: 'ProFur certified coverage',
     },
     {
-        icon: (
-            <FirstAidIcon
-                sx={{ fontSize: 28, color: 'var(--color-primary)' }}
-            />
-        ),
+        icon: <FirstAidIcon />,
         label: 'Pet First Aid Certified',
         sublabel: 'DogSafe certification',
     },
     {
-        icon: (
-            <UpdateIcon sx={{ fontSize: 28, color: 'var(--color-primary)' }} />
-        ),
+        icon: <UpdateIcon />,
         label: 'Daily PUPdates',
         sublabel: 'Multiple updates each day',
     },
     {
-        icon: <PetIcon sx={{ fontSize: 28, color: 'var(--color-primary)' }} />,
+        icon: <PetIcon />,
         label: '13+ Years Experience',
         sublabel: 'Training, rescue & special needs',
     },
@@ -60,39 +52,25 @@ const statItems = [
 
 const boardingDetails = [
     {
-        icon: (
-            <AttachMoneyIcon
-                sx={{ fontSize: 24, color: 'var(--color-primary)' }}
-            />
-        ),
+        icon: <AttachMoneyIcon />,
         label: 'Nightly Rate',
         value: '$95 / night',
         subtext: 'Holiday rate applies on select dates',
     },
     {
-        icon: (
-            <LocationOnIcon
-                sx={{ fontSize: 24, color: 'var(--color-primary)' }}
-            />
-        ),
+        icon: <LocationOnIcon />,
         label: 'Location',
         value: 'Vaughan, Ontario',
         subtext: 'House with a fully-fenced backyard',
     },
     {
-        icon: (
-            <GroupsIcon sx={{ fontSize: 24, color: 'var(--color-primary)' }} />
-        ),
+        icon: <GroupsIcon />,
         label: 'Capacity',
         value: 'Max 2 dogs',
         subtext: 'Typically one boarding & one foster dog',
     },
     {
-        icon: (
-            <CalendarMonthIcon
-                sx={{ fontSize: 24, color: 'var(--color-primary)' }}
-            />
-        ),
+        icon: <CalendarMonthIcon />,
         label: 'Booking',
         value: 'Email to confirm',
         subtext: 'We only book up to 2 months in advance',
@@ -135,11 +113,8 @@ function AboutPreview() {
                         </Typography>
                         <Typography
                             variant="body1"
-                            sx={{
-                                color: 'var(--color-slate)',
-                                mb: 3,
-                                lineHeight: 1.8,
-                            }}
+                            className="aboutPreviewText"
+                            sx={{ mb: 3 }}
                         >
                             We offer boutique in-home boarding with a
                             genuine passion for rescue and a wealth of
@@ -148,11 +123,8 @@ function AboutPreview() {
                             prioritize individualized attention and
                             breed-specific fulfilment.
                         </Typography>
-                        <Link
-                            to="/about"
-                            style={{ textDecoration: 'none' }}
-                        >
-                            <Button variant="outlined" color="primary" sx={{ color: 'var(--color-primary-dark)', borderColor: 'var(--color-primary-dark)' }}>
+                        <Link to="/about" className="plainLink">
+                            <Button variant="outlined" color="primary" className="aboutPreviewBtn">
                                 Meet Tenal & Ryan →
                             </Button>
                         </Link>
@@ -211,8 +183,8 @@ function BoardingDetails() {
                         </Button>
                         <Typography
                             variant="caption"
-                            display="block"
-                            sx={{ mt: 1, color: 'var(--color-warm-stone)' }}
+                            className="bookEmailCaption"
+                            sx={{ mt: 1 }}
                         >
                             boutiqueboardingco@gmail.com
                         </Typography>
@@ -231,19 +203,11 @@ function FeaturedReviews() {
             <Container maxWidth="xl">
                 <div ref={ref}>
                     <Box textAlign="center" mb={1}>
-                        <Box
-                            display="flex"
-                            justifyContent="center"
-                            gap={0.5}
-                            mb={1}
-                        >
+                        <Box className="featuredReviewStars" mb={1}>
                             {[1, 2, 3, 4, 5].map((star) => (
                                 <StarIcon
                                     key={star}
-                                    sx={{
-                                        fontSize: 20,
-                                        color: 'var(--color-honey-gold)',
-                                    }}
+                                    className="featuredReviewStar"
                                 />
                             ))}
                         </Box>
@@ -283,8 +247,8 @@ function FeaturedReviews() {
                     </Grid>
 
                     <Box textAlign="center" mt={4}>
-                        <Link to="/reviews" style={{ textDecoration: 'none' }}>
-                            <Button variant="outlined" color="primary" sx={{ color: 'var(--color-primary-dark)', borderColor: 'var(--color-primary-dark)' }}>
+                        <Link to="/reviews" className="plainLink">
+                            <Button variant="outlined" color="primary" className="seeAllReviewsBtn">
                                 See all reviews →
                             </Button>
                         </Link>

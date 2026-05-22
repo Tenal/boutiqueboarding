@@ -7,6 +7,10 @@
 @import 'Reviews';
 @import 'Faqs';
 
+.plainLink {
+    text-decoration: none;
+}
+
 :root {
     --color-primary: #c1be7f;
     --color-primary-dark: #9a976a;

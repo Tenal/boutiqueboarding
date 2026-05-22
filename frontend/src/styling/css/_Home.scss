@@ -17,6 +17,40 @@
     color: var(--color-slate) !important;
 }
 
+/* ── About preview body text ── */
+.aboutPreviewText {
+    color: var(--color-slate);
+    line-height: 1.8;
+}
+
+.aboutPreviewBtn {
+    color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+}
+
+/* ── Featured reviews ── */
+.featuredReviewStars {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+
+    .featuredReviewStar {
+        font-size: 20px !important;
+        color: var(--color-honey-gold);
+    }
+}
+
+.seeAllReviewsBtn {
+    color: var(--color-primary-dark) !important;
+    border-color: var(--color-primary-dark) !important;
+}
+
+/* ── Booking CTA caption ── */
+.bookEmailCaption {
+    color: var(--color-warm-stone) !important;
+    display: block;
+}
+
 /* ── Stat Strip ── */
 .statStrip {
     background-color: var(--color-parchment);
@@ -41,6 +75,11 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 14px;
+
+        svg {
+            font-size: 28px;
+            color: var(--color-primary);
+        }
     }
 
     .statLabel {
@@ -103,6 +142,11 @@
 
     .boardingDetailIcon {
         margin-bottom: 12px;
+
+        svg {
+            font-size: 24px;
+            color: var(--color-primary);
+        }
     }
 
     .boardingDetailLabel {

@@ -78,9 +78,7 @@ function Header({ title }: IUseHeaderProps) {
                         ease: 'easeInOut',
                     }}
                 >
-                    <KeyboardArrowDownIcon
-                        sx={{ fontSize: 36, color: 'rgba(255,255,255,0.7)' }}
-                    />
+                    <KeyboardArrowDownIcon className="heroChevronIcon" />
                 </motion.div>
             </Box>
         )

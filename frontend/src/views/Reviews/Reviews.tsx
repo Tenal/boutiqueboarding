@@ -47,14 +47,11 @@ function SocialProofBar() {
                         </Box>
                         <Box className="socialProofDivider" />
                         <Box textAlign="center">
-                            <Box className="socialProofValue">
+                            <Box className="socialProofValue socialProofStars">
                                 {[1, 2, 3, 4, 5].map((star) => (
                                     <StarIcon
                                         key={star}
-                                        sx={{
-                                            fontSize: 22,
-                                            color: 'var(--color-honey-gold)',
-                                        }}
+                                        className="socialProofStar"
                                     />
                                 ))}
                             </Box>
@@ -110,13 +107,14 @@ function ReviewForm() {
                     <Box className="reviewFormMessage" textAlign="center">
                         <Typography
                             variant="h2"
-                            sx={{ color: 'var(--color-ink)', mb: 2 }}
+                            className="reviewFormSuccessTitle"
+                            sx={{ mb: 2 }}
                         >
                             Thank you! 🐾
                         </Typography>
                         <Typography
                             variant="body1"
-                            sx={{ color: 'var(--color-slate)' }}
+                            className="reviewFormSuccessText"
                         >
                             We received your review and are extremely
                             appreciative!
@@ -137,7 +135,7 @@ function ReviewForm() {
                             Please email us at{' '}
                             <a
                                 href="mailto:boutiqueboardingco@gmail.com"
-                                style={{ color: 'var(--color-secondary-dark)' }}
+                                className="reviewFormErrorLink"
                             >
                                 boutiqueboardingco@gmail.com
                             </a>
@@ -168,7 +166,8 @@ function ReviewForm() {
                                 </Typography>
                                 <Typography
                                     variant="body1"
-                                    sx={{ color: 'var(--color-slate)', mb: 3 }}
+                                    className="reviewFormSubtext"
+                                    sx={{ mb: 3 }}
                                 >
                                     We&apos;d love to hear how your pup&apos;s
                                     stay went.
@@ -251,11 +250,8 @@ function ReviewForm() {
                         <Grid
                             item
                             md={5}
-                            sx={{
-                                display: { xs: 'none', md: 'flex' },
-                                flexDirection: 'column',
-                                justifyContent: 'center',
-                            }}
+                            className="featuredReviewCol"
+                            sx={{ display: { xs: 'none', md: 'flex' } }}
                         >
                             <Box className="featuredReview">
                                 <Typography
@@ -264,14 +260,11 @@ function ReviewForm() {
                                 >
                                     What our clients say
                                 </Typography>
-                                <Box display="flex" gap={0.5} my={1.5}>
+                                <Box className="featuredReviewStarRow" my={1.5}>
                                     {[1, 2, 3, 4, 5].map((star) => (
                                         <StarIcon
                                             key={star}
-                                            sx={{
-                                                fontSize: 20,
-                                                color: 'var(--color-honey-gold)',
-                                            }}
+                                            className="featuredReviewStar"
                                         />
                                     ))}
                                 </Box>
@@ -304,14 +297,7 @@ function Reviews() {
             <Header title="Reviews" />
             <SocialProofBar />
             <Container maxWidth="xl">
-                <Box
-                    my={8}
-                    sx={{
-                        display: 'grid',
-                        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
-                        gap: '48px',
-                    }}
-                >
+                <Box my={8} className="reviewGrid">
                     {currentReviews.map((rev) => (
                         <ReviewBox
                             key={`${rev.name}_${rev.dog}`}

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Box, Button, useMediaQuery } from '@mui/material'
 import { motion } from 'framer-motion'
+import useFaqStickyNav from './useFaqStickyNav'
 
 interface IFaqStickyNavProps {
     sections: { id: number; title: string; navLabel: string }[]
@@ -8,30 +9,8 @@ interface IFaqStickyNavProps {
 }
 
 function FaqStickyNav({ sections, onNavigate }: IFaqStickyNavProps) {
-    const [activeSection, setActiveSection] = useState<number | null>(null)
+    const { activeSection } = useFaqStickyNav(sections)
     const isMobile = useMediaQuery('(max-width:850px)')
-
-    useEffect(() => {
-        const observers: IntersectionObserver[] = []
-
-        sections.forEach(({ id }) => {
-            const el = document.getElementById(`section-${id}`)
-            if (!el) return
-
-            const observer = new IntersectionObserver(
-                ([entry]) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(id)
-                    }
-                },
-                { rootMargin: '-30% 0px -60% 0px', threshold: 0 }
-            )
-            observer.observe(el)
-            observers.push(observer)
-        })
-
-        return () => observers.forEach((o) => o.disconnect())
-    }, [sections])
 
     return (
         <motion.div
