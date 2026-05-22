@@ -25,16 +25,46 @@ function SingleAccordion({ title, body }: ISingleAccordionProps) {
         )
 
     return (
-        <Accordion sx={{ mb: 1 }} data-testid="accordion">
+        <Accordion
+            disableGutters
+            sx={{
+                mb: 1.5,
+                border: '1px solid var(--color-sand)',
+                borderRadius: '8px !important',
+                boxShadow: 'none',
+                transition: 'box-shadow 0.2s ease, border-color 0.2s ease',
+                '&:before': { display: 'none' },
+                '&.Mui-expanded:last-of-type': { mb: 1.5 },
+                '&:hover': {
+                    boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+                    borderColor: 'var(--color-primary)',
+                },
+            }}
+            data-testid="accordion"
+        >
             <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
+                expandIcon={
+                    <ExpandMoreIcon sx={{ color: 'var(--color-primary)' }} />
+                }
+                sx={{ borderRadius: '8px' }}
                 data-testid="accordion-summary"
             >
-                <Typography variant="body1" className="noMargins semiBold">
+                <Typography
+                    variant="body1"
+                    className="noMargins semiBold"
+                    sx={{ color: 'var(--color-ink)' }}
+                >
                     {title}
                 </Typography>
             </AccordionSummary>
-            <AccordionDetails>{accBody}</AccordionDetails>
+            <AccordionDetails
+                sx={{
+                    borderRadius: '0 0 8px 8px',
+                    pt: '14px',
+                }}
+            >
+                {accBody}
+            </AccordionDetails>
         </Accordion>
     )
 }
