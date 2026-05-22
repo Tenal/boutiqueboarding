@@ -1,4 +1,3 @@
-/* ── Shared section helpers ── */
 .sectionOverline {
     color: var(--color-primary-dark) !important;
     font-size: 12px !important;
@@ -17,7 +16,6 @@
     color: var(--color-slate) !important;
 }
 
-/* ── About preview body text ── */
 .aboutPreviewText {
     color: var(--color-slate);
     line-height: 1.8;
@@ -28,7 +26,6 @@
     border-color: var(--color-primary-dark) !important;
 }
 
-/* ── Featured reviews ── */
 .featuredReviewStars {
     display: flex;
     justify-content: center;
@@ -45,13 +42,11 @@
     border-color: var(--color-primary-dark) !important;
 }
 
-/* ── Booking CTA caption ── */
 .bookEmailCaption {
     color: var(--color-warm-stone) !important;
     display: block;
 }
 
-/* ── Stat Strip ── */
 .statStrip {
     background-color: var(--color-parchment);
     border-top: 1px solid var(--color-sand);
@@ -80,6 +75,11 @@
             font-size: 28px;
             color: var(--color-primary);
         }
+
+        @media (max-width: 599px) {
+            width: 52px;
+            height: 52px;
+        }
     }
 
     .statLabel {
@@ -95,7 +95,6 @@
     }
 }
 
-/* ── About Preview ── */
 .aboutPreviewSection {
     background-color: var(--color-warm-white);
 
@@ -125,9 +124,18 @@
         box-shadow: 0 8px 32px rgba(44, 42, 36, 0.18);
         display: block;
     }
+
+    @media (max-width: 899px) {
+        .aboutPreviewImage {
+            height: 320px;
+        }
+
+        .aboutPreviewImageWrapper::before {
+            display: none;
+        }
+    }
 }
 
-/* ── Boarding Details ── */
 .boardingDetailsSection {
     background-color: var(--color-cream);
 }
@@ -170,9 +178,12 @@
         font-size: 13px !important;
         line-height: 1.5;
     }
+
+    @media (max-width: 599px) {
+        padding: 18px 16px;
+    }
 }
 
-/* ── Featured Reviews ── */
 .featuredReviewsSection {
     background-color: var(--color-parchment);
 }
@@ -205,9 +216,12 @@
         font-weight: 600;
         letter-spacing: 0.03rem;
     }
+
+    @media (max-width: 599px) {
+        padding: 18px;
+    }
 }
 
-/* ── Instagram Feed ── */
 .instagramSection {
     background-color: var(--color-warm-white);
 
@@ -227,6 +241,7 @@
         color: var(--color-secondary-dark);
         text-decoration: none;
         font-weight: 600;
+
         &:hover {
             text-decoration: underline;
         }
@@ -289,7 +304,6 @@
     }
 }
 
-/* ── Book CTA ── */
 .bookCtaSection {
     background-color: var(--color-ink);
 
@@ -302,32 +316,10 @@
     .bookCtaBtn {
         border-color: rgba(255, 255, 255, 0.5) !important;
         color: white !important;
+
         &:hover {
             border-color: white !important;
             background-color: rgba(255, 255, 255, 0.08) !important;
         }
-    }
-}
-
-/* ── Responsive ── */
-@media (max-width: 899px) {
-    .aboutPreviewSection .aboutPreviewImage {
-        height: 320px;
-    }
-    .aboutPreviewSection .aboutPreviewImageWrapper::before {
-        display: none;
-    }
-}
-
-@media (max-width: 599px) {
-    .statStrip .statIconCircle {
-        width: 52px;
-        height: 52px;
-    }
-    .boardingDetailCard {
-        padding: 18px 16px;
-    }
-    .compactReview {
-        padding: 18px;
     }
 }

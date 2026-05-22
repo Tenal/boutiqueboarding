@@ -12,13 +12,11 @@
     font-weight: 700 !important;
 }
 
-/* Body text used across both sections */
 .aboutBodyText {
     color: var(--color-slate);
     line-height: 1.85;
 }
 
-/* Credential chips */
 .credentialChip {
     font-size: 14px !important;
     height: 38px !important;
@@ -31,14 +29,12 @@
     }
 }
 
-/* "Certified by" overline */
 .certifiedByLabel {
     color: var(--color-warm-stone);
     display: block;
     letter-spacing: 0.12rem;
 }
 
-/* Who We Are */
 .aboutSection {
     background-color: var(--color-warm-white);
 
@@ -68,9 +64,18 @@
         box-shadow: 0 8px 32px rgba(44, 42, 36, 0.18);
         display: block;
     }
+
+    @media (max-width: 899px) {
+        .aboutImage {
+            height: 320px;
+        }
+
+        .aboutImageWrapper::before {
+            display: none;
+        }
+    }
 }
 
-/* Operations & Qualifications (combined) */
 .opsAndQualSection {
     background-color: var(--color-parchment);
 
@@ -93,7 +98,6 @@
     }
 }
 
-/* Location */
 .locationSection {
     background-color: var(--color-cream);
 
@@ -117,18 +121,10 @@
         font-weight: 600;
         text-decoration: none;
         transition: opacity 0.2s;
+
         &:hover {
             opacity: 0.75;
             text-decoration: underline;
         }
-    }
-}
-
-@media (max-width: 899px) {
-    .aboutSection .aboutImage {
-        height: 320px;
-    }
-    .aboutSection .aboutImageWrapper::before {
-        display: none;
     }
 }
