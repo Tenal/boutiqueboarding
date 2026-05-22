@@ -1,0 +1,108 @@
+.aboutOverline {
+    color: var(--color-primary-dark) !important;
+    font-size: 12px !important;
+    letter-spacing: 0.2rem !important;
+    font-weight: 600 !important;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.aboutSectionTitle {
+    color: var(--color-ink) !important;
+    font-weight: 700 !important;
+}
+
+/* Who We Are */
+.aboutSection {
+    background-color: var(--color-warm-white);
+
+    .aboutImageWrapper {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary-light);
+            border-radius: 16px;
+            z-index: 0;
+        }
+    }
+
+    .aboutImage {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 460px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(44, 42, 36, 0.18);
+        display: block;
+    }
+}
+
+/* Operations & Qualifications (combined) */
+.opsAndQualSection {
+    background-color: var(--color-parchment);
+
+    .howWeOperateCard {
+        border-left: 4px solid var(--color-primary);
+        padding-left: 24px;
+    }
+
+    .credentialChips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .certLogo {
+        max-width: 120px;
+        height: auto;
+        border-radius: 8px;
+        object-fit: contain;
+    }
+}
+
+/* Location */
+.locationSection {
+    background-color: var(--color-cream);
+
+    .locationCard {
+        background-color: var(--color-warm-white);
+        border: 1px solid var(--color-sand);
+        border-radius: 12px;
+        padding: 28px 24px;
+    }
+
+    .locationFeatures {
+        margin-top: 12px;
+    }
+
+    .locationMapLink {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--color-secondary-dark);
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: opacity 0.2s;
+        &:hover {
+            opacity: 0.75;
+            text-decoration: underline;
+        }
+    }
+}
+
+@media (max-width: 899px) {
+    .aboutSection .aboutImage {
+        height: 320px;
+    }
+    .aboutSection .aboutImageWrapper::before {
+        display: none;
+    }
+}
