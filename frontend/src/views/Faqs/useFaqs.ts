@@ -15,6 +15,7 @@ interface IGroupedFaqs {
 interface ISection {
     id: number
     title: string
+    navLabel: string
     iconName: string
     description?: string
 }
@@ -54,22 +55,30 @@ const useFaqs = () => {
             {
                 id: 1,
                 title: 'Care & Daily Activities',
+                navLabel: 'Care',
                 iconName: 'PetsIcon',
+                description: 'Daily schedule, walks, crating & enrichment',
             },
             {
                 id: 2,
                 title: 'Booking Details & Location',
+                navLabel: 'Booking',
                 iconName: 'LocationIcon',
+                description: 'Pricing, booking process & where we are',
             },
             {
                 id: 3,
                 title: 'Policies & Preparation',
+                navLabel: 'Policies',
                 iconName: 'PolicyIcon',
+                description: 'Drop-off, pick-up, what to bring & requirements',
             },
             {
                 id: 4,
                 title: 'Communication & Updates',
+                navLabel: 'Updates',
                 iconName: 'ChatIcon',
+                description: 'Daily updates, Instagram & staying in touch',
             },
         ],
         []
