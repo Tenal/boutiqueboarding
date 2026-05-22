@@ -68,7 +68,7 @@ describe('Reviews', () => {
         expect(screen.getByLabelText(/dog's name/i)).toBeInTheDocument()
         expect(screen.getByLabelText(/your name\(s\)/i)).toBeInTheDocument()
         expect(screen.getByLabelText(/review/i)).toBeInTheDocument()
-        expect(screen.getByLabelText(/rating out of 5/i)).toBeInTheDocument()
+        expect(screen.getByText(/^Rating$/i)).toBeInTheDocument()
     })
 
     it('should show success message after form submission', () => {
@@ -80,10 +80,10 @@ describe('Reviews', () => {
             </MemoryRouter>
         )
 
-        expect(screen.getByText('We received your review!')).toBeInTheDocument()
+        expect(screen.getByText('Thank you! 🐾')).toBeInTheDocument()
         expect(
             screen.getByText(
-                'Thank you so much for taking the time to write one, we are extremely appreciative!'
+                'We received your review and are extremely appreciative!'
             )
         ).toBeInTheDocument()
     })
@@ -109,7 +109,7 @@ describe('Reviews', () => {
 
         expect(
             screen.getByText(
-                /We are sorry, there was an issue submitting your review./i
+                /sorry, there was an issue submitting your review\./i
             )
         ).toBeInTheDocument()
     })

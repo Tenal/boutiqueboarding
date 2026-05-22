@@ -147,7 +147,7 @@ describe('BottomNav', () => {
 
         expect(
             screen.getByText(
-                `©${mockHook.currentYear} Boutique Boarding. All rights reserved.`
+                `© ${mockHook.currentYear} Boutique Boarding. All rights reserved.`
             )
         ).toBeInTheDocument()
     })
