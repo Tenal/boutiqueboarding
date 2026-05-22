@@ -97,34 +97,3 @@
         object-fit: contain;
     }
 }
-
-.locationSection {
-    background-color: var(--color-cream);
-
-    .locationCard {
-        background-color: var(--color-warm-white);
-        border: 1px solid var(--color-sand);
-        border-radius: 12px;
-        padding: 28px 24px;
-    }
-
-    .locationFeatures {
-        margin-top: 12px;
-    }
-
-    .locationMapLink {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: var(--color-secondary-dark);
-        font-size: 14px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: opacity 0.2s;
-
-        &:hover {
-            opacity: 0.75;
-            text-decoration: underline;
-        }
-    }
-}

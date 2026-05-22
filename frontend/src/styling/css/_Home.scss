@@ -303,23 +303,3 @@
         }
     }
 }
-
-.bookCtaSection {
-    background-color: var(--color-ink);
-
-    .bookCtaTitle {
-        color: white !important;
-        font-weight: 700 !important;
-        margin-bottom: 16px;
-    }
-
-    .bookCtaBtn {
-        border-color: rgba(255, 255, 255, 0.5) !important;
-        color: white !important;
-
-        &:hover {
-            border-color: white !important;
-            background-color: rgba(255, 255, 255, 0.08) !important;
-        }
-    }
-}
