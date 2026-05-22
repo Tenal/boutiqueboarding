@@ -6,18 +6,89 @@ import {
     TextField,
     Button,
     Typography,
-    Autocomplete,
 } from '@mui/material'
+import StarIcon from '@mui/icons-material/Star'
 import { ValidationError } from '@formspree/react'
-
 import TopNav from '../../components/TopNav/TopNav'
 import Header from '../../components/Header/Header'
 import BottomNav from '../../components/BottomNav/BottomNav'
 import ReviewBox from '../../components/ReviewBox/ReviewBox'
+import StarRatingInput from '../../components/StarRatingInput/StarRatingInput'
+import PageTransition from '../../components/PageTransition/PageTransition'
 import currentReviews from './currentReviews.json'
 import hook from './useReviews'
 
-function Reviews() {
+function SocialProofBar() {
+    return (
+        <Box className="socialProofBar" py={5}>
+            <Container maxWidth="xl">
+                <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    gap={3}
+                    flexWrap="wrap"
+                >
+                        <Box textAlign="center">
+                            <Box className="socialProofValue">
+                                <Typography
+                                    variant="h1"
+                                    className="socialProofCount"
+                                >
+                                    2
+                                </Typography>
+                            </Box>
+                            <Typography
+                                variant="body2"
+                                className="socialProofLabel"
+                            >
+                                Dog capacity
+                            </Typography>
+                        </Box>
+                        <Box className="socialProofDivider" />
+                        <Box textAlign="center">
+                            <Box className="socialProofValue">
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <StarIcon
+                                        key={star}
+                                        sx={{
+                                            fontSize: 22,
+                                            color: 'var(--color-honey-gold)',
+                                        }}
+                                    />
+                                ))}
+                            </Box>
+                            <Typography
+                                variant="body2"
+                                className="socialProofLabel"
+                            >
+                                Average rating
+                            </Typography>
+                        </Box>
+                        <Box className="socialProofDivider" />
+                        <Box textAlign="center">
+                            <Box className="socialProofValue">
+                                <Typography
+                                    variant="h1"
+                                    className="socialProofCount"
+                                >
+                                    13+
+                                </Typography>
+                            </Box>
+                            <Typography
+                                variant="body2"
+                                className="socialProofLabel"
+                            >
+                                Years experience
+                            </Typography>
+                        </Box>
+                    </Box>
+            </Container>
+        </Box>
+    )
+}
+
+function ReviewForm() {
     const {
         dog,
         name,
@@ -32,169 +103,229 @@ function Reviews() {
         handleRatingChange,
     } = hook.useReviews()
 
-    const getReviews = () =>
-        currentReviews.map((rev) => (
-            <ReviewBox
-                key={`${rev.name}_${rev.dog}`}
-                dog={rev.dog}
-                stars={rev.stars}
-                name={rev.name}
-                review={rev.review}
-            />
-        ))
-
-    const renderSuccessMessage = () => (
-        <Box className="reviewFormMessage">
-            <Typography variant="body1" className="semiBold">
-                We received your review!
-            </Typography>
-            <Typography variant="body1" sx={{ mt: 2 }}>
-                Thank you so much for taking the time to write one, we are
-                extremely appreciative!
-            </Typography>
-        </Box>
-    )
-
-    const renderErrorMessage = () => (
-        <Box className="reviewFormMessage">
-            <Typography
-                variant="body2"
-                color="error"
-                style={{ marginTop: '1rem' }}
-            >
-                We are sorry, there was an issue submitting your review. If the
-                problem persists, you are welcome to email your review to us at{' '}
-                <a href="mailto:boutiqueboardco@gmail.com" className="links">
-                    boutiqueboardco@gmail.com
-                </a>
-            </Typography>
-        </Box>
-    )
-
-    const reviewForm = () => {
-        if (showSuccessMessage) {
-            return renderSuccessMessage()
-        }
-
-        if (state.errors) {
-            return renderErrorMessage()
-        }
-
+    if (showSuccessMessage) {
         return (
-            <form
-                onSubmit={onFormSubmit}
-                style={{ maxWidth: '525px' }}
-                data-testid="review-form"
-            >
-                <Typography variant="h2" sx={{ mb: 2 }}>
-                    Did you board with us? Leave us a Review!
-                </Typography>
+            <Box className="reviewFormSection" py={8}>
+                <Container maxWidth="xl">
+                    <Box className="reviewFormMessage" textAlign="center">
+                        <Typography
+                            variant="h2"
+                            sx={{ color: 'var(--color-ink)', mb: 2 }}
+                        >
+                            Thank you! 🐾
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            sx={{ color: 'var(--color-slate)' }}
+                        >
+                            We received your review and are extremely
+                            appreciative!
+                        </Typography>
+                    </Box>
+                </Container>
+            </Box>
+        )
+    }
 
-                <TextField
-                    label="Dog's Name"
-                    variant="outlined"
-                    fullWidth
-                    required
-                    value={dog}
-                    onChange={handleDogChange}
-                    size="small"
-                />
-                <ValidationError
-                    prefix="Dog"
-                    field="dog"
-                    errors={state.errors}
-                />
-
-                <TextField
-                    label="Your Name(s)"
-                    variant="outlined"
-                    fullWidth
-                    required
-                    value={name}
-                    onChange={handleNameChange}
-                    size="small"
-                />
-                <ValidationError
-                    prefix="Name"
-                    field="name"
-                    errors={state.errors}
-                />
-
-                <TextField
-                    label="Review"
-                    variant="outlined"
-                    fullWidth
-                    required
-                    multiline
-                    rows={7}
-                    value={review}
-                    onChange={handleReviewChange}
-                    size="small"
-                />
-                <ValidationError
-                    prefix="Review"
-                    field="review"
-                    errors={state.errors}
-                />
-
-                <Autocomplete
-                    options={[5, 4, 3, 2, 1]}
-                    getOptionLabel={(option) => option.toString()}
-                    renderInput={(params) => (
-                        <TextField
-                            {...params}
-                            label="Rating out of 5"
-                            variant="outlined"
-                            required
-                            size="small"
-                        />
-                    )}
-                    value={rating}
-                    onChange={handleRatingChange}
-                />
-
-                <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    sx={{ mt: 1 }}
-                    disabled={state.submitting}
-                >
-                    Submit
-                </Button>
-            </form>
+    if (state.errors && Object.keys(state.errors).length > 0) {
+        return (
+            <Box className="reviewFormSection" py={8}>
+                <Container maxWidth="xl">
+                    <Box className="reviewFormMessage" textAlign="center">
+                        <Typography variant="body2" color="error">
+                            Sorry, there was an issue submitting your review.
+                            Please email us at{' '}
+                            <a
+                                href="mailto:boutiqueboardingco@gmail.com"
+                                style={{ color: 'var(--color-secondary-dark)' }}
+                            >
+                                boutiqueboardingco@gmail.com
+                            </a>
+                        </Typography>
+                    </Box>
+                </Container>
+            </Box>
         )
     }
 
     return (
-        <>
+        <Box className="reviewFormSection" py={8}>
+            <Container maxWidth="xl">
+                <Grid container spacing={6} alignItems="center">
+                    <Grid item xs={12} md={7}>
+                        <Box className="reviewFormInner">
+                                <Typography
+                                    variant="overline"
+                                    className="reviewFormOverline"
+                                >
+                                    Share your experience
+                                </Typography>
+                                <Typography
+                                    variant="h2"
+                                    className="reviewFormTitle"
+                                >
+                                    Did you board with us?
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    sx={{ color: 'var(--color-slate)', mb: 3 }}
+                                >
+                                    We&apos;d love to hear how your pup&apos;s
+                                    stay went.
+                                </Typography>
+
+                                <form
+                                    onSubmit={onFormSubmit}
+                                    data-testid="review-form"
+                                >
+                                    <TextField
+                                        label="Dog's Name"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={dog}
+                                        onChange={handleDogChange}
+                                        size="small"
+                                        sx={{ mb: 0.5 }}
+                                    />
+                                    <ValidationError
+                                        prefix="Dog"
+                                        field="dog"
+                                        errors={state.errors}
+                                    />
+
+                                    <TextField
+                                        label="Your Name(s)"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        value={name}
+                                        onChange={handleNameChange}
+                                        size="small"
+                                        sx={{ mb: 0.5 }}
+                                    />
+                                    <ValidationError
+                                        prefix="Name"
+                                        field="name"
+                                        errors={state.errors}
+                                    />
+
+                                    <TextField
+                                        label="Your Review"
+                                        variant="outlined"
+                                        fullWidth
+                                        required
+                                        multiline
+                                        rows={6}
+                                        value={review}
+                                        onChange={handleReviewChange}
+                                        size="small"
+                                        sx={{ mb: 1 }}
+                                    />
+                                    <ValidationError
+                                        prefix="Review"
+                                        field="review"
+                                        errors={state.errors}
+                                    />
+
+                                    <StarRatingInput
+                                        value={rating}
+                                        onChange={(val) =>
+                                            handleRatingChange(null as any, val)
+                                        }
+                                    />
+
+                                    <Button
+                                        type="submit"
+                                        variant="contained"
+                                        color="secondary"
+                                        sx={{ mt: 2.5 }}
+                                        disabled={state.submitting}
+                                        fullWidth
+                                    >
+                                        Submit Review
+                                    </Button>
+                                </form>
+                            </Box>
+                        </Grid>
+                        <Grid
+                            item
+                            md={5}
+                            sx={{
+                                display: { xs: 'none', md: 'flex' },
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <Box className="featuredReview">
+                                <Typography
+                                    variant="overline"
+                                    className="featuredReviewOverline"
+                                >
+                                    What our clients say
+                                </Typography>
+                                <Box display="flex" gap={0.5} my={1.5}>
+                                    {[1, 2, 3, 4, 5].map((star) => (
+                                        <StarIcon
+                                            key={star}
+                                            sx={{
+                                                fontSize: 20,
+                                                color: 'var(--color-honey-gold)',
+                                            }}
+                                        />
+                                    ))}
+                                </Box>
+                                <Typography className="featuredReviewText">
+                                    &ldquo;From the moment we first met Tenal we
+                                    knew our little Lou would be in the safest
+                                    pair of hands... Tenal went above and beyond
+                                    &mdash; taking the time to understand Louis,
+                                    his needs, and how to keep him busy and
+                                    engaged... Her check-ins were amazing, and we
+                                    could tell from afar just how much he was
+                                    enjoying his time...&rdquo;
+                                </Typography>
+                                <Typography className="featuredReviewAttribution">
+                                    &mdash; Samantha &amp; Ben, Louis&apos;
+                                    family
+                                </Typography>
+                            </Box>
+                        </Grid>
+                    </Grid>
+            </Container>
+        </Box>
+    )
+}
+
+function Reviews() {
+    return (
+        <PageTransition>
             <TopNav />
             <Header title="Reviews" />
+            <SocialProofBar />
             <Container maxWidth="xl">
-                <Box my={10}>
-                    <Grid
-                        container
-                        direction="row"
-                        justifyContent="space-between"
-                        spacing={10}
-                        wrap="wrap"
-                    >
-                        {getReviews()}
-                    </Grid>
-                    <Box
-                        mt={12}
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                        }}
-                    >
-                        {reviewForm()}
-                    </Box>
+                <Box
+                    my={8}
+                    sx={{
+                        display: 'grid',
+                        gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' },
+                        gap: '48px',
+                    }}
+                >
+                    {currentReviews.map((rev) => (
+                        <ReviewBox
+                            key={`${rev.name}_${rev.dog}`}
+                            dog={rev.dog}
+                            stars={rev.stars}
+                            name={rev.name}
+                            review={rev.review}
+                        />
+                    ))}
                 </Box>
             </Container>
+            <ReviewForm />
             <BottomNav />
-        </>
+        </PageTransition>
     )
 }
 

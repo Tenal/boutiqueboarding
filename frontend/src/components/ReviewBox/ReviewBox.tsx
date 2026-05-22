@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react'
-import { Grid, Typography, Box } from '@mui/material'
+import { Typography, Box } from '@mui/material'
 import StarFullIcon from '@mui/icons-material/Star'
 import StarHalfIcon from '@mui/icons-material/StarHalf'
 import StarEmptyIcon from '@mui/icons-material/StarBorder'
+import { motion } from 'framer-motion'
 import { ReactComponent as DogProfileSvg } from '../../resources/dog-profile.svg'
+import { useScrollReveal, scrollRevealVariants } from '../../utils/useScrollReveal'
 import hook from './useReviewBox'
 
 interface IReviewBoxProps {
@@ -53,12 +55,7 @@ const createStarIcons = (
     return starElements
 }
 
-export default function ReviewBox({
-    dog,
-    stars,
-    name,
-    review,
-}: IReviewBoxProps) {
+export default function ReviewBox({ dog, stars, name, review }: IReviewBoxProps) {
     const {
         isLoading,
         handleImageLoad,
@@ -73,63 +70,57 @@ export default function ReviewBox({
         [fullStarsCount, hasHalfStar, emptyStarsCount]
     )
 
+    const { ref, isInView } = useScrollReveal({ threshold: 0.1 })
+
     return (
-        <Grid
-            item
-            xs={12}
-            md={6}
-            container
-            direction="column"
-            alignItems="center"
-            className="review"
+        <motion.div
+            ref={ref}
+            variants={scrollRevealVariants.fadeUp}
+            initial="hidden"
+            animate={isInView ? 'visible' : 'hidden'}
+            transition={{ duration: 0.45 }}
         >
-            <Box className="imageContainer">
-                <Box className={`svgContainer ${isLoading ? 'show' : 'hide'}`}>
-                    <DogProfileSvg className="dogSvg" />
+            <Box className="reviewCard" px={3} pt={3} pb={4}>
+                <Box className="reviewAvatar">
+                    <Box className={`svgContainer ${isLoading ? 'show' : 'hide'}`}>
+                        <DogProfileSvg className="dogSvg" />
+                    </Box>
+                    <Box className={`imgContainer ${isLoading ? 'hide' : 'show'}`}>
+                        <img
+                            src={`/resources/reviewPhotos/${dog}.jpg`}
+                            alt={`${dog} headshot on a plain background`}
+                            className="reviewImage"
+                            loading="lazy"
+                            onLoad={handleImageLoad}
+                            onError={handleImageError}
+                        />
+                    </Box>
                 </Box>
-                <Box className={`imgContainer ${isLoading ? 'hide' : 'show'}`}>
+                <Box className="reviewStarRow">
+                    {starIcons}
+                </Box>
+                <Box className="reviewTextArea">
                     <img
-                        src={`/resources/reviewPhotos/${dog}.jpg`}
-                        alt={`${dog} headshot on a plain background`}
-                        className="reviewImage"
+                        src="/resources/reviewPhotos/quoteLeft.png"
+                        alt="left quotation mark"
                         loading="lazy"
-                        onLoad={handleImageLoad}
-                        onError={handleImageError}
+                        className="quoteLeft"
+                    />
+                    <Typography
+                        className="reviewParagraph"
+                        dangerouslySetInnerHTML={{ __html: review }}
+                    />
+                    <img
+                        src="/resources/reviewPhotos/quoteRight.png"
+                        alt="right quotation mark"
+                        loading="lazy"
+                        className="quoteRight"
                     />
                 </Box>
-            </Box>
-            <Box className="textContainer" py={2} px={3}>
-                <img
-                    src="/resources/reviewPhotos/quoteLeft.png"
-                    alt="left quotation mark"
-                    loading="lazy"
-                    className="quoteLeft"
-                />
-                <Typography
-                    className="reviewParagraph"
-                    dangerouslySetInnerHTML={{ __html: review }}
-                    sx={{ mt: 7 }}
-                />
-                <Typography variant="body2" className="reviewName">
-                    {name}
+                <Typography variant="caption" className="reviewAttribution">
+                    &mdash; {name}
                 </Typography>
-                <Grid
-                    item
-                    container
-                    direction="row"
-                    justifyContent="center"
-                    className="starGrid"
-                    sx={{ mt: 1, mb: 0.5 }}
-                >
-                    {starIcons}
-                </Grid>
-                <img
-                    src="/resources/reviewPhotos/quoteRight.png"
-                    alt="right quotation mark"
-                    loading="lazy"
-                    className="quoteRight"
-                />
             </Box>
-        </Grid>
+        </motion.div>
     )
 }
