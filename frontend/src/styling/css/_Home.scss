@@ -1,34 +1,289 @@
-.introSection {
-    display: flex;
-    align-items: center;
-    background-color: #f3e5d8;
+/* ── Shared section helpers ── */
+.sectionOverline {
+    color: var(--color-primary-dark) !important;
+    font-size: 12px !important;
+    letter-spacing: 0.2rem !important;
+    font-weight: 600 !important;
+    display: block;
+    margin-bottom: 6px;
 }
 
-.boardingSection {
-    .tenalImage {
-        width: 100%;
-        height: 450px;
-        object-fit: cover;
-        border-radius: 5px;
-        box-shadow: 1px 1px 3px 0.5px rgba(0, 0, 0, 0.5);
+.sectionTitle {
+    color: var(--color-ink) !important;
+    font-weight: 700 !important;
+}
+
+.sectionSubtitle {
+    color: var(--color-slate) !important;
+}
+
+/* ── Stat Strip ── */
+.statStrip {
+    background-color: var(--color-parchment);
+    border-top: 1px solid var(--color-sand);
+    border-bottom: 1px solid var(--color-sand);
+
+    .statItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 8px 12px;
+    }
+
+    .statIconCircle {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background-color: var(--color-cream);
+        border: 2px solid var(--color-primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+    }
+
+    .statLabel {
+        font-weight: 600 !important;
+        color: var(--color-ink) !important;
+        margin-bottom: 4px !important;
+        font-size: 15px !important;
+    }
+
+    .statSublabel {
+        color: var(--color-slate) !important;
+        font-size: 13px !important;
     }
 }
 
-.followSection {
-    .boardingImage {
+/* ── About Preview ── */
+.aboutPreviewSection {
+    background-color: var(--color-warm-white);
+
+    .aboutPreviewImageWrapper {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: -14px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-primary-light);
+            border-radius: 16px;
+            z-index: 0;
+        }
+    }
+
+    .aboutPreviewImage {
+        position: relative;
+        z-index: 1;
         width: 100%;
-        border-radius: 5px;
-        box-shadow: 1px 1px 3px 0.5px rgba(0, 0, 0, 0.5);
-        transition: box-shadow 0.3s ease;
-        cursor: pointer;
+        height: 440px;
+        object-fit: cover;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(44, 42, 36, 0.18);
+        display: block;
+    }
+}
+
+/* ── Boarding Details ── */
+.boardingDetailsSection {
+    background-color: var(--color-cream);
+}
+
+.boardingDetailCard {
+    background-color: var(--color-warm-white);
+    border: 1px solid var(--color-sand);
+    border-radius: 12px;
+    padding: 24px 20px;
+    height: 100%;
+    box-sizing: border-box;
+
+    .boardingDetailIcon {
+        margin-bottom: 12px;
+    }
+
+    .boardingDetailLabel {
+        color: var(--color-warm-stone) !important;
+        font-size: 11px !important;
+        letter-spacing: 0.12rem !important;
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .boardingDetailValue {
+        color: var(--color-ink) !important;
+        font-weight: 600 !important;
+        font-size: 18px !important;
+        margin-bottom: 6px;
+        line-height: 1.3 !important;
+    }
+
+    .boardingDetailSubtext {
+        color: var(--color-slate) !important;
+        font-size: 13px !important;
+        line-height: 1.5;
+    }
+}
+
+/* ── Featured Reviews ── */
+.featuredReviewsSection {
+    background-color: var(--color-parchment);
+}
+
+.compactReview {
+    background-color: var(--color-warm-white);
+    border: 1px solid var(--color-sand);
+    border-radius: 12px;
+    padding: 24px;
+    height: 100%;
+    box-sizing: border-box;
+
+    .compactStars {
+        display: flex;
+        gap: 2px;
+        margin-bottom: 12px;
+    }
+
+    .compactReviewText {
+        color: var(--color-slate) !important;
+        font-size: 14px !important;
+        line-height: 1.7 !important;
+        font-style: italic;
+        margin-bottom: 14px;
+    }
+
+    .compactReviewAttribution {
+        color: var(--color-warm-stone) !important;
+        font-size: 12px !important;
+        font-weight: 600;
+        letter-spacing: 0.03rem;
+    }
+}
+
+/* ── Instagram Feed ── */
+.instagramSection {
+    background-color: var(--color-warm-white);
+
+    .instagramHeader {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 8px;
+
+        .instagramIcon {
+            font-size: 40px !important;
+            color: var(--color-secondary-dark);
+        }
+    }
+
+    .instagramLink {
+        color: var(--color-secondary-dark);
+        text-decoration: none;
+        font-weight: 600;
         &:hover {
-            box-shadow: 2px 2px 6px 0.5px rgba(0, 0, 0, 0.5);
+            text-decoration: underline;
+        }
+    }
+
+    .instagramPostLink {
+        display: block;
+        text-decoration: none;
+    }
+
+    .instagramPost {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: var(--color-sand);
+
+        &:hover .instagramOverlay {
+            opacity: 1;
+        }
+    }
+
+    .instagramImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .instagramPost:hover .instagramImg {
+        transform: scale(1.04);
+    }
+
+    .instagramOverlay {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(44, 42, 36, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+        padding: 16px;
+        text-align: center;
+
+        .instagramOverlayIcon {
+            font-size: 28px !important;
+            color: white;
+        }
+
+        .instagramCaption {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 12px !important;
+            line-height: 1.5;
         }
     }
 }
 
+/* ── Book CTA ── */
+.bookCtaSection {
+    background-color: var(--color-ink);
+
+    .bookCtaTitle {
+        color: white !important;
+        font-weight: 700 !important;
+        margin-bottom: 16px;
+    }
+
+    .bookCtaBtn {
+        border-color: rgba(255, 255, 255, 0.5) !important;
+        color: white !important;
+        &:hover {
+            border-color: white !important;
+            background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+    }
+}
+
+/* ── Responsive ── */
 @media (max-width: 899px) {
-    .boardingSection .tenalImage {
-        width: 100%;
+    .aboutPreviewSection .aboutPreviewImage {
+        height: 320px;
+    }
+    .aboutPreviewSection .aboutPreviewImageWrapper::before {
+        display: none;
+    }
+}
+
+@media (max-width: 599px) {
+    .statStrip .statIconCircle {
+        width: 52px;
+        height: 52px;
+    }
+    .boardingDetailCard {
+        padding: 18px 16px;
+    }
+    .compactReview {
+        padding: 18px;
     }
 }
