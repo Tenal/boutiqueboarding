@@ -16,5 +16,8 @@
   "devDependencies": {
     "concurrently": "^8.0.0",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "framer-motion": "^12.40.0"
   }
 }
