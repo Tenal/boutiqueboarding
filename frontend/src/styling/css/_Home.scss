@@ -138,8 +138,16 @@
         height: 100%;
         box-sizing: border-box;
 
-        .boardingDetailIcon {
-            margin-bottom: 12px;
+        .boardingDetailIconCircle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(193, 190, 127, 0.08);
+            border: 1.5px solid var(--color-primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
 
             svg {
                 font-size: 24px;

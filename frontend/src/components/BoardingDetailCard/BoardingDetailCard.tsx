@@ -11,7 +11,7 @@ interface IBoardingDetailCardProps {
 function BoardingDetailCard({ icon, label, value, subtext }: IBoardingDetailCardProps) {
     return (
         <Box className="boardingDetailCard">
-            <Box className="boardingDetailIcon">{icon}</Box>
+            <Box className="boardingDetailIconCircle">{icon}</Box>
             <Typography variant="overline" className="boardingDetailLabel">
                 {label}
             </Typography>
