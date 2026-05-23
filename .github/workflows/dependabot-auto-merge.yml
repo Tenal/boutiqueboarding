@@ -1,3 +1,5 @@
+# Auto-merges Dependabot PRs for patch and minor updates once CI passes.
+# Major version bumps are excluded and require manual review.
 name: Dependabot Auto-merge
 
 on: pull_request
