@@ -103,21 +103,18 @@ function AboutPreview() {
                         >
                             Who we are
                         </Typography>
-                        <Typography
-                            variant="h2"
-                            className="sectionTitle"
-                        >
+                        <Typography variant="h2" className="sectionTitle">
                             A boutique experience for your pup
                         </Typography>
                         <Typography
                             variant="body1"
                             className="aboutPreviewText"
                         >
-                            We offer boutique in-home boarding with a genuine
-                            passion for rescue and a wealth of animal care
-                            experience. From training to fostering dogs with
-                            behavioural challenges, we prioritize individualized
-                            attention and breed-specific fulfilment.
+                            We offer boutique in-home dog boarding with a
+                            genuine passion for rescue and a wealth of animal
+                            care experience. We prioritize individualized
+                            attention, breed-specific fulfillment, and a safe
+                            environment.
                         </Typography>
                         <Link to="/about" className="plainLink">
                             <Button

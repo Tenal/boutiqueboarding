@@ -1,0 +1,15 @@
+# Checks for npm vulnerability fixes weekly and opens PRs for outdated dependencies.
+# Patch and minor updates are grouped into a single PR and auto-merged by dependabot-auto-merge.yml.
+# Major version bumps are intentionally excluded from grouping and must be reviewed manually.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    groups:
+      npm-patch-minor:
+        update-types:
+          - "patch"
+          - "minor"

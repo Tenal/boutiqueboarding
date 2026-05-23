@@ -1,3 +1,4 @@
+# Runs Jest unit tests and posts a coverage summary comment on PRs. Fails if coverage drops below 80%.
 name: Run Unit Tests and Generate Coverage Report
 
 on:
