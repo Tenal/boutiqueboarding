@@ -4,6 +4,12 @@ require('jest-fetch-mock').enableMocks()
 
 React.useLayoutEffect = React.useEffect
 
+global.IntersectionObserver = class IntersectionObserver {
+    observe() { return null }
+    unobserve() { return null }
+    disconnect() { return null }
+}
+
 // Suppress console messages
 global.console = {
     ...console,

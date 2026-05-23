@@ -24,13 +24,6 @@ a {
     color: inherit;
 }
 
-.anchor {
-    height: 10px;
-    &.offsetTop {
-        transform: scale(1.5);
-    }
-}
-
 body {
     margin: 0;
     padding: 0;
@@ -57,10 +50,6 @@ body {
     margin: 0 !important;
 }
 
-.noPadding {
-    padding: 0 !important;
-}
-
 .semiBold {
     font-weight: 500 !important;
 }
@@ -72,7 +61,4 @@ body {
     &:hover {
         color: #9f9a37;
     }
-}
-.logoWidth {
-    max-width: 105px;
 }

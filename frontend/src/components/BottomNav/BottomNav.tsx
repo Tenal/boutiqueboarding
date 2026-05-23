@@ -9,6 +9,8 @@ import {
     Button,
 } from '@mui/material'
 import InstagramIcon from '@mui/icons-material/Instagram'
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined'
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined'
 import { Link } from 'react-router-dom'
 import { ValidationError } from '@formspree/react'
 import hook from './useBottomNav'
@@ -43,21 +45,50 @@ function BottomNav() {
     } = hook.useBottomNav()
 
     const renderLinks = () => (
-        <Box mb={2} mr={4}>
-            <InternalLink to="/" variant="h5">
-                Boutique Boarding
-            </InternalLink>
+        <Box mb={2}>
+            <Link to="/" className="footerBrandLink">
+                <Typography variant="h5" className="footerBrand">
+                    Boutique Boarding
+                </Typography>
+            </Link>
             <InternalLink to="/about">About</InternalLink>
             <InternalLink to="/faqs">FAQs</InternalLink>
             <InternalLink to="/reviews">Reviews</InternalLink>
-            <Box mt={1} mb={2}>
-                <a
+        </Box>
+    )
+
+    const renderContactInfo = () => (
+        <Box mb={2}>
+            <Typography variant="h5" className="footerSectionHeading">
+                Get in Touch
+            </Typography>
+            <Box display="flex" alignItems="center" gap={0.75} mb={1}>
+                <EmailOutlinedIcon className="footerContactIcon" />
+                <Typography
+                    component="a"
+                    href="mailto:boutiqueboardingco@gmail.com"
+                    className="footerContactItem"
+                >
+                    boutiqueboardingco@gmail.com
+                </Typography>
+            </Box>
+            <Box display="flex" alignItems="center" gap={0.75} mb={1}>
+                <InstagramIcon className="footerContactIcon" />
+                <Typography
+                    component="a"
                     href="https://instagram.com/boutiqueboarding?igshid=MmIzYWVlNDQ5Yg=="
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="footerContactItem"
                 >
-                    <InstagramIcon className="footerLinks" />
-                </a>
+                    @boutiqueboarding
+                </Typography>
+            </Box>
+            <Box display="flex" alignItems="center" gap={0.75}>
+                <LocationOnOutlinedIcon className="footerContactIcon" />
+                <Typography variant="body2" className="footerLocation">
+                    Vaughan, Ontario
+                </Typography>
             </Box>
         </Box>
     )
@@ -66,9 +97,13 @@ function BottomNav() {
         if (showSuccessMessage) {
             return (
                 <Box mb={2} className="footerForm">
-                    <Typography variant="h5">Contact Us</Typography>
-                    <Typography variant="body1">Email received!</Typography>
-                    <Typography variant="body1">
+                    <Typography variant="h5" className="footerSectionHeading">
+                        Contact Us
+                    </Typography>
+                    <Typography variant="body1" className="footerSuccessText">
+                        Email received!
+                    </Typography>
+                    <Typography variant="body1" className="footerSuccessText">
                         We will respond within 24 hours.
                     </Typography>
                 </Box>
@@ -77,7 +112,9 @@ function BottomNav() {
 
         return (
             <Box mb={2} className="footerForm">
-                <Typography variant="h5">Contact Us</Typography>
+                <Typography variant="h5" className="footerSectionHeading">
+                    Contact Us
+                </Typography>
                 <form onSubmit={handleSubmit} data-testid="contact-form">
                     <TextField
                         label="Email"
@@ -106,6 +143,7 @@ function BottomNav() {
                         color="primary"
                         className="footerInput"
                         multiline
+                        maxRows={5}
                         required
                         size="small"
                         id="message"
@@ -121,7 +159,7 @@ function BottomNav() {
                         color="secondary"
                         type="submit"
                         disabled={submitting}
-                        sx={{ mt: 1 }}
+                        className="footerSubmitBtn"
                     >
                         Submit
                     </Button>
@@ -131,15 +169,41 @@ function BottomNav() {
     }
 
     return (
-        <Box py={3} className="footer" mt={5}>
+        <Box py={5} className="footer">
             <Container maxWidth="xl">
-                <Grid container justifyContent="space-between">
-                    {renderLinks()}
-                    {renderForm()}
+                <Grid container spacing={4} justifyContent="space-between">
+                    <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        md={3}
+                        order={{ xs: 1, sm: 1, md: 1 }}
+                    >
+                        {renderLinks()}
+                    </Grid>
+                    <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        md={3}
+                        order={{ xs: 2, sm: 3, md: 2 }}
+                    >
+                        {renderContactInfo()}
+                    </Grid>
+                    <Grid
+                        item
+                        xs={12}
+                        sm={6}
+                        md={4}
+                        order={{ xs: 3, sm: 2, md: 3 }}
+                    className="footerFormColumn"
+                    >
+                        {renderForm()}
+                    </Grid>
                 </Grid>
-                <Divider>
+                <Divider className="footerDivider">
                     <Typography variant="body2" className="copyright">
-                        ©{currentYear} Boutique Boarding. All rights reserved.
+                        {`© ${currentYear} Boutique Boarding. All rights reserved.`}
                     </Typography>
                 </Divider>
             </Container>

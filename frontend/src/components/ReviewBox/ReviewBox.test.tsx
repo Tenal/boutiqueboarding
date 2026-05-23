@@ -121,7 +121,7 @@ describe('ReviewBox', () => {
                 '<strong>test</strong> review.'
             )
 
-            const reviewName = screen.getByText('John Doe')
+            const reviewName = screen.getByText(/John Doe/)
             expect(reviewName).toBeInTheDocument()
         })
     })

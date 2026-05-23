@@ -1,112 +1,221 @@
-.infoCard {
-    max-width: 300px;
-    min-height: 150px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: center;
-    flex-grow: 1;
-    padding: 4rem 1rem 1rem 1rem;
-    box-sizing: border-box;
-    .infoIcon {
-        width: 40px;
-        height: 40px;
-    }
-    .iconCircleOutline {
-        position: absolute;
-        top: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        border: 3px solid #000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2;
-        background-color: #f3e5d8;
-    }
-    .titleText {
-        margin-top: 3.5rem;
-        color: inherit;
-        font-size: 18px;
-    }
-    .descText {
-        margin-top: 0.5rem;
-        font-size: 14px;
-    }
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 65px;
-        background-color: #c1be7f;
-        border-radius: 5px 5px 0 0;
-        z-index: 1;
-    }
-    &.clickable {
-        cursor: pointer;
-        &:hover {
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        }
-    }
-}
+.faqsPage {
+    background-color: var(--color-warm-white);
+    min-height: 100vh;
 
-@media (max-width: 1390px) {
-    .infoCard .titleText {
-        max-width: 200px;
-    }
-}
-@media (max-width: 1000px) {
-    .infoCard .titleText {
-        font-size: 15px;
-        max-width: auto;
-    }
-    .infoCard .descText {
-        font-size: 12px;
-    }
-}
+    .faqSectionHeading {
+        border-left: 4px solid var(--color-primary);
+        padding-left: 16px;
 
-@media (max-width: 899px) {
-    .infoCard {
-        min-height: 100px;
-        .titleText {
-            font-size: 15px;
-            margin-top: 1.5rem;
-            margin-bottom: 0.25rem;
+        .faqSectionTitle {
+            color: var(--color-ink);
+            font-weight: 600;
         }
-        .infoIcon {
-            width: 25px;
-            height: 25px;
-        }
-        .iconCircleOutline {
-            top: 10px;
-            margin-top: 20px;
-            width: 40px;
-            height: 40px;
-            border: 2px solid #000;
-        }
+    }
+
+    .singleAccordion {
+        border: 1px solid var(--color-sand);
+        border-radius: 8px;
+        box-shadow: none;
+        margin-bottom: 12px;
+        transition:
+            box-shadow 0.2s ease,
+            border-color 0.2s ease;
+
         &::before {
-            height: 55px;
+            display: none;
+        }
+
+        &.Mui-expanded:last-of-type {
+            margin-bottom: 12px;
+        }
+
+        &:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-primary);
+        }
+
+        .MuiAccordionSummary-root {
+            border-radius: 8px;
+            color: var(--color-ink);
+        }
+
+        .MuiAccordionSummary-expandIconWrapper .MuiSvgIcon-root {
+            color: var(--color-primary);
+        }
+
+        .MuiAccordionDetails-root {
+            border-radius: 0 0 8px 8px;
+            padding-top: 14px;
+        }
+    }
+
+    .infoCard {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        flex-grow: 1;
+        padding: 28px 20px 24px;
+        box-sizing: border-box;
+        background-color: #fff;
+        border: 1px solid var(--color-sand);
+        border-radius: 12px;
+        box-shadow: none;
+        transition:
+            box-shadow 0.2s ease,
+            border-color 0.2s ease;
+
+        .iconCircleOutline {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: rgba(193, 190, 127, 0.18);
+            border: 2px solid var(--color-primary-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+            flex-shrink: 0;
+        }
+
+        .infoIcon {
+            width: 26px;
+            height: 26px;
+            color: var(--color-primary-dark);
+        }
+
+        .titleText {
+            color: var(--color-ink);
+            font-size: 15px;
+            font-weight: 600;
+            margin-top: 0;
+        }
+
+        .descText {
+            margin-top: 6px;
+            font-size: 13px;
+            color: var(--color-slate);
+        }
+
+        &::before {
+            display: none;
+        }
+
+        &.clickable {
+            cursor: pointer;
+
+            &:hover {
+                box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+                border-color: var(--color-primary);
+            }
+        }
+
+        @media (max-width: 899px) {
+            padding: 20px 16px;
+
+            .titleText {
+                font-size: 14px;
+            }
+
+            .descText {
+                font-size: 12px;
+            }
+
+            .iconCircleOutline {
+                width: 42px;
+                height: 42px;
+            }
+
+            .infoIcon {
+                width: 20px;
+                height: 20px;
+            }
         }
     }
 }
-@media (max-width: 750px) {
-    .infoCard {
-        .titleText {
-            font-size: 12px;
+
+.faqStickyNav {
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    background-color: var(--color-parchment);
+    border-bottom: 1px solid var(--color-sand);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+    .faqStickyNavInner {
+        max-width: 1550px;
+        margin: 0 auto;
+        padding: 16px 24px 10px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 12px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .faqNavPill {
+        white-space: nowrap;
+        flex-shrink: 0;
+        border: 1px solid var(--color-sand);
+        border-radius: 20px;
+        color: var(--color-slate);
+        font-size: 13px;
+        padding: 6px 20px;
+        line-height: 1;
+        text-transform: none;
+        font-weight: 600;
+        background-color: white;
+        transition:
+            box-shadow 0.2s ease,
+            border-color 0.2s ease;
+
+        &:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-color: var(--color-primary);
+            background-color: #fff;
+        }
+
+        &:focus,
+        &:focus-visible,
+        &:active,
+        &.Mui-focusVisible {
+            outline: none;
+            box-shadow: none;
+            background-color: white;
+            border-color: var(--color-sand);
+        }
+
+        @media (max-width: 850px) {
+            padding: 6px 12px;
+        }
+    }
+
+    .faqNavPillActive {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-ink);
+
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &:active,
+        &.Mui-focusVisible {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            outline: none;
+            box-shadow: none;
         }
     }
 }
-@media (max-width: 400px) {
-    .infoCard {
-        .titleText {
-            min-width: 95px;
-        }
-    }
+
+[id^='section-'] {
+    scroll-margin-top: 80px;
 }

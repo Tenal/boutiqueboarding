@@ -25,7 +25,11 @@ function SingleAccordion({ title, body }: ISingleAccordionProps) {
         )
 
     return (
-        <Accordion sx={{ mb: 1 }} data-testid="accordion">
+        <Accordion
+            disableGutters
+            className="singleAccordion"
+            data-testid="accordion"
+        >
             <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 data-testid="accordion-summary"
@@ -34,7 +38,9 @@ function SingleAccordion({ title, body }: ISingleAccordionProps) {
                     {title}
                 </Typography>
             </AccordionSummary>
-            <AccordionDetails>{accBody}</AccordionDetails>
+            <AccordionDetails>
+                {accBody}
+            </AccordionDetails>
         </Accordion>
     )
 }

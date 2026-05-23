@@ -2,8 +2,32 @@
 @import 'Fonts';
 @import 'Nav';
 @import 'Header';
+@import 'Home';
+@import 'About';
 @import 'Reviews';
 @import 'Faqs';
-@import 'Home';
 
-// TODO - scss variables
+.plainLink {
+    text-decoration: none;
+}
+
+:root {
+    --color-primary: #c1be7f;
+    --color-primary-dark: #9a976a;
+    --color-primary-light: #e8e7cc;
+
+    --color-secondary: #dba891;
+    --color-secondary-dark: #c4714a;
+    --color-secondary-light: #f0d4c4;
+
+    --color-ink: #2c2a24;
+    --color-slate: #5c574f;
+    --color-warm-stone: #9e9589;
+    --color-parchment: #f7f0e8;
+    --color-cream: #f2ebe1;
+    --color-sand: #e6ddd0;
+    --color-warm-white: #fdfaf6;
+    --color-sage-parchment: #e2e0c8;
+
+    --color-honey-gold: #d4a843;
+}
