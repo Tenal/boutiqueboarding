@@ -1,3 +1,4 @@
+# Runs ESLint on all TypeScript and TSX files in frontend/src on PRs targeting main.
 name: Run ESLint
 
 on:
