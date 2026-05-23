@@ -1,42 +1,28 @@
-.aboutOverline {
-    color: var(--color-primary-dark) !important;
-    font-size: 12px !important;
-    letter-spacing: 0.2rem !important;
-    font-weight: 600 !important;
-    display: block;
-    margin-bottom: 6px;
-}
-
-.aboutSectionTitle {
-    color: var(--color-ink) !important;
-    font-weight: 700 !important;
-}
-
-.aboutBodyText {
-    color: var(--color-slate);
-    line-height: 1.85;
-}
-
-.credentialChip {
-    font-size: 14px !important;
-    height: 38px !important;
-    color: var(--color-ink) !important;
-    border-color: var(--color-primary) !important;
-
-    .credentialChipIcon {
-        color: var(--color-primary) !important;
-        font-size: 18px !important;
+.aboutSection,
+.opsAndQualSection {
+    .aboutOverline {
+        color: var(--color-primary-dark);
+        font-size: 12px;
+        letter-spacing: 0.2rem;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
     }
-}
-
-.certifiedByLabel {
-    color: var(--color-warm-stone);
-    display: block;
-    letter-spacing: 0.12rem;
+    .aboutBodyText {
+        color: var(--color-slate);
+        line-height: 1.85;
+        margin-bottom: 16px;
+    }
 }
 
 .aboutSection {
     background-color: var(--color-warm-white);
+
+    .aboutSectionTitle {
+        color: var(--color-ink);
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
 
     .aboutImageWrapper {
         position: relative;
@@ -79,6 +65,12 @@
 .opsAndQualSection {
     background-color: var(--color-parchment);
 
+    .aboutSectionTitle {
+        color: var(--color-ink);
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
+
     .howWeOperateCard {
         border-left: 4px solid var(--color-primary);
         padding-left: 24px;
@@ -88,6 +80,20 @@
         display: flex;
         flex-wrap: wrap;
         gap: 12px;
+
+        .credentialChip {
+            font-size: 14px;
+            height: 38px;
+            color: var(--color-ink);
+            border-color: var(--color-primary);
+            padding-left: 4px;
+            padding-right: 4px;
+
+            .credentialChipIcon {
+                color: var(--color-primary);
+                font-size: 18px;
+            }
+        }
     }
 
     .certLogo {
@@ -95,5 +101,12 @@
         height: auto;
         border-radius: 8px;
         object-fit: contain;
+    }
+
+    .certifiedByLabel {
+        color: var(--color-warm-stone);
+        display: block;
+        letter-spacing: 0.12rem;
+        margin-bottom: 16px;
     }
 }

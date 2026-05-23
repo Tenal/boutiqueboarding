@@ -59,7 +59,7 @@ function BottomNav() {
 
     const renderContactInfo = () => (
         <Box mb={2}>
-            <Typography variant="h5" className="footerSectionHeading" sx={{ mb: 1.5 }}>
+            <Typography variant="h5" className="footerSectionHeading">
                 Get in Touch
             </Typography>
             <Box display="flex" alignItems="center" gap={0.75} mb={1}>
@@ -97,7 +97,7 @@ function BottomNav() {
         if (showSuccessMessage) {
             return (
                 <Box mb={2} className="footerForm">
-                    <Typography variant="h5" className="footerSectionHeading" sx={{ mb: 1.5 }}>
+                    <Typography variant="h5" className="footerSectionHeading">
                         Contact Us
                     </Typography>
                     <Typography variant="body1" className="footerSuccessText">
@@ -112,7 +112,7 @@ function BottomNav() {
 
         return (
             <Box mb={2} className="footerForm">
-                <Typography variant="h5" className="footerSectionHeading" sx={{ mb: 1 }}>
+                <Typography variant="h5" className="footerSectionHeading">
                     Contact Us
                 </Typography>
                 <form onSubmit={handleSubmit} data-testid="contact-form">
@@ -159,7 +159,7 @@ function BottomNav() {
                         color="secondary"
                         type="submit"
                         disabled={submitting}
-                        sx={{ mt: 1.5 }}
+                        className="footerSubmitBtn"
                     >
                         Submit
                     </Button>
@@ -196,15 +196,12 @@ function BottomNav() {
                         sm={6}
                         md={4}
                         order={{ xs: 3, sm: 2, md: 3 }}
-                        sx={{
-                            display: { xs: 'block', sm: 'flex' },
-                            justifyContent: 'flex-end',
-                        }}
+                    className="footerFormColumn"
                     >
                         {renderForm()}
                     </Grid>
                 </Grid>
-                <Divider className="footerDivider" sx={{ mt: 3, mb: 2 }}>
+                <Divider className="footerDivider">
                     <Typography variant="body2" className="copyright">
                         {`© ${currentYear} Boutique Boarding. All rights reserved.`}
                     </Typography>

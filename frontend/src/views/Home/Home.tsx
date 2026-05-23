@@ -106,24 +106,25 @@ function AboutPreview() {
                         <Typography
                             variant="h2"
                             className="sectionTitle"
-                            sx={{ mb: 2 }}
                         >
                             A boutique experience for your pup
                         </Typography>
                         <Typography
                             variant="body1"
                             className="aboutPreviewText"
-                            sx={{ mb: 3 }}
                         >
-                            We offer boutique in-home boarding with a
-                            genuine passion for rescue and a wealth of
-                            animal care experience. From training to
-                            fostering dogs with behavioural challenges, we
-                            prioritize individualized attention and
-                            breed-specific fulfilment.
+                            We offer boutique in-home boarding with a genuine
+                            passion for rescue and a wealth of animal care
+                            experience. From training to fostering dogs with
+                            behavioural challenges, we prioritize individualized
+                            attention and breed-specific fulfilment.
                         </Typography>
                         <Link to="/about" className="plainLink">
-                            <Button variant="outlined" color="primary" className="aboutPreviewBtn">
+                            <Button
+                                variant="outlined"
+                                color="primary"
+                                className="aboutPreviewBtn"
+                            >
                                 Meet Tenal & Ryan →
                             </Button>
                         </Link>
@@ -176,14 +177,13 @@ function BoardingDetails() {
                             href="mailto:boutiqueboardingco@gmail.com"
                             variant="contained"
                             color="secondary"
-                            sx={{ px: 5 }}
+                            className="bookNowEmailBtn"
                         >
                             Email to Book Your Spot
                         </Button>
                         <Typography
                             variant="caption"
                             className="bookEmailCaption"
-                            sx={{ mt: 1 }}
                         >
                             boutiqueboardingco@gmail.com
                         </Typography>
@@ -247,7 +247,11 @@ function FeaturedReviews() {
 
                     <Box textAlign="center" mt={4}>
                         <Link to="/reviews" className="plainLink">
-                            <Button variant="outlined" color="primary" className="seeAllReviewsBtn">
+                            <Button
+                                variant="outlined"
+                                color="primary"
+                                className="seeAllReviewsBtn"
+                            >
                                 See all reviews →
                             </Button>
                         </Link>

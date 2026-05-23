@@ -1,31 +1,32 @@
-.appBar {
-    background-color: var(--color-ink) !important;
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25) !important;
-}
-
-.bookNowBtn {
-    margin-left: 16px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    font-weight: 700 !important;
-}
-
-.bookNowBtnMobile {
-    margin-top: 8px !important;
-    padding-left: 32px !important;
-    padding-right: 32px !important;
+body .appBar {
+    background-color: var(--color-ink);
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+    z-index: 1201;
 }
 
 .topNav {
+    .navSpacer {
+        flex-grow: 1;
+    }
+
     .logoImage {
         max-width: 50px;
         margin-right: 10px;
+
+        @media (max-width: 450px) {
+            margin-right: 5px;
+            max-width: 40px;
+        }
     }
     .logoText {
         letter-spacing: 0.15rem;
         text-decoration: none;
         color: white;
         font-weight: 600;
+
+        @media (max-width: 450px) {
+            display: none;
+        }
     }
     .navLinks {
         display: flex;
@@ -43,7 +44,7 @@
             }
         }
         .navLinkActive {
-            color: var(--color-primary) !important;
+            color: var(--color-primary);
             position: relative;
             &::after {
                 content: '';
@@ -56,6 +57,12 @@
                 border-radius: 1px;
             }
         }
+    }
+    .bookNowBtn {
+        margin-left: 16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        font-weight: 700;
     }
     .menuToggle {
         display: flex;
@@ -109,7 +116,7 @@
         text-decoration: none;
     }
     .menuNavLinkActive .menuLinks {
-        color: var(--color-primary) !important;
+        color: var(--color-primary);
     }
     .menuLinks {
         text-decoration: none;
@@ -120,8 +127,13 @@
         text-align: center;
         transition: color 0.2s ease-in-out;
         &:hover {
-            color: var(--color-primary) !important;
+            color: var(--color-primary);
         }
+    }
+    .bookNowBtnMobile {
+        margin-top: 8px;
+        padding-left: 32px;
+        padding-right: 32px;
     }
 }
 
@@ -134,26 +146,6 @@
     z-index: 1199;
 }
 
-.footerSectionHeading {
-    color: white;
-    font-weight: 600;
-}
-
-.footerContactIcon {
-    font-size: 16px !important;
-    flex-shrink: 0;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.footerLocation {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 14px;
-}
-
-.footerSuccessText {
-    color: rgba(255, 255, 255, 0.7);
-}
-
 .footer {
     background-color: var(--color-ink);
     color: rgba(255, 255, 255, 0.85);
@@ -163,8 +155,8 @@
     }
     .footerBrand {
         color: white;
-        font-weight: 700;
         text-decoration: none;
+        font-weight: 600;
         letter-spacing: 0.08rem;
         display: block;
         margin-bottom: 12px;
@@ -197,9 +189,27 @@
         display: block;
         text-decoration: none;
         transition: color 0.2s;
+        margin-bottom: 4px;
         &:hover {
             color: var(--color-primary);
         }
+    }
+    .footerContactIcon {
+        font-size: 16px;
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .footerLocation {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+    }
+    .footerSuccessText {
+        color: rgba(255, 255, 255, 0.7);
+    }
+    .footerSectionHeading {
+        color: white;
+        font-weight: 600;
+        margin-bottom: 12px;
     }
     .footerForm {
         width: 100%;
@@ -231,9 +241,21 @@
                 color: rgba(255, 255, 255, 0.9);
             }
         }
+        .footerSubmitBtn {
+            margin-top: 12px;
+        }
+    }
+    .footerFormColumn {
+        justify-content: flex-end;
+
+        @media (min-width: 600px) {
+            display: flex;
+        }
     }
     .footerDivider {
         border-color: rgba(255, 255, 255, 0.1);
+        margin-top: 24px;
+        margin-bottom: 16px;
         &::before,
         &::after {
             border-color: rgba(255, 255, 255, 0.1);
@@ -242,26 +264,13 @@
     .copyright {
         color: rgba(255, 255, 255, 0.35);
         font-style: italic;
-    }
-}
 
-@media (max-width: 450px) {
-    .topNav {
-        .logoImage {
-            margin-right: 5px;
-            max-width: 40px;
+        @media (max-width: 450px) {
+            font-size: 12px;
         }
-        .logoText {
-            display: none;
-        }
-    }
-    .footer .copyright {
-        font-size: 12px;
-    }
-}
 
-@media (max-width: 350px) {
-    .footer .copyright {
-        font-size: 10px;
+        @media (max-width: 350px) {
+            font-size: 10px;
+        }
     }
 }

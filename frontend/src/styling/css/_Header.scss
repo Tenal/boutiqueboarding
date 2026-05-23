@@ -47,68 +47,68 @@
     max-width: 780px;
     margin: 0 auto;
     padding-top: 64px;
-}
 
-.heroHeadline {
-    font-size: clamp(2.4rem, 6vw, 4rem) !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
-    line-height: 1.1 !important;
-    color: white !important;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px !important;
+    .heroHeadline {
+        font-size: clamp(2.4rem, 6vw, 4rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        color: white;
+        text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+        margin-bottom: 20px;
 
-    @media (max-width: 600px) {
-        font-size: clamp(2rem, 9vw, 2.8rem) !important;
-    }
-}
-
-.heroSubheadline {
-    font-size: clamp(1.2rem, 2vw, 1.3rem) !important;
-    color: rgba(255, 255, 255, 0.88) !important;
-    max-width: 540px;
-    margin: 0 auto 32px !important;
-    line-height: 1.7 !important;
-    letter-spacing: 0.02em !important;
-    font-weight: 600;
-
-    @media (max-width: 600px) {
-        font-size: 0.95rem !important;
-        padding: 0 8px;
-    }
-}
-
-.heroCtas {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .MuiButton-root {
-        min-width: 160px;
-        padding: 12px 28px;
-        font-size: 15px;
-    }
-
-    @media (max-width: 600px) {
-        flex-direction: column;
-        align-items: center;
-        gap: 12px;
-
-        .MuiButton-root {
-            width: 100%;
-            max-width: 280px;
+        @media (max-width: 600px) {
+            font-size: clamp(2rem, 9vw, 2.8rem);
         }
     }
-}
 
-.heroOutlinedBtn {
-    border-color: rgba(255, 255, 255, 0.7) !important;
-    color: white !important;
+    .heroSubheadline {
+        font-size: clamp(1.2rem, 2vw, 1.3rem);
+        color: rgba(255, 255, 255, 0.88);
+        max-width: 540px;
+        margin: 0 auto 32px;
+        line-height: 1.7;
+        letter-spacing: 0.02em;
+        font-weight: 500;
 
-    &:hover {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        border-color: white !important;
+        @media (max-width: 600px) {
+            font-size: 0.95rem;
+            padding: 0 8px;
+        }
+    }
+
+    .heroCtas {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .MuiButton-root {
+            min-width: 160px;
+            padding: 12px 28px;
+            font-size: 15px;
+        }
+
+        .heroOutlinedBtn {
+            border-color: rgba(255, 255, 255, 0.7);
+            color: white;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                border-color: white;
+            }
+        }
+
+        @media (max-width: 600px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+
+            .MuiButton-root {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
     }
 }
 
@@ -121,7 +121,7 @@
     cursor: pointer;
 
     .heroChevronIcon {
-        font-size: 36px !important;
+        font-size: 36px;
         color: rgba(255, 255, 255, 0.7);
     }
 }

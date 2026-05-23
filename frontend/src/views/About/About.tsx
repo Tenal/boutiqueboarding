@@ -37,14 +37,12 @@ function WhoWeAre() {
                         <Typography
                             variant="h2"
                             className="aboutSectionTitle"
-                            sx={{ mb: 2 }}
                         >
                             Meet Tenal &amp; Ryan
                         </Typography>
                         <Typography
                             variant="body1"
                             className="aboutBodyText"
-                            sx={{ mb: 2 }}
                         >
                             Hi, I&apos;m Tenal! With extensive animal care
                             experience, including working as a dog trainer
@@ -103,7 +101,6 @@ function OperationsAndQualifications() {
                             <Typography
                                 variant="h2"
                                 className="aboutSectionTitle"
-                                sx={{ mb: 3 }}
                             >
                                 A genuine home away from home
                             </Typography>
@@ -111,7 +108,6 @@ function OperationsAndQualifications() {
                                 <Typography
                                     variant="body1"
                                     className="aboutBodyText"
-                                    sx={{ mb: 2 }}
                                 >
                                     We offer boutique, in-home boarding for
                                     anyone looking for a &ldquo;home away from
@@ -151,7 +147,6 @@ function OperationsAndQualifications() {
                             <Typography
                                 variant="h2"
                                 className="aboutSectionTitle"
-                                sx={{ mb: 3 }}
                             >
                                 Our qualifications
                             </Typography>
@@ -180,7 +175,6 @@ function OperationsAndQualifications() {
                                             variant="outlined"
                                             color="primary"
                                             className="credentialChip"
-                                            sx={{ px: 0.5 }}
                                         />
                                     </motion.div>
                                 ))}
@@ -189,7 +183,6 @@ function OperationsAndQualifications() {
                                 <Typography
                                     variant="overline"
                                     className="certifiedByLabel"
-                                    sx={{ mb: 2 }}
                                 >
                                     Certified by
                                 </Typography>

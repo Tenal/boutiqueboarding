@@ -1,52 +1,3 @@
-.sectionOverline {
-    color: var(--color-primary-dark) !important;
-    font-size: 12px !important;
-    letter-spacing: 0.2rem !important;
-    font-weight: 600 !important;
-    display: block;
-    margin-bottom: 6px;
-}
-
-.sectionTitle {
-    color: var(--color-ink) !important;
-    font-weight: 700 !important;
-}
-
-.sectionSubtitle {
-    color: var(--color-slate) !important;
-}
-
-.aboutPreviewText {
-    color: var(--color-slate);
-    line-height: 1.8;
-}
-
-.aboutPreviewBtn {
-    color: var(--color-primary-dark) !important;
-    border-color: var(--color-primary-dark) !important;
-}
-
-.featuredReviewStars {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-
-    .featuredReviewStar {
-        font-size: 20px !important;
-        color: var(--color-honey-gold);
-    }
-}
-
-.seeAllReviewsBtn {
-    color: var(--color-primary-dark) !important;
-    border-color: var(--color-primary-dark) !important;
-}
-
-.bookEmailCaption {
-    color: var(--color-warm-stone) !important;
-    display: block;
-}
-
 .statStrip {
     background-color: var(--color-parchment);
     border-top: 1px solid var(--color-sand);
@@ -83,20 +34,57 @@
     }
 
     .statLabel {
-        font-weight: 600 !important;
-        color: var(--color-ink) !important;
-        margin-bottom: 4px !important;
-        font-size: 15px !important;
+        font-weight: 600;
+        color: var(--color-ink);
+        margin-bottom: 4px;
+        font-size: 15px;
     }
 
     .statSublabel {
-        color: var(--color-slate) !important;
-        font-size: 13px !important;
+        color: var(--color-slate);
+        font-size: 13px;
+    }
+}
+
+.aboutPreviewSection,
+.boardingDetailsSection,
+.featuredReviewsSection {
+    .sectionOverline {
+        color: var(--color-primary-dark);
+        font-size: 12px;
+        letter-spacing: 0.2rem;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+    }
+
+    .sectionTitle {
+        color: var(--color-ink);
+        font-weight: 700;
+    }
+
+    .sectionSubtitle {
+        color: var(--color-slate);
     }
 }
 
 .aboutPreviewSection {
     background-color: var(--color-warm-white);
+
+    .sectionTitle {
+        margin-bottom: 16px;
+    }
+
+    .aboutPreviewText {
+        color: var(--color-slate);
+        line-height: 1.8;
+        margin-bottom: 24px;
+    }
+
+    .aboutPreviewBtn {
+        color: var(--color-primary-dark);
+        border-color: var(--color-primary-dark);
+    }
 
     .aboutPreviewImageWrapper {
         position: relative;
@@ -138,86 +126,119 @@
 
 .boardingDetailsSection {
     background-color: var(--color-cream);
-}
 
-.boardingDetailCard {
-    background-color: var(--color-warm-white);
-    border: 1px solid var(--color-sand);
-    border-radius: 12px;
-    padding: 24px 20px;
-    height: 100%;
-    box-sizing: border-box;
+    .boardingDetailCard {
+        background-color: var(--color-warm-white);
+        border: 1px solid var(--color-sand);
+        border-radius: 12px;
+        padding: 24px 20px;
+        height: 100%;
+        box-sizing: border-box;
 
-    .boardingDetailIcon {
-        margin-bottom: 12px;
+        .boardingDetailIcon {
+            margin-bottom: 12px;
 
-        svg {
-            font-size: 24px;
-            color: var(--color-primary);
+            svg {
+                font-size: 24px;
+                color: var(--color-primary);
+            }
+        }
+
+        .boardingDetailLabel {
+            color: var(--color-warm-stone);
+            font-size: 11px;
+            letter-spacing: 0.12rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .boardingDetailValue {
+            color: var(--color-ink);
+            font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .boardingDetailSubtext {
+            color: var(--color-slate);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 599px) {
+            padding: 18px 16px;
         }
     }
 
-    .boardingDetailLabel {
-        color: var(--color-warm-stone) !important;
-        font-size: 11px !important;
-        letter-spacing: 0.12rem !important;
+    .bookNowEmailBtn {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .bookEmailCaption {
+        color: var(--color-warm-stone);
         display: block;
-        margin-bottom: 4px;
-    }
-
-    .boardingDetailValue {
-        color: var(--color-ink) !important;
-        font-weight: 600 !important;
-        font-size: 18px !important;
-        margin-bottom: 6px;
-        line-height: 1.3 !important;
-    }
-
-    .boardingDetailSubtext {
-        color: var(--color-slate) !important;
-        font-size: 13px !important;
-        line-height: 1.5;
-    }
-
-    @media (max-width: 599px) {
-        padding: 18px 16px;
+        padding-top: 8px;
     }
 }
 
 .featuredReviewsSection {
-    background-color: var(--color-parchment);
-}
-
-.compactReview {
     background-color: var(--color-warm-white);
-    border: 1px solid var(--color-sand);
-    border-radius: 12px;
-    padding: 24px;
-    height: 100%;
-    box-sizing: border-box;
 
-    .compactStars {
+    .seeAllReviewsBtn {
+        color: var(--color-primary-dark);
+        border-color: var(--color-primary-dark);
+        margin-top: 8px;
+    }
+
+    .featuredReviewStars {
         display: flex;
-        gap: 2px;
-        margin-bottom: 12px;
+        justify-content: center;
+        gap: 4px;
+        margin-bottom: 8px;
+
+        .featuredReviewStar {
+            font-size: 20px;
+            color: var(--color-honey-gold);
+        }
     }
 
-    .compactReviewText {
-        color: var(--color-slate) !important;
-        font-size: 14px !important;
-        line-height: 1.7 !important;
-        font-style: italic;
-        margin-bottom: 14px;
-    }
+    .compactReview {
+        background-color: #fff;
+        border: 1px solid var(--color-sand);
+        border-radius: 12px;
+        padding: 24px;
+        height: 100%;
+        box-sizing: border-box;
 
-    .compactReviewAttribution {
-        color: var(--color-warm-stone) !important;
-        font-size: 12px !important;
-        font-weight: 600;
-        letter-spacing: 0.03rem;
-    }
+        .compactStars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 12px;
+        }
 
-    @media (max-width: 599px) {
-        padding: 18px;
+        .compactStar {
+            font-size: 16px;
+            color: var(--color-honey-gold);
+        }
+
+        .compactReviewText {
+            color: var(--color-slate);
+            font-size: 14px;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 14px;
+        }
+
+        .compactReviewAttribution {
+            color: var(--color-warm-stone);
+            font-size: 12px;
+            letter-spacing: 0.03rem;
+        }
+
+        @media (max-width: 599px) {
+            padding: 18px;
+        }
     }
 }

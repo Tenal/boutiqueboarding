@@ -20,10 +20,7 @@ function CompactReview({ review, name, dog, stars }: ICompactReviewProps) {
         <Box className="compactReview">
             <Box className="compactStars">
                 {Array.from({ length: stars }, (_, i) => i + 1).map((star) => (
-                    <StarIcon
-                        key={star}
-                        sx={{ fontSize: 16, color: 'var(--color-honey-gold)' }}
-                    />
+                    <StarIcon key={star} className="compactStar" />
                 ))}
             </Box>
             <Typography variant="body2" className="compactReviewText">

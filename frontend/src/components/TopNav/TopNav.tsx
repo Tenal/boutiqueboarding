@@ -49,7 +49,6 @@ function TopNav() {
             <AppBar
                 position="fixed"
                 className="appBar"
-                sx={{ zIndex: theme.zIndex.drawer + 1 }}
             >
                 <Toolbar className="topNav">
                     <Link to="/">
@@ -75,7 +74,7 @@ function TopNav() {
                             </Typography>
                         </Grid>
                     </Link>
-                    <Box sx={{ flexGrow: 1 }} />
+                    <Box className="navSpacer" />
 
                     {!isSmallScreen && (
                         <Box className="navLinks">

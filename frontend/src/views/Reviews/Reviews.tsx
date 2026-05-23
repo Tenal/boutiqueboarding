@@ -108,7 +108,6 @@ function ReviewForm() {
                         <Typography
                             variant="h2"
                             className="reviewFormSuccessTitle"
-                            sx={{ mb: 2 }}
                         >
                             Thank you! 🐾
                         </Typography>
@@ -167,7 +166,6 @@ function ReviewForm() {
                                 <Typography
                                     variant="body1"
                                     className="reviewFormSubtext"
-                                    sx={{ mb: 3 }}
                                 >
                                     We&apos;d love to hear how your pup&apos;s
                                     stay went.
@@ -238,7 +236,7 @@ function ReviewForm() {
                                         type="submit"
                                         variant="contained"
                                         color="secondary"
-                                        sx={{ mt: 2.5 }}
+                                        className="reviewSubmitBtn"
                                         disabled={state.submitting}
                                         fullWidth
                                     >
@@ -251,7 +249,6 @@ function ReviewForm() {
                             item
                             md={5}
                             className="featuredReviewCol"
-                            sx={{ display: { xs: 'none', md: 'flex' } }}
                         >
                             <Box className="featuredReview">
                                 <Typography
@@ -293,24 +290,26 @@ function ReviewForm() {
 function Reviews() {
     return (
         <PageTransition>
-            <TopNav />
-            <Header title="Reviews" />
-            <SocialProofBar />
-            <Container maxWidth="xl">
-                <Box my={8} className="reviewGrid">
-                    {currentReviews.map((rev) => (
-                        <ReviewBox
-                            key={`${rev.name}_${rev.dog}`}
-                            dog={rev.dog}
-                            stars={rev.stars}
-                            name={rev.name}
-                            review={rev.review}
-                        />
-                    ))}
-                </Box>
-            </Container>
-            <ReviewForm />
-            <BottomNav />
+            <Box className="reviewsPage">
+                <TopNav />
+                <Header title="Reviews" />
+                <SocialProofBar />
+                <Container maxWidth="xl">
+                    <Box my={8} className="reviewGrid">
+                        {currentReviews.map((rev) => (
+                            <ReviewBox
+                                key={`${rev.name}_${rev.dog}`}
+                                dog={rev.dog}
+                                stars={rev.stars}
+                                name={rev.name}
+                                review={rev.review}
+                            />
+                        ))}
+                    </Box>
+                </Container>
+                <ReviewForm />
+                <BottomNav />
+            </Box>
         </PageTransition>
     )
 }

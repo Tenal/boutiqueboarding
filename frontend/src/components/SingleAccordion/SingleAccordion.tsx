@@ -28,7 +28,6 @@ function SingleAccordion({ title, body }: ISingleAccordionProps) {
         <Accordion
             disableGutters
             className="singleAccordion"
-            sx={{ mb: 1.5 }}
             data-testid="accordion"
         >
             <AccordionSummary
