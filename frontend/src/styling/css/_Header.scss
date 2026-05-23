@@ -1,5 +1,6 @@
 .header {
     min-height: 35vh;
+    background-color: var(--color-ink);
     background-size: cover;
     display: flex;
     justify-content: flex-start;
@@ -115,8 +116,10 @@
 .heroChevron {
     position: absolute;
     bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
     z-index: 1;
     cursor: pointer;
 
@@ -128,7 +131,7 @@
 
 .homeImage {
     &.smallLoaded {
-        background-image: url('../../resources/home-small.webp');
+        background-image: url('/resources/home-small.webp');
         background-position: 50% 25%;
     }
 
@@ -140,7 +143,7 @@
 
 .aboutusImage {
     &.smallLoaded {
-        background-image: url('../../resources/aboutus-small.webp');
+        background-image: url('/resources/aboutus-small.webp');
         background-position: 50% 40%;
     }
 
@@ -152,7 +155,7 @@
 
 .faqsImage {
     &.smallLoaded {
-        background-image: url('../../resources/faqs-small.webp');
+        background-image: url('/resources/faqs-small.webp');
         background-position: 50% 38%;
     }
 
@@ -164,7 +167,7 @@
 
 .reviewsImage {
     &.smallLoaded {
-        background-image: url('../../resources/reviews-small.webp');
+        background-image: url('/resources/reviews-small.webp');
         background-position: 50% 80%;
     }
 
